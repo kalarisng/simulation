@@ -178,6 +178,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 33512dfdc0c024210b2ea4dfc204e785, type: 2}
+    - target: {fileID: 882129737928793925, guid: bbeb7c43f24714850b24cfa2866ce02d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e635e9cd74f564e7a983ebea1f817011, type: 2}
+    - target: {fileID: 882129737928793925, guid: bbeb7c43f24714850b24cfa2866ce02d, type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6db9b8b4d8ba24eac987f432b40725bd, type: 2}
     - target: {fileID: 919132149155446097, guid: bbeb7c43f24714850b24cfa2866ce02d, type: 3}
       propertyPath: m_Name
       value: apartment
