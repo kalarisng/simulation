@@ -7477,6 +7477,7 @@ GameObject:
   - component: {fileID: 1345925317}
   - component: {fileID: 1345925320}
   - component: {fileID: 1345925319}
+  - component: {fileID: 1345925321}
   m_Layer: 5
   m_Name: Start Panel - Shadow
   m_TagString: Untagged
@@ -7567,6 +7568,8 @@ MonoBehaviour:
       the hustle and bustle of a bustling household have faded away, leaving behind
       echoes of distant memories. These walls seem to hold stories and dreams that
       time forgot.
+  buttonCanvasGroup: {fileID: 1345925321}
+  fadeDuration: 0.2
 --- !u!114 &1345925320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7623,6 +7626,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!225 &1345925321
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345925315}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &1347544084
 PrefabInstance:
   m_ObjectHideFlags: 0
