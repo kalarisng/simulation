@@ -7,12 +7,34 @@ public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
     public CanvasGroup buttonCanvasGroup;
-    public float fadeDuration = 0.3f;
+    public GameObject clicker;
+    public float fadeDuration = 0.2f;
 
     public void TriggerDialogue()
     {
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
         StartCoroutine(FadeButton());
+    }
+
+    private void Start()
+    {
+        // Disable at the start
+        clicker.SetActive(false);
+    }
+
+    private void Update()
+    {
+        // Check if the dialogue is active
+        if (FindObjectOfType<DialogueManager>().IsDialogueActive())
+        {
+            // Disable the clicker while the dialogue is active
+            clicker.SetActive(false);
+        }
+        else
+        {
+            // Enable the clicker when the dialogue ends
+            clicker.SetActive(true);
+        }
     }
 
     private IEnumerator FadeButton()

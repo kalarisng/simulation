@@ -2474,6 +2474,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 247652356}
   animator: {fileID: 826531335}
+  isDialogueActive: 0
+  clicker: {fileID: 710845744}
 --- !u!64 &425648534
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7569,6 +7571,7 @@ MonoBehaviour:
       echoes of distant memories. These walls seem to hold stories and dreams that
       time forgot.
   buttonCanvasGroup: {fileID: 1345925321}
+  clicker: {fileID: 710845744}
   fadeDuration: 0.2
 --- !u!114 &1345925320
 MonoBehaviour:
