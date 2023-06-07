@@ -2473,6 +2473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 247652356}
+  animator: {fileID: 826531335}
 --- !u!64 &425648534
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4356,6 +4357,7 @@ GameObject:
   - component: {fileID: 826531332}
   - component: {fileID: 826531334}
   - component: {fileID: 826531333}
+  - component: {fileID: 826531335}
   m_Layer: 5
   m_Name: DialogueBox
   m_TagString: Untagged
@@ -4423,6 +4425,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 826531331}
   m_CullTransparentMesh: 1
+--- !u!95 &826531335
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826531331}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 75aeb11e90098454bb90fa8639ef6388, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &829109513
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9390,6 +9413,7 @@ GameObject:
   - component: {fileID: 1803591760}
   - component: {fileID: 1803591759}
   - component: {fileID: 1803591761}
+  - component: {fileID: 1803591762}
   m_Layer: 0
   m_Name: FirstPersonController
   m_TagString: Untagged
@@ -9453,6 +9477,24 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &1803591762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803591757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5957d5d33c594b75bc199f39a148049, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickableLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  playerCameraTransform: {fileID: 963194228}
+  pickUpUI: {fileID: 0}
+  hitRange: 3
 --- !u!1 &1826773849 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6287864630939150395, guid: f87c0f057238049c3858bad1b2c3069e, type: 3}

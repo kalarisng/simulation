@@ -7,6 +7,7 @@ using TMPro;
 public class DialogueManager : MonoBehaviour
 {
     public TextMeshProUGUI dialogueText;
+    public Animator animator;
     private Queue<string> sentences;
     void Start()
     {
@@ -15,6 +16,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
+        animator.SetBool("isOpen", true);
         Debug.Log("Starting conversation...");
         sentences.Clear();
         foreach (string sentence in dialogue.sentences)
@@ -38,6 +40,7 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         MouseLook.dialogueActive = false;
+        animator.SetBool("isOpen", false);
         Debug.Log("End of dialogue");
     }
 }
