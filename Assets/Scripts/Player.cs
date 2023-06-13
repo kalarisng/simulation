@@ -14,6 +14,9 @@ public class Player : MonoBehaviour
     private GameObject pickUpUI;
 
     [SerializeField]
+    private GameObject exitUI;
+
+    [SerializeField]
     private GameObject paperUI;
 
     [SerializeField]
@@ -37,7 +40,6 @@ public class Player : MonoBehaviour
             //canPickUp = true;
             if (Input.GetKeyDown(KeyCode.E))
             {
-                // call method to pick up object
                 PickUpObject(hit.collider.gameObject);
             }
         }
@@ -50,6 +52,7 @@ public class Player : MonoBehaviour
             {
                 Debug.Log("Paper active, closing pick up UI");
                 pickUpUI.SetActive(false);
+                exitUI.SetActive(true);
             }
         }
     }
