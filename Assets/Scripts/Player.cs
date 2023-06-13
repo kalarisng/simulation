@@ -14,11 +14,17 @@ public class Player : MonoBehaviour
     private GameObject pickUpUI;
 
     [SerializeField]
+    private GameObject paperUI;
+
+    [SerializeField]
+    public GameObject clicker;
+
+    [SerializeField]
     [Min(1)]
     private float hitRange = 1;
 
     private RaycastHit hit;
-    private bool canPickUp = false;
+    //private bool canPickUp = false;
 
     // Update is called once per frame
     void Update()
@@ -28,7 +34,7 @@ public class Player : MonoBehaviour
         {
             hit.collider.GetComponent<Highlight>()?.ToggleHighlight(false);
             pickUpUI.SetActive(false);
-            canPickUp = true;
+            //canPickUp = true;
             if (Input.GetKeyDown(KeyCode.E))
             {
                 // call method to pick up object
@@ -39,13 +45,20 @@ public class Player : MonoBehaviour
         {
             hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
             pickUpUI.SetActive(true);
-            canPickUp = false;
+            //canPickUp = false;
+            if (paperUI.activeSelf)
+            {
+                Debug.Log("Paper active, closing pick up UI");
+                pickUpUI.SetActive(false);
+            }
         }
     }
 
-    private void PickUpObject(GameObject obj)
+    void PickUpObject(GameObject obj)
     {
-        // Action to take when object is picked up
+        clicker.SetActive(false);
+        paperUI.SetActive(true);
+        MouseLook.paperActive = true;
         Debug.Log("Picked up object: " + obj.name);
     }
 }

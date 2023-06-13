@@ -5,6 +5,7 @@ using UnityEngine;
 public class MouseLook : MonoBehaviour
 {
     public static bool dialogueActive = true;
+    public static bool paperActive = false;
     public float mouseSensitivity = 100f;
 
     public Transform playerBody;
@@ -22,6 +23,11 @@ public class MouseLook : MonoBehaviour
     void Update()
     {
         if (dialogueActive)
+        {
+            return;
+        }
+
+        if (paperActive)
         {
             return;
         }
