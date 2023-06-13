@@ -55,6 +55,14 @@ public class Player : MonoBehaviour
                 exitUI.SetActive(true);
             }
         }
+        if (paperUI.activeSelf && Input.GetKeyDown(KeyCode.X))
+        {
+            Debug.Log("Closing paper UI");
+            paperUI.SetActive(false);
+            exitUI.SetActive(false);
+            clicker.SetActive(true);
+            MouseLook.paperActive = false;
+        }
     }
 
     void PickUpObject(GameObject obj)
