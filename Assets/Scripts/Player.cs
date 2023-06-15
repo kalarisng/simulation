@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
         Debug.DrawRay(playerCameraTransform.position, playerCameraTransform.forward * hitRange, Color.red);
         if (hit.collider != null)
         {
+            Debug.Log("Hit paper on wall");
             hit.collider.GetComponent<Highlight>()?.ToggleHighlight(false);
             pickUpUI.SetActive(false);
             //canPickUp = true;
