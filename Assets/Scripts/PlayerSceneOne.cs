@@ -20,6 +20,9 @@ public class PlayerSceneOne : MonoBehaviour
     private GameObject taskPaperUI;
 
     [SerializeField]
+    private GameObject contactPaperUI;
+
+    [SerializeField]
     public GameObject clicker;
 
     [SerializeField]
@@ -35,7 +38,6 @@ public class PlayerSceneOne : MonoBehaviour
         Debug.DrawRay(playerCameraTransform.position, playerCameraTransform.forward * hitRange, Color.red);
         if (hit.collider != null)
         {
-            Debug.Log("Hit paper on wall");
             hit.collider.GetComponent<Highlight>()?.ToggleHighlight(false);
             pickUpUI.SetActive(false);
             //canPickUp = true;
@@ -49,7 +51,7 @@ public class PlayerSceneOne : MonoBehaviour
             hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
             pickUpUI.SetActive(true);
             //canPickUp = false;
-            if (taskPaperUI.activeSelf)
+            if (taskPaperUI.activeSelf || contactPaperUI.activeSelf)
             {
                 Debug.Log("Paper active, closing pick up UI");
                 pickUpUI.SetActive(false);
@@ -58,8 +60,17 @@ public class PlayerSceneOne : MonoBehaviour
         }
         if (taskPaperUI.activeSelf && Input.GetKeyDown(KeyCode.X))
         {
-            Debug.Log("Closing paper UI");
+            Debug.Log("Closing task paper UI");
             taskPaperUI.SetActive(false);
+            exitUI.SetActive(false);
+            clicker.SetActive(true);
+            MouseLook.paperActive = false;
+        }
+
+        if (contactPaperUI.activeSelf && Input.GetKeyDown(KeyCode.X))
+        {
+            Debug.Log("Closing contact paper UI");
+            contactPaperUI.SetActive(false);
             exitUI.SetActive(false);
             clicker.SetActive(true);
             MouseLook.paperActive = false;
@@ -68,9 +79,21 @@ public class PlayerSceneOne : MonoBehaviour
 
     void PickUpObject(GameObject obj)
     {
-        clicker.SetActive(false);
-        taskPaperUI.SetActive(true);
-        MouseLook.paperActive = true;
-        Debug.Log("Picked up object: " + obj.name);
+        if (obj.name == "A4_Lined_Paper_FBX")
+        {
+            clicker.SetActive(false);
+            taskPaperUI.SetActive(true);
+            MouseLook.paperActive = true;
+            Debug.Log("Picked up object: " + obj.name);
+        }
+
+        if (obj.name == "A4_Lined_Paper_FBX (1)")
+        {
+            clicker.SetActive(false);
+            contactPaperUI.SetActive(true);
+            MouseLook.paperActive = true;
+            Debug.Log("Picked up object: " + obj.name);
+        }
+
     }
 }

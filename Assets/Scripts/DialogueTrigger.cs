@@ -25,7 +25,7 @@ public class DialogueTrigger : MonoBehaviour
     private void Update()
     {
         // Check if the dialogue is active
-        if (FindObjectOfType<DialogueManager>().IsDialogueActive())
+        if (FindObjectOfType<DialogueManager>().IsDialogueActive() || FindObjectOfType<DialogueManager>().IsClickerDisabled())
         {
             // Disable the clicker while the dialogue is active
             clicker.SetActive(false);
@@ -33,6 +33,7 @@ public class DialogueTrigger : MonoBehaviour
         else
         {
             // Enable the clicker when the dialogue ends
+            Debug.Log("Clicker enabled after dialogue ends");
             clicker.SetActive(true);
         }
     }
