@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerSceneOne : MonoBehaviour
 {
     [SerializeField]
     private LayerMask pickableLayerMask;
@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     private GameObject exitUI;
 
     [SerializeField]
-    private GameObject paperUI;
+    private GameObject taskPaperUI;
 
     [SerializeField]
     public GameObject clicker;
@@ -49,17 +49,17 @@ public class Player : MonoBehaviour
             hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
             pickUpUI.SetActive(true);
             //canPickUp = false;
-            if (paperUI.activeSelf)
+            if (taskPaperUI.activeSelf)
             {
                 Debug.Log("Paper active, closing pick up UI");
                 pickUpUI.SetActive(false);
                 exitUI.SetActive(true);
             }
         }
-        if (paperUI.activeSelf && Input.GetKeyDown(KeyCode.X))
+        if (taskPaperUI.activeSelf && Input.GetKeyDown(KeyCode.X))
         {
             Debug.Log("Closing paper UI");
-            paperUI.SetActive(false);
+            taskPaperUI.SetActive(false);
             exitUI.SetActive(false);
             clicker.SetActive(true);
             MouseLook.paperActive = false;
@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
     void PickUpObject(GameObject obj)
     {
         clicker.SetActive(false);
-        paperUI.SetActive(true);
+        taskPaperUI.SetActive(true);
         MouseLook.paperActive = true;
         Debug.Log("Picked up object: " + obj.name);
     }
