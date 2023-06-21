@@ -11,7 +11,6 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> sentences;
     public bool isDialogueActive = false;
     public bool startDisableClicker = true;
-    
     public GameObject clicker;
     void Start()
     {

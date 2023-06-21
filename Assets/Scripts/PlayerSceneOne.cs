@@ -23,6 +23,9 @@ public class PlayerSceneOne : MonoBehaviour
     private GameObject contactPaperUI;
 
     [SerializeField]
+    private GameObject contactDialogueBox;
+
+    [SerializeField]
     public GameObject clicker;
 
     [SerializeField]
@@ -51,13 +54,21 @@ public class PlayerSceneOne : MonoBehaviour
             hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
             pickUpUI.SetActive(true);
             //canPickUp = false;
-            if (taskPaperUI.activeSelf || contactPaperUI.activeSelf)
+            if (taskPaperUI.activeSelf)
             {
                 Debug.Log("Paper active, closing pick up UI");
                 pickUpUI.SetActive(false);
                 exitUI.SetActive(true);
             }
+
+            if (contactPaperUI.activeSelf)
+            {
+                pickUpUI.SetActive(false);
+                exitUI.SetActive(true);
+                contactDialogueBox.SetActive(true);
+            }
         }
+
         if (taskPaperUI.activeSelf && Input.GetKeyDown(KeyCode.X))
         {
             Debug.Log("Closing task paper UI");
@@ -71,6 +82,7 @@ public class PlayerSceneOne : MonoBehaviour
         {
             Debug.Log("Closing contact paper UI");
             contactPaperUI.SetActive(false);
+            contactDialogueBox.SetActive(false);
             exitUI.SetActive(false);
             clicker.SetActive(true);
             MouseLook.paperActive = false;
@@ -94,6 +106,5 @@ public class PlayerSceneOne : MonoBehaviour
             MouseLook.paperActive = true;
             Debug.Log("Picked up object: " + obj.name);
         }
-
     }
 }
