@@ -7,6 +7,7 @@ using TMPro;
 public class SecondNextButton : MonoBehaviour
 {
     public Button secondNextButton;
+    public Button checkButton;
     public TextMeshProUGUI secondQuestion;
     public TextMeshProUGUI thirdQuestion;
     public TextMeshProUGUI phoneButtonStat;
@@ -32,6 +33,7 @@ public class SecondNextButton : MonoBehaviour
         firstChoiceToggle.gameObject.SetActive(true);
         secondChoiceToggle.gameObject.SetActive(true);
         thirdChoiceToggle.gameObject.SetActive(true);
+        checkButton.gameObject.SetActive(true);
 
         // Wait for all coroutines to finish
         yield return new WaitForSeconds(0.3f);
