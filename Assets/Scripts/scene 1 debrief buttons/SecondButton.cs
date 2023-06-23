@@ -7,32 +7,25 @@ using TMPro;
 public class SecondButton : MonoBehaviour
 {
     public Animator animator;
-    public Button leftButton;
-    public Button centerButton;
-    public Button rightButton;
+    public Button[] buttons;
     public Button nextButton;
     public TextMeshProUGUI textObject;
 
-    private bool interactionCompleted = false;
-
     public void OnCenterButtonClick()
     {
-        if (!interactionCompleted)
+        Debug.Log("Second Button clicked!");
+
+        // Fade out the left and right buttons
+        foreach (Button button in buttons)
         {
-            animator.SetBool("isClicked", true);
-            // Shift the center button to the left
-            // centerButton.GetComponent<RectTransform>().anchoredPosition -= new Vector2(100f, 0f);
-
-            // Fade out the left and right buttons
-            StartCoroutine(FadeButton(leftButton));
-            StartCoroutine(FadeButton(rightButton));
-
-            // Show the text object
-            textObject.gameObject.SetActive(true);
-            nextButton.gameObject.SetActive(true);
-
-            interactionCompleted = true;
+            StartCoroutine(FadeButton(button));
         }
+
+        animator.SetBool("isClicked", true);
+
+        // Show the text object
+        textObject.gameObject.SetActive(true);
+        nextButton.gameObject.SetActive(true);
     }
 
     private IEnumerator FadeButton(Button button)

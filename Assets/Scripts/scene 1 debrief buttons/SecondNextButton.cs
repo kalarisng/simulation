@@ -4,59 +4,39 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class NextButton : MonoBehaviour
+public class SecondNextButton : MonoBehaviour
 {
-    public Button phoneButton;
-    public Button leftButton;
-    public Button centerButton;
-    public Button rightButton;
-    public Button nextButton;
-    public GameObject clickMe;
-    public TextMeshProUGUI firstQuestion;
-    public TextMeshProUGUI firstButtonStat;
-    public TextMeshProUGUI secondButtonStat;
-    public TextMeshProUGUI thirdButtonStat;
+    public Button secondNextButton;
     public TextMeshProUGUI secondQuestion;
+    public TextMeshProUGUI thirdQuestion;
+    public TextMeshProUGUI phoneButtonStat;
+    public Toggle firstChoiceToggle;
+    public Toggle secondChoiceToggle;
+    public Toggle thirdChoiceToggle;
 
-    public void OnNextButtonClick()
+
+    public void OnSecondNextButtonClick()
     {
         StartCoroutine(PerformNextButtonActions());
     }
 
     private IEnumerator PerformNextButtonActions()
     {
-        // disable the first question
-        firstQuestion.gameObject.SetActive(false);
+        // disable the second question
+        StartCoroutine(FadeOutText(secondQuestion));
+        StartCoroutine(FadeOutText(phoneButtonStat));
 
-        // Fade out all active buttons
-        if (leftButton.gameObject.activeSelf)
-        {
-            Debug.Log("Pressed Left Button");
-            StartCoroutine(FadeButton(leftButton));
-            StartCoroutine(FadeOutText(firstButtonStat));
-        }
-        else if (centerButton.gameObject.activeSelf)
-        {
-            Debug.Log("Pressed Center Button");
-            StartCoroutine(FadeButton(centerButton));
-            StartCoroutine(FadeOutText(secondButtonStat));
-        }
-        else if (rightButton.gameObject.activeSelf)
-        {
-            StartCoroutine(FadeButton(rightButton));
-            StartCoroutine(FadeOutText(thirdButtonStat));
-        }
-
-        // enable the second question
-        StartCoroutine(FadeInText(secondQuestion));
-        // enable the phone button
-        StartCoroutine(FadeInButton(phoneButton));
-        clickMe.gameObject.SetActive(true);
+        // enable the third question
+        StartCoroutine(FadeInText(thirdQuestion));
+        // enable the MCQ buttons
+        firstChoiceToggle.gameObject.SetActive(true);
+        secondChoiceToggle.gameObject.SetActive(true);
+        thirdChoiceToggle.gameObject.SetActive(true);
 
         // Wait for all coroutines to finish
         yield return new WaitForSeconds(0.3f);
-        nextButton.interactable = false;
-        nextButton.gameObject.SetActive(false);
+        secondNextButton.interactable = false;
+        secondNextButton.gameObject.SetActive(false);
     }
     private IEnumerator FadeButton(Button button)
     {
@@ -150,6 +130,7 @@ public class NextButton : MonoBehaviour
 
         text.color = originalColor;
     }
+
     // Start is called before the first frame update
     // void Start()
     // {

@@ -12,7 +12,7 @@ public class FirstButton : MonoBehaviour
 
     public void OnButtonClick()
     {
-        Debug.Log("Button clicked!");
+        Debug.Log("First Button clicked!");
 
         // Loop through the buttons and fade them away
         foreach (Button button in buttons)
