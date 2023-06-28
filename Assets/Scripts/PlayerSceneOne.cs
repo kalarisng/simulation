@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerSceneOne : MonoBehaviour
 {
@@ -32,8 +33,64 @@ public class PlayerSceneOne : MonoBehaviour
     [Min(1)]
     private float hitRange = 1;
 
+    [SerializeField]
+    private Transform pickUpParent;
+
+    [SerializeField]
+    private GameObject inHandItem;
+
+    [SerializeField]
+    private InputActionReference interactionInput, dropInput, useInput;
+
     private RaycastHit hit;
     //private bool canPickUp = false;
+
+    private void Start()
+    {
+        interactionInput.action.performed += Interact;
+        dropInput.action.performed += Drop;
+        useInput.action.performed += Use;
+    }
+
+    private void Use(InputAction.CallbackContext obj)
+    {
+
+    }
+
+    private void Drop(InputAction.CallbackContext obj)
+    {
+
+    }
+
+    private void Interact(InputAction.CallbackContext obj)
+    {
+        if (hit.collider != null)
+        {
+            Debug.Log(hit.collider.name);
+            Rigidbody rb = hit.collider.GetComponent<Rigidbody>();
+            if (hit.collider.GetComponent<Cube>())
+            {
+                Debug.Log("It's cube!");
+                // inHandItem = hit.collider.gameObject;
+                // inHandItem.transform.position = Vector3.zero;
+                // inHandItem.transform.rotation = Quaternion.identity;
+                // inHandItem.transform.SetParent(pickUpParent.transform, false);
+                // if (rb != null)
+                // {
+                //     rb.isKinematic = true;
+                // }
+                // return;
+
+                inHandItem = hit.collider.gameObject;
+                inHandItem.transform.SetParent(pickUpParent.transform, true);
+                if (rb != null)
+                {
+                    rb.isKinematic = true;
+                }
+                return;
+            }
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -48,6 +105,10 @@ public class PlayerSceneOne : MonoBehaviour
             {
                 PickUpObject(hit.collider.gameObject);
             }
+        }
+        if (inHandItem != null)
+        {
+            return;
         }
         if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out hit, hitRange, pickableLayerMask))
         {
