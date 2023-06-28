@@ -59,7 +59,16 @@ public class PlayerSceneOne : MonoBehaviour
 
     private void Drop(InputAction.CallbackContext obj)
     {
-
+        if (inHandItem != null)
+        {
+            inHandItem.transform.SetParent(null);
+            inHandItem = null;
+            Rigidbody rb = hit.collider.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.isKinematic = false;
+            }
+        }
     }
 
     private void Interact(InputAction.CallbackContext obj)
