@@ -108,11 +108,10 @@ public class PlayerSceneOne : MonoBehaviour
         {
             hit.collider.GetComponent<Highlight>()?.ToggleHighlight(false);
             pickUpUI.SetActive(false);
-            //canPickUp = true;
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                PickUpObject(hit.collider.gameObject);
-            }
+            // if (Input.GetKeyDown(KeyCode.R))
+            // {
+            //     PickUpObject(hit.collider.gameObject);
+            // }
         }
         if (inHandItem != null)
         {
@@ -122,6 +121,10 @@ public class PlayerSceneOne : MonoBehaviour
         {
             hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
             pickUpUI.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                ReadObject(hit.collider.gameObject);
+            }
             if (taskPaperUI.activeSelf)
             {
                 Debug.Log("Paper active, closing pick up UI");
@@ -157,7 +160,7 @@ public class PlayerSceneOne : MonoBehaviour
         }
     }
 
-    void PickUpObject(GameObject obj)
+    void ReadObject(GameObject obj)
     {
         if (obj.name == "A4_Lined_Paper_FBX")
         {
