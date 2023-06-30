@@ -43,7 +43,6 @@ public class PlayerSceneOne : MonoBehaviour
     private InputActionReference interactionInput, dropInput, useInput;
 
     private RaycastHit hit;
-    //private bool canPickUp = false;
 
     private void Start()
     {
@@ -110,7 +109,7 @@ public class PlayerSceneOne : MonoBehaviour
             hit.collider.GetComponent<Highlight>()?.ToggleHighlight(false);
             pickUpUI.SetActive(false);
             //canPickUp = true;
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.R))
             {
                 PickUpObject(hit.collider.gameObject);
             }
@@ -123,7 +122,6 @@ public class PlayerSceneOne : MonoBehaviour
         {
             hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
             pickUpUI.SetActive(true);
-            //canPickUp = false;
             if (taskPaperUI.activeSelf)
             {
                 Debug.Log("Paper active, closing pick up UI");
@@ -145,7 +143,7 @@ public class PlayerSceneOne : MonoBehaviour
             taskPaperUI.SetActive(false);
             exitUI.SetActive(false);
             clicker.SetActive(true);
-            MouseLook.paperActive = false;
+            // MouseLook.paperActive = false;
         }
 
         if (contactPaperUI.activeSelf && Input.GetKeyDown(KeyCode.X))
@@ -155,7 +153,7 @@ public class PlayerSceneOne : MonoBehaviour
             contactDialogueBox.SetActive(false);
             exitUI.SetActive(false);
             clicker.SetActive(true);
-            MouseLook.paperActive = false;
+            // MouseLook.paperActive = false;
         }
     }
 
@@ -165,7 +163,7 @@ public class PlayerSceneOne : MonoBehaviour
         {
             clicker.SetActive(false);
             taskPaperUI.SetActive(true);
-            MouseLook.paperActive = true;
+            // MouseLook.paperActive = true;
             Debug.Log("Picked up object: " + obj.name);
         }
 
