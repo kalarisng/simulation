@@ -24,29 +24,52 @@ public class PhoneButton : MonoBehaviour
 
         phoneButton.gameObject.SetActive(false);
     }
+
     private IEnumerator FadeButton(Button button)
     {
-        // Fade out the button by reducing its alpha value gradually
-        Image buttonImage = button.GetComponent<Image>();
-        TextMeshProUGUI buttonText = button.GetComponentInChildren<TextMeshProUGUI>();
-        Color originalColor = buttonImage.color;
-
-        float fadeDuration = 0.3f;  // Adjust the duration as per your preference
-        float elapsedTime = 0f;
-
-        while (elapsedTime < fadeDuration)
+        // Get the RawImage component attached to the button
+        RawImage buttonImage = button.GetComponent<RawImage>();
+        if (buttonImage != null)
         {
-            float alpha = Mathf.Lerp(1f, 0f, elapsedTime / fadeDuration);
-            buttonImage.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
-            buttonText.color = new Color(buttonText.color.r, buttonText.color.g, buttonText.color.b, alpha);
+            Color originalColor = buttonImage.color;
 
-            elapsedTime += Time.deltaTime;
-            yield return null;
+            float fadeDuration = 0.1f; // Adjust the duration as per your preference
+            float elapsedTime = 0f;
+
+            while (elapsedTime < fadeDuration)
+            {
+                float alpha = Mathf.Lerp(1f, 0f, elapsedTime / fadeDuration);
+                buttonImage.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
+
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
         }
-
-        // Deactivate the button gameObject after fading
-        //button.gameObject.SetActive(false);
     }
+
+    // private IEnumerator FadeButton(Button button)
+    // {
+    //     // Fade out the button by reducing its alpha value gradually
+    //     Image buttonImage = button.GetComponent<Image>();
+    //     TextMeshProUGUI buttonText = button.GetComponentInChildren<TextMeshProUGUI>();
+    //     Color originalColor = buttonImage.color;
+
+    //     float fadeDuration = 0.3f;  // Adjust the duration as per your preference
+    //     float elapsedTime = 0f;
+
+    //     while (elapsedTime < fadeDuration)
+    //     {
+    //         float alpha = Mathf.Lerp(1f, 0f, elapsedTime / fadeDuration);
+    //         buttonImage.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
+    //         buttonText.color = new Color(buttonText.color.r, buttonText.color.g, buttonText.color.b, alpha);
+
+    //         elapsedTime += Time.deltaTime;
+    //         yield return null;
+    //     }
+
+    //     // Deactivate the button gameObject after fading
+    //     //button.gameObject.SetActive(false);
+    // }
     // Start is called before the first frame update
     // void Start()
     // {

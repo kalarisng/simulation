@@ -85,28 +85,57 @@ public class NextButton : MonoBehaviour
     private IEnumerator FadeInButton(Button button)
     {
         button.gameObject.SetActive(true);
-        Image buttonImage = button.GetComponent<Image>();
-        TextMeshProUGUI buttonText = button.GetComponentInChildren<TextMeshProUGUI>();
-        Color originalColor = buttonImage.color;
-        Color originalTextColor = buttonText.color;
 
-        float fadeDuration = 0.1f; // Adjust the duration as per your preference
-        float elapsedTime = 0f;
-
-        while (elapsedTime < fadeDuration)
+        // Get the RawImage component attached to the button
+        RawImage buttonImage = button.GetComponent<RawImage>();
+        if (buttonImage != null)
         {
-            float alpha = Mathf.Lerp(0f, 1f, elapsedTime / fadeDuration);
-            buttonImage.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
-            buttonText.color = new Color(originalTextColor.r, originalTextColor.g, originalTextColor.b, alpha);
+            Color originalColor = buttonImage.color;
 
-            elapsedTime += Time.deltaTime;
-            yield return null;
+            float fadeDuration = 0.1f; // Adjust the duration as per your preference
+            float elapsedTime = 0f;
+
+            while (elapsedTime < fadeDuration)
+            {
+                float alpha = Mathf.Lerp(0f, 1f, elapsedTime / fadeDuration);
+                buttonImage.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
+
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+
+            buttonImage.color = originalColor;
         }
 
-        buttonImage.color = originalColor;
-        buttonText.color = originalTextColor;
-        button.interactable = true; // Activate the button after fading in
+        button.interactable = true; // Enable the button after fading in
     }
+
+
+    // private IEnumerator FadeInButton(Button button)
+    // {
+    //     button.gameObject.SetActive(true);
+    //     Image buttonImage = button.GetComponent<Image>();
+    //     TextMeshProUGUI buttonText = button.GetComponentInChildren<TextMeshProUGUI>();
+    //     Color originalColor = buttonImage.color;
+    //     Color originalTextColor = buttonText.color;
+
+    //     float fadeDuration = 0.1f; // Adjust the duration as per your preference
+    //     float elapsedTime = 0f;
+
+    //     while (elapsedTime < fadeDuration)
+    //     {
+    //         float alpha = Mathf.Lerp(0f, 1f, elapsedTime / fadeDuration);
+    //         buttonImage.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
+    //         buttonText.color = new Color(originalTextColor.r, originalTextColor.g, originalTextColor.b, alpha);
+
+    //         elapsedTime += Time.deltaTime;
+    //         yield return null;
+    //     }
+
+    //     buttonImage.color = originalColor;
+    //     buttonText.color = originalTextColor;
+    //     button.interactable = true; // Activate the button after fading in
+    // }
 
 
     private IEnumerator FadeOutText(TextMeshProUGUI text)

@@ -14,6 +14,7 @@ namespace StarterAssets
         // public bool sprint;
 
         public Canvas introCanvas;
+        public Canvas debriefOneCanvas;
 
         [Header("Movement Settings")]
         public bool analogMovement;
@@ -25,14 +26,14 @@ namespace StarterAssets
 #if ENABLE_INPUT_SYSTEM
 		public void OnMove(InputValue value)
 		{
-			if (!introCanvas.gameObject.activeSelf) {
+			if (!introCanvas.gameObject.activeSelf && !debriefOneCanvas.gameObject.activeSelf) {
 				MoveInput(value.Get<Vector2>());
 			}
 		}
 
 		public void OnLook(InputValue value)
 		{
-			if(!introCanvas.gameObject.activeSelf && cursorInputForLook)
+			if(!introCanvas.gameObject.activeSelf && !debriefOneCanvas.gameObject.activeSelf && cursorInputForLook)
 			{
 				LookInput(value.Get<Vector2>());
 			}
@@ -73,7 +74,7 @@ namespace StarterAssets
 
         private void OnApplicationFocus(bool hasFocus)
         {
-            if (!introCanvas.gameObject.activeSelf)
+            if (!introCanvas.gameObject.activeSelf && !debriefOneCanvas.gameObject.activeSelf)
             {
                 SetCursorState(cursorLocked);
             }
@@ -81,15 +82,29 @@ namespace StarterAssets
 
         private void SetCursorState(bool newState)
         {
-            if (!introCanvas.gameObject.activeSelf)
+            if (!introCanvas.gameObject.activeSelf && !debriefOneCanvas.gameObject.activeSelf)
             {
                 Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
+                // Lock or unlock the character's movement based on the cursor lock state
+                LockCharacterMovement(newState);
             }
         }
 
         public void DeactivateCanvas()
         {
             introCanvas.gameObject.SetActive(false);
+        }
+
+        private void LockCharacterMovement(bool locked)
+        {
+            // Get the character controller or other movement component reference
+            CharacterController controller = GetComponent<CharacterController>();
+
+            // Lock or unlock the character's movement based on the locked parameter
+            if (controller != null)
+            {
+                controller.enabled = !locked;
+            }
         }
 
         // public void SetInputEnabled(bool enabled)
