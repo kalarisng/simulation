@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using StarterAssets;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class DialogueManager : MonoBehaviour
     public bool isDialogueActive = false;
     public bool startDisableClicker = true;
     public GameObject clicker;
+    public StarterAssetsInputs starterAssetsInputs;
+
     void Start()
     {
         sentences = new Queue<string>();
@@ -65,5 +68,8 @@ public class DialogueManager : MonoBehaviour
 
         AudioSource audioSource = GetComponent<AudioSource>();
         audioSource.Stop();
+
+        starterAssetsInputs.DeactivateCanvas();
+        Debug.Log("deactivated canvas");
     }
 }

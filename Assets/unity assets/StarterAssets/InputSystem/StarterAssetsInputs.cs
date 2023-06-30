@@ -13,6 +13,8 @@ namespace StarterAssets
         public bool jump;
         public bool sprint;
 
+        public Canvas introCanvas;
+
         [Header("Movement Settings")]
         public bool analogMovement;
 
@@ -23,12 +25,14 @@ namespace StarterAssets
 #if ENABLE_INPUT_SYSTEM
 		public void OnMove(InputValue value)
 		{
-			MoveInput(value.Get<Vector2>());
+			if (!introCanvas.gameObject.activeSelf) {
+				MoveInput(value.Get<Vector2>());
+			}
 		}
 
 		public void OnLook(InputValue value)
 		{
-			if(cursorInputForLook)
+			if(!introCanvas.gameObject.activeSelf && cursorInputForLook)
 			{
 				LookInput(value.Get<Vector2>());
 			}
@@ -69,13 +73,33 @@ namespace StarterAssets
 
         private void OnApplicationFocus(bool hasFocus)
         {
-            SetCursorState(cursorLocked);
+            if (!introCanvas.gameObject.activeSelf)
+            {
+                SetCursorState(cursorLocked);
+            }
         }
 
         private void SetCursorState(bool newState)
         {
-            Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
+            if (!introCanvas.gameObject.activeSelf)
+            {
+                Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
+            }
         }
+
+        public void DeactivateCanvas()
+        {
+            introCanvas.gameObject.SetActive(false);
+        }
+
+        // public void SetInputEnabled(bool enabled)
+        // {
+        // 	if (!enabled)
+        // 	{
+        // 		move = Vector2.zero;
+        // 		look = Vector2.zero;
+        // 	}
+        // }
     }
 
 }
