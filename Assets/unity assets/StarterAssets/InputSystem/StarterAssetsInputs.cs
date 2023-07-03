@@ -33,7 +33,7 @@ namespace StarterAssets
 
 		public void OnLook(InputValue value)
 		{
-			if(!introCanvas.gameObject.activeSelf && !debriefOneCanvas.gameObject.activeSelf && cursorInputForLook)
+			if (!introCanvas.gameObject.activeSelf && !debriefOneCanvas.gameObject.activeSelf && cursorInputForLook)
 			{
 				LookInput(value.Get<Vector2>());
 			}
@@ -80,13 +80,13 @@ namespace StarterAssets
             }
         }
 
-        private void SetCursorState(bool newState)
+        public void SetCursorState(bool newState)
         {
             if (!introCanvas.gameObject.activeSelf && !debriefOneCanvas.gameObject.activeSelf)
             {
                 Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
                 // Lock or unlock the character's movement based on the cursor lock state
-                LockCharacterMovement(newState);
+                // LockCharacterMovement(newState);
             }
         }
 
@@ -95,7 +95,7 @@ namespace StarterAssets
             introCanvas.gameObject.SetActive(false);
         }
 
-        private void LockCharacterMovement(bool locked)
+        public void LockCharacterMovement(bool locked)
         {
             // Get the character controller or other movement component reference
             CharacterController controller = GetComponent<CharacterController>();

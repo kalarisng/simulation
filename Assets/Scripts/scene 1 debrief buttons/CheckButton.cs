@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using StarterAssets;
 
 public class CheckButton : MonoBehaviour
 {
@@ -11,6 +10,10 @@ public class CheckButton : MonoBehaviour
     public Toggle toggle3;
     public Button checkButton;
     public TextMeshProUGUI buttonText;
+    public Transform teleportDestination;
+    public GameObject debriefOneCanvas;
+    public GameObject exitUI;
+    public FirstPersonController firstPersonController; // Reference to the FirstPersonController component
 
     private void Start()
     {
@@ -18,12 +21,32 @@ public class CheckButton : MonoBehaviour
         checkButton.image.color = Color.yellow;
     }
 
-    void CheckToggles()
+    private void Update()
+    {
+        if (debriefOneCanvas.activeSelf && Input.GetKeyDown(KeyCode.X))
+        {
+            Debug.Log("Closing debrief one");
+            debriefOneCanvas.SetActive(false);
+            TeleportToDestination();
+        }
+    }
+
+    private void TeleportToDestination()
+    {
+        if (teleportDestination != null && firstPersonController != null)
+        {
+            // Set the position of the FirstPersonController to the destination position
+            firstPersonController.transform.position = teleportDestination.position;
+        }
+    }
+
+    private void CheckToggles()
     {
         if (toggle1.isOn && toggle2.isOn && toggle3.isOn)
         {
             checkButton.image.color = Color.green;
             buttonText.text = "Correct!";
+            exitUI.SetActive(true);
         }
         else
         {
