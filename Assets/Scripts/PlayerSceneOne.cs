@@ -106,6 +106,7 @@ public class PlayerSceneOne : MonoBehaviour
         Debug.DrawRay(playerCameraTransform.position, playerCameraTransform.forward * hitRange, Color.red);
         if (hit.collider != null)
         {
+            Debug.Log("Hit object: " + hit.collider.gameObject.name);
             hit.collider.GetComponent<Highlight>()?.ToggleHighlight(false);
             pickUpUI.SetActive(false);
             // if (Input.GetKeyDown(KeyCode.R))
