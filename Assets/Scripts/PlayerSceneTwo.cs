@@ -35,6 +35,9 @@ public class PlayerSceneTwo : MonoBehaviour
     [SerializeField]
     private GameObject dropAreaAlert;
 
+    [SerializeField]
+    private GameObject cataractUI;
+
     private bool alreadyInPan = false;
 
     // Start is called before the first frame update
@@ -86,6 +89,7 @@ public class PlayerSceneTwo : MonoBehaviour
                 {
                     rb.isKinematic = true;
                 }
+                cataractUI.SetActive(true);
                 return;
             }
         }
