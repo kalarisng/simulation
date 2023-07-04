@@ -40,8 +40,10 @@ public class PlayerSceneTwo : MonoBehaviour
 
     [SerializeField]
     private GameObject cataractUI;
-
     private bool alreadyInPan = false;
+
+    [SerializeField]
+    private DropArrow dropArrowScript;
 
     // Start is called before the first frame update
     void Start()
@@ -88,6 +90,7 @@ public class PlayerSceneTwo : MonoBehaviour
             if (hit.collider.GetComponent<Egg>())
             {
                 Debug.Log("It's Egg!");
+                dropArrowScript.enabled = true;
                 dropUI.SetActive(true);
                 inHandItem = hit.collider.gameObject;
                 inHandItem.transform.SetParent(pickUpParent.transform, true);
