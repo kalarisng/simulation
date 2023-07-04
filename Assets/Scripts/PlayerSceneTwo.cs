@@ -36,6 +36,9 @@ public class PlayerSceneTwo : MonoBehaviour
     private GameObject dropAreaAlert;
 
     [SerializeField]
+    private GameObject dropUI;
+
+    [SerializeField]
     private GameObject cataractUI;
 
     private bool alreadyInPan = false;
@@ -58,10 +61,12 @@ public class PlayerSceneTwo : MonoBehaviour
         bool isInsideDropArea = IsInsideDropArea();
         if (!isInsideDropArea)
         {
+            dropUI.SetActive(true);
             dropAreaAlert.SetActive(true); // Activate the alert UI element if not inside the drop area
         }
         if (inHandItem != null && isInsideDropArea)
         {
+            dropUI.SetActive(false);
             dropAreaAlert.SetActive(false);
             inHandItem.transform.SetParent(null);
             inHandItem = null;
@@ -83,6 +88,7 @@ public class PlayerSceneTwo : MonoBehaviour
             if (hit.collider.GetComponent<Egg>())
             {
                 Debug.Log("It's Egg!");
+                dropUI.SetActive(true);
                 inHandItem = hit.collider.gameObject;
                 inHandItem.transform.SetParent(pickUpParent.transform, true);
                 if (rb != null)
