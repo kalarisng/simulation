@@ -5,6 +5,7 @@ using UnityEngine;
 public class Crouch : MonoBehaviour
 {
     CharacterController characterCollider;
+    public Canvas healthBarCanvas;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +17,7 @@ public class Crouch : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.C))
         {
+            healthBarCanvas.gameObject.SetActive(true);
             characterCollider.height = 1.0f;
         }
         else
