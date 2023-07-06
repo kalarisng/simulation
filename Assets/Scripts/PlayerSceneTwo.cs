@@ -40,7 +40,7 @@ public class PlayerSceneTwo : MonoBehaviour
 
     [SerializeField]
     private GameObject cataractUI;
-    private bool alreadyInPan = false;
+    private bool onionAlreadyInPan = false;
 
     [SerializeField]
     private DropArrow dropArrowScript;
@@ -77,7 +77,7 @@ public class PlayerSceneTwo : MonoBehaviour
             {
                 rb.isKinematic = false;
             }
-            alreadyInPan = true;
+            onionAlreadyInPan = true;
         }
     }
 
@@ -99,6 +99,19 @@ public class PlayerSceneTwo : MonoBehaviour
                     rb.isKinematic = true;
                 }
                 cataractUI.SetActive(true);
+                return;
+            }
+            if (hit.collider.GetComponent<Onion>())
+            {
+                dropArrowScript.enabled = true;
+                dropUI.SetActive(true);
+                inHandItem = hit.collider.gameObject;
+                inHandItem.transform.SetParent(pickUpParent.transform, true);
+                if (rb != null)
+                {
+                    rb.isKinematic = true;
+                }
+                // cataractUI.SetActive(true);
                 return;
             }
             if (hit.collider.GetComponent<Blanket>())
@@ -142,12 +155,13 @@ public class PlayerSceneTwo : MonoBehaviour
         }
         if (inHandItem != null)
         {
+            Debug.Log("something in hand!");
             return;
         }
-        if (alreadyInPan)
-        {
-            return;
-        }
+        // if (onionAlreadyInPan)
+        // {
+        //     return;
+        // }
         if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out hit, hitRange, pickableLayerMask))
         {
             hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
