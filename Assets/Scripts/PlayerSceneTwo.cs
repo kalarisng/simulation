@@ -101,6 +101,17 @@ public class PlayerSceneTwo : MonoBehaviour
                 cataractUI.SetActive(true);
                 return;
             }
+            if (hit.collider.GetComponent<Blanket>())
+            {
+                dropUI.SetActive(true);
+                inHandItem = hit.collider.gameObject;
+                inHandItem.transform.SetParent(pickUpParent.transform, true);
+                if (rb != null)
+                {
+                    rb.isKinematic = true;
+                }
+                return;
+            }
         }
     }
 
