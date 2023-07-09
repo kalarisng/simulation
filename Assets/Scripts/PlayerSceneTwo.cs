@@ -50,6 +50,8 @@ public class PlayerSceneTwo : MonoBehaviour
 
     [SerializeField]
     private DropArrow dropArrowScript;
+    [SerializeField]
+    private Collider machineCollider;
 
     // Start is called before the first frame update
     void Start()
@@ -102,7 +104,35 @@ public class PlayerSceneTwo : MonoBehaviour
                 inHandItem.transform.SetParent(null);
                 inHandItem = null;
             }
+        }
+        if (inHandItem.name == "FirstBlanket")
+        {
+            bool isInsideMachine = IsInsideMachine();
+            if (inHandItem != null && !isInsideMachine)
+            {
+                dropUI.SetActive(true);
+                dropAreaAlert.SetActive(true); // Activate the alert UI element if not inside the drop area
+            }
+            if (inHandItem != null && isInsideMachine)
+            {
+                dropUI.SetActive(false);
+                dropAreaAlert.SetActive(false);
 
+                Rigidbody rb = hit.collider.GetComponent<Rigidbody>();
+                if (rb != null)
+                {
+                    rb.isKinematic = false;
+                }
+
+                if (inHandItem.name == "FirstBlanket")
+                {
+                    Debug.Log("first blanket in machine");
+                    inHandItem.SetActive(false); // Option 1: Deactivate the GameObject
+                }
+
+                // inHandItem.transform.SetParent(null);
+                inHandItem = null;
+            }
         }
     }
 
@@ -162,6 +192,21 @@ public class PlayerSceneTwo : MonoBehaviour
             if (itemCollider != null)
             {
                 bool isInside = itemCollider.bounds.Intersects(dropAreaCollider.bounds);
+                return isInside;
+            }
+        }
+        return false;
+    }
+
+    // Check if the inHandItem is inside the washing machine
+    private bool IsInsideMachine()
+    {
+        if (inHandItem != null && machineCollider != null)
+        {
+            Collider itemCollider = inHandItem.GetComponent<Collider>();
+            if (itemCollider != null)
+            {
+                bool isInside = itemCollider.bounds.Intersects(machineCollider.bounds);
                 return isInside;
             }
         }
