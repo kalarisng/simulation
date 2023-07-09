@@ -1242,7 +1242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1927874038934084, guid: 36aa94bb9e7364945ad8a487c4c3ee62, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4202309070804772, guid: 36aa94bb9e7364945ad8a487c4c3ee62, type: 3}
       propertyPath: m_RootOrder
@@ -6284,6 +6284,9 @@ MonoBehaviour:
   dropAreaAlert: {fileID: 702288004}
   dropUI: {fileID: 703408827}
   cataractUI: {fileID: 1181488148}
+  egg: {fileID: 559344761}
+  onion: {fileID: 194922670}
+  plateWithEgg: {fileID: 1870690281}
   dropArrowScript: {fileID: 1978521011}
 --- !u!114 &616296475
 MonoBehaviour:
@@ -20356,6 +20359,11 @@ BoxCollider:
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: -2904460280870228390, guid: e165810ee544c4948a3502eb9adb4ff6, type: 3}
   m_PrefabInstance: {fileID: 684740593}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1870690281 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1927874038934084, guid: 36aa94bb9e7364945ad8a487c4c3ee62, type: 3}
+  m_PrefabInstance: {fileID: 114015605}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1870690285 stripped
 Transform:

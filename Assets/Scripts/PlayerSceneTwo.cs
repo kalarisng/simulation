@@ -41,6 +41,10 @@ public class PlayerSceneTwo : MonoBehaviour
     [SerializeField]
     private GameObject cataractUI;
     private bool onionAlreadyInPan = false;
+    private bool eggAlreadyInPan = false;
+    public GameObject egg;
+    public GameObject onion;
+    public GameObject plateWithEgg;
 
     [SerializeField]
     private DropArrow dropArrowScript;
@@ -60,24 +64,40 @@ public class PlayerSceneTwo : MonoBehaviour
 
     private void Drop(InputAction.CallbackContext obj)
     {
-        bool isInsideDropArea = IsInsideDropArea();
-        if (!isInsideDropArea)
+        if (inHandItem.name == "onion" || inHandItem.name == "egg (1)")
         {
-            dropUI.SetActive(true);
-            dropAreaAlert.SetActive(true); // Activate the alert UI element if not inside the drop area
-        }
-        if (inHandItem != null && isInsideDropArea)
-        {
-            dropUI.SetActive(false);
-            dropAreaAlert.SetActive(false);
-            inHandItem.transform.SetParent(null);
-            inHandItem = null;
-            Rigidbody rb = hit.collider.GetComponent<Rigidbody>();
-            if (rb != null)
+            bool isInsideDropArea = IsInsideDropArea();
+            if (inHandItem != null && !isInsideDropArea)
             {
-                rb.isKinematic = false;
+                dropUI.SetActive(true);
+                dropAreaAlert.SetActive(true); // Activate the alert UI element if not inside the drop area
             }
-            onionAlreadyInPan = true;
+            if (inHandItem != null && isInsideDropArea)
+            {
+                dropUI.SetActive(false);
+                dropAreaAlert.SetActive(false);
+
+                Rigidbody rb = hit.collider.GetComponent<Rigidbody>();
+                if (rb != null)
+                {
+                    rb.isKinematic = false;
+                }
+
+                if (inHandItem.name == "onion")
+                {
+                    Debug.Log("onion in pan");
+                    onionAlreadyInPan = true;
+                }
+                else if (inHandItem.name == "egg (1)")
+                {
+                    Debug.Log("egg in pan");
+                    eggAlreadyInPan = true;
+                }
+
+                inHandItem.transform.SetParent(null);
+                inHandItem = null;
+            }
+
         }
     }
 
@@ -152,6 +172,13 @@ public class PlayerSceneTwo : MonoBehaviour
             Debug.Log("Hit object: " + hit.collider.gameObject.name);
             hit.collider.GetComponent<Highlight>()?.ToggleHighlight(false);
             pickUpUI.SetActive(false);
+        }
+        if (onionAlreadyInPan && eggAlreadyInPan)
+        {
+            Debug.Log("both egg and onion in pan");
+            egg.SetActive(false);
+            onion.SetActive(false);
+            plateWithEgg.SetActive(true);
         }
         if (inHandItem != null)
         {
