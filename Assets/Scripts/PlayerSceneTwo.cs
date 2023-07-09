@@ -45,6 +45,8 @@ public class PlayerSceneTwo : MonoBehaviour
     public GameObject egg;
     public GameObject onion;
     public GameObject plateWithEgg;
+    public GameObject eggPanel;
+    public GameObject onionPanel;
 
     [SerializeField]
     private DropArrow dropArrowScript;
@@ -87,11 +89,14 @@ public class PlayerSceneTwo : MonoBehaviour
                 {
                     Debug.Log("onion in pan");
                     onionAlreadyInPan = true;
+                    onionPanel.SetActive(false);
                 }
                 else if (inHandItem.name == "egg (1)")
                 {
                     Debug.Log("egg in pan");
                     eggAlreadyInPan = true;
+                    eggPanel.SetActive(false);
+                    onionPanel.SetActive(true);
                 }
 
                 inHandItem.transform.SetParent(null);
