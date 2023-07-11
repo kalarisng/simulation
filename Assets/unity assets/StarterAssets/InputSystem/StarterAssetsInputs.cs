@@ -15,6 +15,7 @@ namespace StarterAssets
 
         public Canvas introCanvas;
         public Canvas debriefOneCanvas;
+        public HealthBar healthBar;
 
         [Header("Movement Settings")]
         public bool analogMovement;
@@ -26,17 +27,36 @@ namespace StarterAssets
 #if ENABLE_INPUT_SYSTEM
 		public void OnMove(InputValue value)
 		{
-			if (!introCanvas.gameObject.activeSelf && !debriefOneCanvas.gameObject.activeSelf) {
-				MoveInput(value.Get<Vector2>());
-			}
+			if (!introCanvas.gameObject.activeSelf && !debriefOneCanvas.gameObject.activeSelf)
+            {
+                // Check the health bar value
+                if (healthBar.slider.value > 0)
+                {
+                    MoveInput(value.Get<Vector2>());
+                }
+                else
+                {
+                    // Health bar is below zero, stop moving
+                    MoveInput(Vector2.zero);
+                }
+            }
 		}
 
 		public void OnLook(InputValue value)
 		{
-			if (!introCanvas.gameObject.activeSelf && !debriefOneCanvas.gameObject.activeSelf && cursorInputForLook)
-			{
-				LookInput(value.Get<Vector2>());
-			}
+			if (!introCanvas.gameObject.activeSelf && !debriefOneCanvas.gameObject.activeSelf)
+            {
+                // Check the health bar value
+                if (healthBar.slider.value > 0)
+                {
+                    LookInput(value.Get<Vector2>());
+                }
+                else
+                {
+                    // Health bar is below zero, stop looking
+                    LookInput(Vector2.zero);
+                }
+            }
 		}
 
 		// public void OnJump(InputValue value)
