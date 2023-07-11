@@ -43,6 +43,7 @@ public class PlayerHealthBar : MonoBehaviour
     void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        currentHealth = Mathf.Max(currentHealth, 0); // Ensure currentHealth doesn't fall below 0
         healthBar.SetHealth(currentHealth);
     }
 }

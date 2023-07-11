@@ -6789,9 +6789,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12fc5eb28256b442084cad551f8a2180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 968328826}
-  healthIncreaseDuration: 5
-  maxIncreaseAmount: 100
+  playerHealthBar: {fileID: 616296476}
+  healthIncreaseInterval: 0.5
+  healthIncreaseAmount: 2
 --- !u!1 &637109046
 GameObject:
   m_ObjectHideFlags: 0

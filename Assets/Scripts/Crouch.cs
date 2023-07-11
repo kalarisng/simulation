@@ -17,7 +17,10 @@ public class Crouch : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.C))
         {
-            healthBarCanvas.gameObject.SetActive(true);
+            if (!healthBarCanvas.gameObject.activeSelf)
+            {
+                healthBarCanvas.gameObject.SetActive(true);
+            }
             characterCollider.height = 1.0f;
         }
         else

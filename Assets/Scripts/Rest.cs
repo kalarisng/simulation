@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class Rest : MonoBehaviour
 {
-    public HealthBar healthBar; // Reference to the HealthBar script
-    public float healthIncreaseDuration = 5f; // Duration in seconds for the health increase
-    public float maxIncreaseAmount = 100f; // Maximum amount to increase the health bar
+    public PlayerHealthBar playerHealthBar;
+    public float healthIncreaseInterval = 0.5f; // Time interval between each health increment
+    public int healthIncreaseAmount = 5; // Amount of health to increase each increment
 
     private bool isResting = false; // Flag to track if the player is currently resting
-    private float currentIncreaseTimer = 0f; // Timer for the current health increase
-    private float initialHealth; // Initial health value before resting
+    private float healthIncreaseTimer = 0f; // Timer to track the time passed since the last health increment
 
     // Update is called once per frame
     void Update()
@@ -19,11 +18,10 @@ public class Rest : MonoBehaviour
         {
             if (!isResting)
             {
-                if (healthBar.slider.value <= 0)
+                if (playerHealthBar.currentHealth < 100)
                 {
                     isResting = true;
-                    currentIncreaseTimer = 0f;
-                    initialHealth = healthBar.slider.value;
+                    healthIncreaseTimer = 0f;
                 }
             }
         }
@@ -35,20 +33,23 @@ public class Rest : MonoBehaviour
 
         if (isResting)
         {
-            currentIncreaseTimer += Time.deltaTime;
+            healthIncreaseTimer += Time.deltaTime;
 
-            float normalizedTimer = currentIncreaseTimer / healthIncreaseDuration;
-            float increasedAmount = Mathf.Lerp(0f, maxIncreaseAmount, normalizedTimer);
-
-            float targetHealth = initialHealth + increasedAmount;
-            float clampedHealth = Mathf.Clamp(targetHealth, initialHealth, healthBar.slider.maxValue);
-
-            healthBar.SetHealth(Mathf.FloorToInt(clampedHealth));
-
-            if (currentIncreaseTimer >= healthIncreaseDuration)
+            if (healthIncreaseTimer >= healthIncreaseInterval)
             {
-                isResting = false;
+                IncrementHealth();
+                healthIncreaseTimer = 0f;
             }
+        }
+    }
+
+    void IncrementHealth()
+    {
+        if (playerHealthBar.currentHealth < playerHealthBar.maxHealth)
+        {
+            playerHealthBar.currentHealth += healthIncreaseAmount;
+            playerHealthBar.currentHealth = Mathf.Min(playerHealthBar.currentHealth, playerHealthBar.maxHealth);
+            playerHealthBar.healthBar.SetHealth(playerHealthBar.currentHealth);
         }
     }
 }
