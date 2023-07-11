@@ -11,6 +11,7 @@ public class PlayerHealthBar : MonoBehaviour
     private bool isTakingDamage = false;
     private float damageInterval = 0.5f; // Time interval between each damage tick
     private float damageTimer = 0f; // Timer to track the time passed since the last damage tick
+    public GameObject alertPanel;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +38,14 @@ public class PlayerHealthBar : MonoBehaviour
         {
             isTakingDamage = false;
             damageTimer = 0f;
+        }
+        if (currentHealth <= 0)
+        {
+            alertPanel.gameObject.SetActive(true);
+        }
+        else
+        {
+            alertPanel.gameObject.SetActive(false);
         }
     }
 
