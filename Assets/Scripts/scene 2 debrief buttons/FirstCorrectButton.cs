@@ -7,6 +7,7 @@ using TMPro;
 public class FirstCorrectButton : MonoBehaviour
 {
     public Button correctButton;
+    public Button nextButton;
     public Button[] fadeButtons;
     public TextMeshProUGUI answer;
 
@@ -27,6 +28,7 @@ public class FirstCorrectButton : MonoBehaviour
             // Change the color of the button to green
             correctButton.image.color = Color.green;
             StartCoroutine(FadeInText(answer));
+            StartCoroutine(FadeInButton(nextButton));
 
             // Fade out the other buttons
             foreach (Button button in fadeButtons)
@@ -36,9 +38,6 @@ public class FirstCorrectButton : MonoBehaviour
                 fadeColors.disabledColor = new Color(fadeColors.disabledColor.r, fadeColors.disabledColor.g, fadeColors.disabledColor.b, 0f);
                 button.colors = fadeColors;
             }
-
-            // Activate the text
-            answer.gameObject.SetActive(true);
         }
     }
     private IEnumerator FadeInText(TextMeshProUGUI text)
@@ -59,5 +58,33 @@ public class FirstCorrectButton : MonoBehaviour
             yield return null;
         }
         text.color = originalColor;
+    }
+
+    private IEnumerator FadeInButton(Button button)
+    {
+        button.gameObject.SetActive(true);
+
+        // Get the RawImage component attached to the button
+        RawImage buttonImage = button.GetComponent<RawImage>();
+        if (buttonImage != null)
+        {
+            Color originalColor = buttonImage.color;
+
+            float fadeDuration = 0.1f; // Adjust the duration as per your preference
+            float elapsedTime = 0f;
+
+            while (elapsedTime < fadeDuration)
+            {
+                float alpha = Mathf.Lerp(0f, 1f, elapsedTime / fadeDuration);
+                buttonImage.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
+
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+
+            buttonImage.color = originalColor;
+        }
+
+        button.interactable = true; // Enable the button after fading in
     }
 }
