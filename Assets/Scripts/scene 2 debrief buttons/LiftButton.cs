@@ -10,6 +10,7 @@ public class LiftButton : MonoBehaviour
     public TextMeshProUGUI buttonText;
     public RawImage image;
     public TextMeshProUGUI answer;
+    public Button nextButton;
 
     private bool isButtonClicked = false; // Flag to track if the first button is clicked
 
@@ -33,6 +34,10 @@ public class LiftButton : MonoBehaviour
             image.gameObject.SetActive(false);
 
             StartCoroutine(FadeInText(answer));
+            if (!nextButton.gameObject.activeSelf)
+            {
+                StartCoroutine(FadeInButton(nextButton));
+            }
         }
     }
 
@@ -55,5 +60,30 @@ public class LiftButton : MonoBehaviour
         }
 
         text.color = originalColor;
+    }
+
+    private IEnumerator FadeInButton(Button button)
+    {
+        TextMeshProUGUI buttonText = button.GetComponentInChildren<TextMeshProUGUI>();
+        Color originalColor = buttonText.color;
+        buttonText.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0f);
+
+        float fadeDuration = 0.2f; // Adjust the duration as per your preference
+        float elapsedTime = 0f;
+
+        while (elapsedTime < fadeDuration)
+        {
+            float alpha = Mathf.Lerp(0f, 1f, elapsedTime / fadeDuration);
+            buttonText.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Wait for the fade duration to complete
+        yield return new WaitForSeconds(fadeDuration);
+
+        // Activate the button after fading
+        button.gameObject.SetActive(true);
     }
 }
