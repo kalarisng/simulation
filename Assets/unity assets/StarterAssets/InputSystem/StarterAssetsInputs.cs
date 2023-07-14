@@ -108,6 +108,7 @@ namespace StarterAssets
                 Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
                 // Lock or unlock the character's movement based on the cursor lock state
                 // LockCharacterMovement(newState);
+                Cursor.visible = !newState;
             }
         }
 
@@ -115,6 +116,7 @@ namespace StarterAssets
         {
             introCanvas.gameObject.SetActive(false);
         }
+
 
         public void LockCharacterMovement(bool locked)
         {
@@ -126,16 +128,9 @@ namespace StarterAssets
             {
                 controller.enabled = !locked;
             }
+
+            // Unlock the cursor if the character's movement is locked
+            SetCursorState(!locked);
         }
-
-        // public void SetInputEnabled(bool enabled)
-        // {
-        // 	if (!enabled)
-        // 	{
-        // 		move = Vector2.zero;
-        // 		look = Vector2.zero;
-        // 	}
-        // }
     }
-
 }

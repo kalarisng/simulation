@@ -105,7 +105,7 @@ public class PlayerSceneTwo : MonoBehaviour
                 inHandItem = null;
             }
         }
-        if (inHandItem.name == "FirstBlanket")
+        if (inHandItem.name == "FirstBlanket" || inHandItem.name == "SecondBlanket" || inHandItem.name == "ThirdBlanket")
         {
             bool isInsideMachine = IsInsideMachine();
             if (inHandItem != null && !isInsideMachine)
@@ -124,7 +124,7 @@ public class PlayerSceneTwo : MonoBehaviour
                     rb.isKinematic = false;
                 }
 
-                if (inHandItem.name == "FirstBlanket")
+                if (inHandItem.name == "FirstBlanket" || inHandItem.name == "SecondBlanket" || inHandItem.name == "ThirdBlanket")
                 {
                     Debug.Log("first blanket in machine");
                     inHandItem.SetActive(false); // Option 1: Deactivate the GameObject

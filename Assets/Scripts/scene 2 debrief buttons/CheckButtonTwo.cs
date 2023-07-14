@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using StarterAssets;
 
 public class CheckButtonTwo : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class CheckButtonTwo : MonoBehaviour
     public TextMeshProUGUI buttonText;
     public GameObject debriefTwoCanvas;
     public GameObject exitUI;
+    public StarterAssetsInputs starterAssetsInputs;
 
     private void Start()
     {
@@ -22,10 +24,15 @@ public class CheckButtonTwo : MonoBehaviour
 
     private void Update()
     {
-        if (debriefTwoCanvas.activeSelf && Input.GetKeyDown(KeyCode.X))
+        if (debriefTwoCanvas.activeSelf)
         {
-            Debug.Log("Closing debrief two");
-            debriefTwoCanvas.SetActive(false);
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                Debug.Log("Closing debrief two");
+                debriefTwoCanvas.SetActive(false);
+                exitUI.SetActive(false);
+                // starterAssetsInputs.LockCharacterMovement(false);
+            }
         }
     }
 
