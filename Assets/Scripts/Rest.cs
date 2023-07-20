@@ -20,6 +20,7 @@ public class Rest : MonoBehaviour
             {
                 if (playerHealthBar.currentHealth < 100)
                 {
+                    // alert canvas activated
                     isResting = true;
                     healthIncreaseTimer = 0f;
                 }

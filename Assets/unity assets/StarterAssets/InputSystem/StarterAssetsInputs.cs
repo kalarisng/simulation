@@ -17,6 +17,7 @@ namespace StarterAssets
         public Canvas debriefOneCanvas;
         public Canvas debriefTwoCanvas;
         public HealthBar healthBar;
+        public Canvas taskQuestionCanvas;
 
         [Header("Movement Settings")]
         public bool analogMovement;
@@ -28,7 +29,7 @@ namespace StarterAssets
 #if ENABLE_INPUT_SYSTEM
 		public void OnMove(InputValue value)
 		{
-			if (!introCanvas.gameObject.activeSelf && !debriefOneCanvas.gameObject.activeSelf && !debriefTwoCanvas.gameObject.activeSelf)
+			if (!introCanvas.gameObject.activeSelf && !debriefOneCanvas.gameObject.activeSelf && !debriefTwoCanvas.gameObject.activeSelf && !taskQuestionCanvas.gameObject.activeSelf)
             {
                 // Check the health bar value
                 if (healthBar.slider.value > 0)
@@ -45,7 +46,7 @@ namespace StarterAssets
 
 		public void OnLook(InputValue value)
 		{
-			if (!introCanvas.gameObject.activeSelf && !debriefOneCanvas.gameObject.activeSelf && !debriefTwoCanvas.gameObject.activeSelf)
+			if (!introCanvas.gameObject.activeSelf && !debriefOneCanvas.gameObject.activeSelf && !debriefTwoCanvas.gameObject.activeSelf && !taskQuestionCanvas.gameObject.activeSelf)
             {
                 // Check the health bar value
                 if (healthBar.slider.value > 0)
@@ -95,7 +96,7 @@ namespace StarterAssets
 
         private void OnApplicationFocus(bool hasFocus)
         {
-            if (!introCanvas.gameObject.activeSelf && !debriefOneCanvas.gameObject.activeSelf && !debriefTwoCanvas.gameObject.activeSelf)
+            if (!introCanvas.gameObject.activeSelf && !debriefOneCanvas.gameObject.activeSelf && !debriefTwoCanvas.gameObject.activeSelf && !taskQuestionCanvas.gameObject.activeSelf)
             {
                 SetCursorState(cursorLocked);
             }
@@ -103,12 +104,11 @@ namespace StarterAssets
 
         public void SetCursorState(bool newState)
         {
-            if (!introCanvas.gameObject.activeSelf && !debriefOneCanvas.gameObject.activeSelf && !debriefTwoCanvas.gameObject.activeSelf)
+            if (!introCanvas.gameObject.activeSelf && !debriefOneCanvas.gameObject.activeSelf && !debriefTwoCanvas.gameObject.activeSelf && taskQuestionCanvas.gameObject.activeSelf)
             {
                 Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
                 // Lock or unlock the character's movement based on the cursor lock state
                 // LockCharacterMovement(newState);
-                Cursor.visible = !newState;
             }
         }
 
