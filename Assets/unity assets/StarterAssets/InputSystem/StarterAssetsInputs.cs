@@ -17,7 +17,8 @@ namespace StarterAssets
         public Canvas debriefOneCanvas;
         public Canvas debriefTwoCanvas;
         public HealthBar healthBar;
-        public Canvas taskQuestionCanvas;
+        public Canvas supermarketListCanvas;
+        public Canvas dementiaCanvas;
 
         [Header("Movement Settings")]
         public bool analogMovement;
@@ -29,7 +30,11 @@ namespace StarterAssets
 #if ENABLE_INPUT_SYSTEM
 		public void OnMove(InputValue value)
 		{
-			if (!introCanvas.gameObject.activeSelf && !debriefOneCanvas.gameObject.activeSelf && !debriefTwoCanvas.gameObject.activeSelf && !taskQuestionCanvas.gameObject.activeSelf)
+			if (!introCanvas.gameObject.activeSelf &&
+             !debriefOneCanvas.gameObject.activeSelf &&
+              !debriefTwoCanvas.gameObject.activeSelf &&
+               !supermarketListCanvas.gameObject.activeSelf &&
+                !dementiaCanvas.gameObject.activeSelf)
             {
                 // Check the health bar value
                 if (healthBar.slider.value > 0)
@@ -46,7 +51,11 @@ namespace StarterAssets
 
 		public void OnLook(InputValue value)
 		{
-			if (!introCanvas.gameObject.activeSelf && !debriefOneCanvas.gameObject.activeSelf && !debriefTwoCanvas.gameObject.activeSelf && !taskQuestionCanvas.gameObject.activeSelf)
+			if (!introCanvas.gameObject.activeSelf &&
+             !debriefOneCanvas.gameObject.activeSelf &&
+              !debriefTwoCanvas.gameObject.activeSelf &&
+               !supermarketListCanvas.gameObject.activeSelf &&
+                !dementiaCanvas.gameObject.activeSelf)
             {
                 // Check the health bar value
                 if (healthBar.slider.value > 0)
@@ -96,7 +105,11 @@ namespace StarterAssets
 
         private void OnApplicationFocus(bool hasFocus)
         {
-            if (!introCanvas.gameObject.activeSelf && !debriefOneCanvas.gameObject.activeSelf && !debriefTwoCanvas.gameObject.activeSelf && !taskQuestionCanvas.gameObject.activeSelf)
+            if (!introCanvas.gameObject.activeSelf &&
+             !debriefOneCanvas.gameObject.activeSelf &&
+              !debriefTwoCanvas.gameObject.activeSelf &&
+               !supermarketListCanvas.gameObject.activeSelf &&
+                !dementiaCanvas.gameObject.activeSelf)
             {
                 SetCursorState(cursorLocked);
             }
@@ -104,7 +117,11 @@ namespace StarterAssets
 
         public void SetCursorState(bool newState)
         {
-            if (!introCanvas.gameObject.activeSelf && !debriefOneCanvas.gameObject.activeSelf && !debriefTwoCanvas.gameObject.activeSelf && taskQuestionCanvas.gameObject.activeSelf)
+            if (!introCanvas.gameObject.activeSelf &&
+             !debriefOneCanvas.gameObject.activeSelf &&
+              !debriefTwoCanvas.gameObject.activeSelf &&
+               !supermarketListCanvas.gameObject.activeSelf &&
+                !dementiaCanvas.gameObject.activeSelf)
             {
                 Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
                 // Lock or unlock the character's movement based on the cursor lock state

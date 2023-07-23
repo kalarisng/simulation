@@ -33,9 +33,11 @@ public class DialogueManager : MonoBehaviour
     {
         AudioSource audioSource = GetComponent<AudioSource>();
         audioSource.Play();
+
         animator.SetBool("isOpen", true);
         isDialogueActive = true;
         startDisableClicker = false;
+
         Debug.Log("Starting conversation...");
         sentences.Clear();
         foreach (string sentence in dialogue.sentences)
