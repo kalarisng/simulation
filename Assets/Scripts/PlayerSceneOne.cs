@@ -27,7 +27,7 @@ public class PlayerSceneOne : MonoBehaviour
     private GameObject contactDialogueBox;
 
     [SerializeField]
-    public GameObject clicker;
+    public Canvas clicker;
 
     [SerializeField]
     [Min(1)]
@@ -44,9 +44,13 @@ public class PlayerSceneOne : MonoBehaviour
 
     private RaycastHit hit;
     [SerializeField]
-    private LocationArrow locationArrowScript;
+    private TaskPaperLocationArrow taskPaperLocationArrowScript;
+    [SerializeField]
+    private ContactPaperLocationArrow contactPaperLocationArrowScript;
     [SerializeField]
     private Canvas locationArrowCanvas;
+    private bool isTaskPaperRead = false;
+    public TaskManager taskManagerScript;
 
     private void Start()
     {
@@ -132,6 +136,7 @@ public class PlayerSceneOne : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.R))
                 {
+                    clicker.gameObject.SetActive(false);
                     ReadObject(hit.collider.gameObject);
                 }
 
@@ -145,30 +150,45 @@ public class PlayerSceneOne : MonoBehaviour
                 if (taskPaperUI.activeSelf && Input.GetKeyDown(KeyCode.X))
                 {
                     Debug.Log("Closing task paper UI");
+                    taskManagerScript.StartFadeIn();
+                    clicker.gameObject.SetActive(true);
                     taskPaperUI.SetActive(false);
                     exitUI.SetActive(false);
-                    clicker.SetActive(true);
+                    contactPaperLocationArrowScript.enabled = true;
                 }
             }
 
-            if (contactPaperUI.activeSelf)
+            if (isTaskPaperRead)
             {
-                pickUpUI.SetActive(false);
-                exitUI.SetActive(true);
-                contactDialogueBox.SetActive(true);
+                if (hit.collider.GetComponent<ContactPaper>())
+                {
+                    Debug.Log("Hit contact paper");
+                    hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
+                    pickUpUI.SetActive(true);
+
+                    if (Input.GetKeyDown(KeyCode.R))
+                    {
+                        ReadObject(hit.collider.gameObject);
+                    }
+
+                    if (contactPaperUI.activeSelf)
+                    {
+                        pickUpUI.SetActive(false);
+                        exitUI.SetActive(true);
+                        contactDialogueBox.SetActive(true);
+                    }
+
+                    if (contactPaperUI.activeSelf && Input.GetKeyDown(KeyCode.X))
+                    {
+                        Debug.Log("Closing contact paper UI");
+                        contactPaperUI.SetActive(false);
+                        contactDialogueBox.SetActive(false);
+                        exitUI.SetActive(false);
+                        clicker.gameObject.SetActive(true);
+                        // MouseLook.paperActive = false;
+                    }
+                }
             }
-        }
-
-
-
-        if (contactPaperUI.activeSelf && Input.GetKeyDown(KeyCode.X))
-        {
-            Debug.Log("Closing contact paper UI");
-            contactPaperUI.SetActive(false);
-            contactDialogueBox.SetActive(false);
-            exitUI.SetActive(false);
-            clicker.SetActive(true);
-            // MouseLook.paperActive = false;
         }
     }
 
@@ -176,20 +196,19 @@ public class PlayerSceneOne : MonoBehaviour
     {
         if (obj.name == "A4_Lined_Paper_FBX")
         {
-            clicker.SetActive(false);
+            Debug.Log("Read object: " + obj.name);
             taskPaperUI.SetActive(true);
-            locationArrowScript.enabled = false;
-            locationArrowCanvas.gameObject.SetActive(false);
+            taskPaperLocationArrowScript.enabled = false;
+            isTaskPaperRead = true;
             // MouseLook.paperActive = true;
-            Debug.Log("Picked up object: " + obj.name);
         }
 
         if (obj.name == "A4_Lined_Paper_FBX (1)")
         {
-            clicker.SetActive(false);
+            Debug.Log("Read object: " + obj.name);
             contactPaperUI.SetActive(true);
-            MouseLook.paperActive = true;
-            Debug.Log("Picked up object: " + obj.name);
+            contactPaperLocationArrowScript.enabled = false;
+            // MouseLook.paperActive = true;
         }
     }
 }

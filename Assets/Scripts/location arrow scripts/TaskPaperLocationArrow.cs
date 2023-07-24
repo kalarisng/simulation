@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LocationArrow : MonoBehaviour
+public class TaskPaperLocationArrow : MonoBehaviour
 {
     public RawImage image;
     public Transform target;
@@ -12,6 +12,18 @@ public class LocationArrow : MonoBehaviour
     void Start()
     {
         image.gameObject.SetActive(true);
+    }
+
+    private void OnEnable()
+    {
+        // Ensure the image is active when the script is enabled
+        image.gameObject.SetActive(true);
+    }
+
+    private void OnDisable()
+    {
+        // Deactivate the image when the script is disabled
+        image.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
