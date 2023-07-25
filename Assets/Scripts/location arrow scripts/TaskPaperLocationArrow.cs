@@ -11,24 +11,27 @@ public class TaskPaperLocationArrow : MonoBehaviour
 
     void Start()
     {
-        image.gameObject.SetActive(true);
+        if (image != null)
+            image.gameObject.SetActive(true);
     }
 
     private void OnEnable()
     {
-        // Ensure the image is active when the script is enabled
-        image.gameObject.SetActive(true);
+        if (image != null)
+            image.gameObject.SetActive(true);
     }
 
     private void OnDisable()
     {
-        // Deactivate the image when the script is disabled
-        image.gameObject.SetActive(false);
+        if (image != null)
+            image.gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
+        if (image == null)
+            return; // Exit the Update method if the image is null
+
         float minX = image.GetPixelAdjustedRect().width / 2;
         float maxX = Screen.width - minX;
 

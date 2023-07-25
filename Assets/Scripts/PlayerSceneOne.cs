@@ -48,7 +48,9 @@ public class PlayerSceneOne : MonoBehaviour
     [SerializeField]
     private ContactPaperLocationArrow contactPaperLocationArrowScript;
     [SerializeField]
-    private Canvas locationArrowCanvas;
+    private GameObject taskPaperlocationArrow;
+    [SerializeField]
+    private GameObject phonelocationArrow;
     private bool isTaskPaperRead = false;
     public TaskManager taskManagerScript;
 
