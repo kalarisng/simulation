@@ -78,8 +78,10 @@ namespace StarterAssets
             if (CanProcessInputs)
             {
                 Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
+                Cursor.visible = !newState; // Hide the cursor when it's locked, show it when it's unlocked
             }
         }
+
 
         public void DeactivateCanvas()
         {

@@ -27,16 +27,6 @@ public class CheckButton : MonoBehaviour
         {
             Debug.Log("Closing debrief one");
             debriefOneCanvas.SetActive(false);
-            TeleportToDestination();
-        }
-    }
-
-    private void TeleportToDestination()
-    {
-        if (teleportDestination != null && firstPersonController != null)
-        {
-            // Set the position of the FirstPersonController to the destination position
-            firstPersonController.transform.position = teleportDestination.position;
         }
     }
 

@@ -36,9 +36,6 @@ public class PlayerSceneOne : MonoBehaviour
     [SerializeField]
     private GameObject inHandItem;
 
-    [SerializeField]
-    private InputActionReference interactionInput, dropInput, useInput;
-
     private RaycastHit hit;
     [SerializeField]
     private TaskPaperLocationArrow taskPaperLocationArrowScript;
@@ -49,7 +46,11 @@ public class PlayerSceneOne : MonoBehaviour
     [SerializeField]
     private GameObject phonelocationArrow;
     private bool isTaskPaperRead = false;
+    private bool isPhoneRead = false;
     public TaskManager taskManagerScript;
+    public GameObject boxOne;
+    public GameObject triggerDoorOpen;
+    public Canvas debriefOneCanvas;
 
     private void Start()
     {
@@ -127,6 +128,22 @@ public class PlayerSceneOne : MonoBehaviour
                         phoneUI.gameObject.SetActive(false);
                         exitUI.SetActive(false);
                         clicker.gameObject.SetActive(true);
+                        boxOne.SetActive(true);
+                        triggerDoorOpen.SetActive(true);
+                    }
+                }
+            }
+
+            if (isPhoneRead)
+            {
+                if (hit.collider.GetComponent<Box>())
+                {
+                    Debug.Log("Hit box");
+                    hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
+
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        debriefOneCanvas.gameObject.SetActive(true);
                     }
                 }
             }
@@ -149,6 +166,7 @@ public class PlayerSceneOne : MonoBehaviour
             Debug.Log("Read object: " + obj.name);
             phoneUI.gameObject.SetActive(true);
             phoneLocationArrowScript.enabled = false;
+            isPhoneRead = true;
             // MouseLook.paperActive = true;
         }
     }

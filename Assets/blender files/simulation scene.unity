@@ -10694,14 +10694,14 @@ MonoBehaviour:
   hitRange: 1
   pickUpParent: {fileID: 175147840}
   inHandItem: {fileID: 0}
-  interactionInput: {fileID: 8330052075359905013, guid: 4419d82f33d36e848b3ed5af4c8da37e, type: 3}
-  dropInput: {fileID: -4854216679487522069, guid: 4419d82f33d36e848b3ed5af4c8da37e, type: 3}
-  useInput: {fileID: 2018260396683955262, guid: 4419d82f33d36e848b3ed5af4c8da37e, type: 3}
   taskPaperLocationArrowScript: {fileID: 1978521016}
   phoneLocationArrowScript: {fileID: 1978521017}
   taskPaperlocationArrow: {fileID: 319614510}
   phonelocationArrow: {fileID: 2004991809}
   taskManagerScript: {fileID: 309361755}
+  boxOne: {fileID: 1899995827}
+  triggerDoorOpen: {fileID: 492971700}
+  debriefOneCanvas: {fileID: 99235453}
 --- !u!114 &616296474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23910,7 +23910,99 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: bf5c3e0cc8f27e44fa80b78fbca7ac1a, type: 3}
       propertyPath: m_Name
-      value: Box
+      value: BoxOne
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: bf5c3e0cc8f27e44fa80b78fbca7ac1a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: bf5c3e0cc8f27e44fa80b78fbca7ac1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: bf5c3e0cc8f27e44fa80b78fbca7ac1a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: bf5c3e0cc8f27e44fa80b78fbca7ac1a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: bf5c3e0cc8f27e44fa80b78fbca7ac1a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: bf5c3e0cc8f27e44fa80b78fbca7ac1a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: bf5c3e0cc8f27e44fa80b78fbca7ac1a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100012, guid: bf5c3e0cc8f27e44fa80b78fbca7ac1a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100014, guid: bf5c3e0cc8f27e44fa80b78fbca7ac1a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100016, guid: bf5c3e0cc8f27e44fa80b78fbca7ac1a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100018, guid: bf5c3e0cc8f27e44fa80b78fbca7ac1a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100020, guid: bf5c3e0cc8f27e44fa80b78fbca7ac1a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100022, guid: bf5c3e0cc8f27e44fa80b78fbca7ac1a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100024, guid: bf5c3e0cc8f27e44fa80b78fbca7ac1a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100026, guid: bf5c3e0cc8f27e44fa80b78fbca7ac1a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100028, guid: bf5c3e0cc8f27e44fa80b78fbca7ac1a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100030, guid: bf5c3e0cc8f27e44fa80b78fbca7ac1a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100032, guid: bf5c3e0cc8f27e44fa80b78fbca7ac1a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100034, guid: bf5c3e0cc8f27e44fa80b78fbca7ac1a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100036, guid: bf5c3e0cc8f27e44fa80b78fbca7ac1a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100038, guid: bf5c3e0cc8f27e44fa80b78fbca7ac1a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100040, guid: bf5c3e0cc8f27e44fa80b78fbca7ac1a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100042, guid: bf5c3e0cc8f27e44fa80b78fbca7ac1a, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bf5c3e0cc8f27e44fa80b78fbca7ac1a, type: 3}
       propertyPath: m_RootOrder
@@ -32711,7 +32803,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1698326302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34665,14 +34757,14 @@ MonoBehaviour:
   hitRange: 1
   pickUpParent: {fileID: 0}
   inHandItem: {fileID: 0}
-  interactionInput: {fileID: 0}
-  dropInput: {fileID: 0}
-  useInput: {fileID: 0}
   taskPaperLocationArrowScript: {fileID: 0}
   phoneLocationArrowScript: {fileID: 0}
   taskPaperlocationArrow: {fileID: 0}
   phonelocationArrow: {fileID: 0}
   taskManagerScript: {fileID: 0}
+  boxOne: {fileID: 0}
+  triggerDoorOpen: {fileID: 0}
+  debriefOneCanvas: {fileID: 0}
 --- !u!64 &1803591763
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -36093,6 +36185,109 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1895522237}
   m_CullTransparentMesh: 1
+--- !u!1 &1899995827 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: bf5c3e0cc8f27e44fa80b78fbca7ac1a, type: 3}
+  m_PrefabInstance: {fileID: 1182273888}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1899995830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899995827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5725e9c54f6394ba4a45e76cd3d197ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1899995831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899995827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51002294c4f294459a6a06fe1ca07882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderers:
+  - {fileID: 1899995834}
+  color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!65 &1899995832
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899995827}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &1899995833
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899995827}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!23 &1899995834
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899995827}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 3f6e773f4260ae14f907c9819b40b281, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &1910992956
 GameObject:
   m_ObjectHideFlags: 0
