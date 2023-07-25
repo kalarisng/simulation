@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ContactPaperLocationArrow : MonoBehaviour
+public class PhoneLocationArrow : MonoBehaviour
 {
     public RawImage image;
     public Transform target;

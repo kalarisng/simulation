@@ -21,10 +21,7 @@ public class PlayerSceneOne : MonoBehaviour
     private GameObject taskPaperUI;
 
     [SerializeField]
-    private GameObject contactPaperUI;
-
-    [SerializeField]
-    private GameObject contactDialogueBox;
+    private Canvas phoneUI;
 
     [SerializeField]
     public Canvas clicker;
@@ -46,7 +43,7 @@ public class PlayerSceneOne : MonoBehaviour
     [SerializeField]
     private TaskPaperLocationArrow taskPaperLocationArrowScript;
     [SerializeField]
-    private ContactPaperLocationArrow contactPaperLocationArrowScript;
+    private PhoneLocationArrow phoneLocationArrowScript;
     [SerializeField]
     private GameObject taskPaperlocationArrow;
     [SerializeField]
@@ -56,58 +53,6 @@ public class PlayerSceneOne : MonoBehaviour
 
     private void Start()
     {
-        interactionInput.action.performed += Interact;
-        dropInput.action.performed += Drop;
-        useInput.action.performed += Use;
-    }
-
-    private void Use(InputAction.CallbackContext obj)
-    {
-
-    }
-
-    private void Drop(InputAction.CallbackContext obj)
-    {
-        if (inHandItem != null)
-        {
-            inHandItem.transform.SetParent(null);
-            inHandItem = null;
-            Rigidbody rb = hit.collider.GetComponent<Rigidbody>();
-            if (rb != null)
-            {
-                rb.isKinematic = false;
-            }
-        }
-    }
-
-    private void Interact(InputAction.CallbackContext obj)
-    {
-        if (hit.collider != null)
-        {
-            Debug.Log(hit.collider.name);
-            Rigidbody rb = hit.collider.GetComponent<Rigidbody>();
-            if (hit.collider.GetComponent<Cube>())
-            {
-                Debug.Log("It's cube!");
-                // inHandItem = hit.collider.gameObject;
-                // inHandItem.transform.position = Vector3.zero;
-                // inHandItem.transform.rotation = Quaternion.identity;
-                // inHandItem.transform.SetParent(pickUpParent.transform, false);
-                // if (rb != null)
-                // {
-                //     rb.isKinematic = true;
-                // }
-                // return;
-
-                inHandItem = hit.collider.gameObject;
-                inHandItem.transform.SetParent(pickUpParent.transform, true);
-                if (rb != null)
-                {
-                    rb.isKinematic = true;
-                }
-                return;
-            }
-        }
     }
 
     // Update is called once per frame
@@ -119,10 +64,6 @@ public class PlayerSceneOne : MonoBehaviour
             Debug.Log("Hit object: " + hit.collider.gameObject.name);
             hit.collider.GetComponent<Highlight>()?.ToggleHighlight(false);
             pickUpUI.SetActive(false);
-            // if (Input.GetKeyDown(KeyCode.R))
-            // {
-            //     PickUpObject(hit.collider.gameObject);
-            // }
         }
         if (inHandItem != null)
         {
@@ -156,38 +97,36 @@ public class PlayerSceneOne : MonoBehaviour
                     clicker.gameObject.SetActive(true);
                     taskPaperUI.SetActive(false);
                     exitUI.SetActive(false);
-                    contactPaperLocationArrowScript.enabled = true;
+                    phoneLocationArrowScript.enabled = true;
                 }
             }
 
             if (isTaskPaperRead)
             {
-                if (hit.collider.GetComponent<ContactPaper>())
+                if (hit.collider.GetComponent<Phone>())
                 {
-                    Debug.Log("Hit contact paper");
+                    Debug.Log("Hit phone");
                     hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
                     pickUpUI.SetActive(true);
 
                     if (Input.GetKeyDown(KeyCode.R))
                     {
+                        clicker.gameObject.SetActive(false);
                         ReadObject(hit.collider.gameObject);
                     }
 
-                    if (contactPaperUI.activeSelf)
+                    if (phoneUI.gameObject.activeSelf)
                     {
                         pickUpUI.SetActive(false);
                         exitUI.SetActive(true);
-                        contactDialogueBox.SetActive(true);
                     }
 
-                    if (contactPaperUI.activeSelf && Input.GetKeyDown(KeyCode.X))
+                    if (phoneUI.gameObject.activeSelf && Input.GetKeyDown(KeyCode.X))
                     {
                         Debug.Log("Closing contact paper UI");
-                        contactPaperUI.SetActive(false);
-                        contactDialogueBox.SetActive(false);
+                        phoneUI.gameObject.SetActive(false);
                         exitUI.SetActive(false);
                         clicker.gameObject.SetActive(true);
-                        // MouseLook.paperActive = false;
                     }
                 }
             }
@@ -205,11 +144,11 @@ public class PlayerSceneOne : MonoBehaviour
             // MouseLook.paperActive = true;
         }
 
-        if (obj.name == "A4_Lined_Paper_FBX (1)")
+        if (obj.name == "smartphone")
         {
             Debug.Log("Read object: " + obj.name);
-            contactPaperUI.SetActive(true);
-            contactPaperLocationArrowScript.enabled = false;
+            phoneUI.gameObject.SetActive(true);
+            phoneLocationArrowScript.enabled = false;
             // MouseLook.paperActive = true;
         }
     }

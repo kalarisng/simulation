@@ -10,10 +10,9 @@ namespace StarterAssets
         [Header("Character Input Values")]
         public Vector2 move;
         public Vector2 look;
-        // public bool jump;
-        // public bool sprint;
 
         public Canvas introCanvas;
+        public Canvas phoneCanvas;
         public Canvas debriefOneCanvas;
         public Canvas debriefTwoCanvas;
         public HealthBar healthBar;
@@ -27,60 +26,33 @@ namespace StarterAssets
         public bool cursorLocked = true;
         public bool cursorInputForLook = true;
 
+        private bool CanProcessInputs => !IsAnyCanvasActive();
+
 #if ENABLE_INPUT_SYSTEM
-		public void OnMove(InputValue value)
-		{
-			if (!introCanvas.gameObject.activeSelf &&
-             !debriefOneCanvas.gameObject.activeSelf &&
-              !debriefTwoCanvas.gameObject.activeSelf &&
-               !supermarketListCanvas.gameObject.activeSelf &&
-                !dementiaCanvas.gameObject.activeSelf)
+        public void OnMove(InputValue value)
+        {
+            if (CanProcessInputs && healthBar.slider.value > 0)
             {
-                // Check the health bar value
-                if (healthBar.slider.value > 0)
-                {
-                    MoveInput(value.Get<Vector2>());
-                }
-                else
-                {
-                    // Health bar is below zero, stop moving
-                    MoveInput(Vector2.zero);
-                }
+                MoveInput(value.Get<Vector2>());
             }
-		}
-
-		public void OnLook(InputValue value)
-		{
-			if (!introCanvas.gameObject.activeSelf &&
-             !debriefOneCanvas.gameObject.activeSelf &&
-              !debriefTwoCanvas.gameObject.activeSelf &&
-               !supermarketListCanvas.gameObject.activeSelf &&
-                !dementiaCanvas.gameObject.activeSelf)
+            else
             {
-                // Check the health bar value
-                if (healthBar.slider.value > 0)
-                {
-                    LookInput(value.Get<Vector2>());
-                }
-                else
-                {
-                    // Health bar is below zero, stop looking
-                    LookInput(Vector2.zero);
-                }
+                MoveInput(Vector2.zero);
             }
-		}
+        }
 
-		// public void OnJump(InputValue value)
-		// {
-		// 	JumpInput(value.isPressed);
-		// }
-
-		// public void OnSprint(InputValue value)
-		// {
-		// 	SprintInput(value.isPressed);
-		// }
+        public void OnLook(InputValue value)
+        {
+            if (CanProcessInputs && healthBar.slider.value > 0)
+            {
+                LookInput(value.Get<Vector2>());
+            }
+            else
+            {
+                LookInput(Vector2.zero);
+            }
+        }
 #endif
-
 
         public void MoveInput(Vector2 newMoveDirection)
         {
@@ -93,23 +65,9 @@ namespace StarterAssets
             look = newLookDirection * sensitivity;
         }
 
-        // public void JumpInput(bool newJumpState)
-        // {
-        //     jump = newJumpState;
-        // }
-
-        // public void SprintInput(bool newSprintState)
-        // {
-        //     sprint = newSprintState;
-        // }
-
         private void OnApplicationFocus(bool hasFocus)
         {
-            if (!introCanvas.gameObject.activeSelf &&
-             !debriefOneCanvas.gameObject.activeSelf &&
-              !debriefTwoCanvas.gameObject.activeSelf &&
-               !supermarketListCanvas.gameObject.activeSelf &&
-                !dementiaCanvas.gameObject.activeSelf)
+            if (CanProcessInputs)
             {
                 SetCursorState(cursorLocked);
             }
@@ -117,15 +75,9 @@ namespace StarterAssets
 
         public void SetCursorState(bool newState)
         {
-            if (!introCanvas.gameObject.activeSelf &&
-             !debriefOneCanvas.gameObject.activeSelf &&
-              !debriefTwoCanvas.gameObject.activeSelf &&
-               !supermarketListCanvas.gameObject.activeSelf &&
-                !dementiaCanvas.gameObject.activeSelf)
+            if (CanProcessInputs)
             {
                 Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
-                // Lock or unlock the character's movement based on the cursor lock state
-                // LockCharacterMovement(newState);
             }
         }
 
@@ -134,6 +86,15 @@ namespace StarterAssets
             introCanvas.gameObject.SetActive(false);
         }
 
+        private bool IsAnyCanvasActive()
+        {
+            return introCanvas.gameObject.activeSelf ||
+                   phoneCanvas.gameObject.activeSelf ||
+                   debriefOneCanvas.gameObject.activeSelf ||
+                   debriefTwoCanvas.gameObject.activeSelf ||
+                   supermarketListCanvas.gameObject.activeSelf ||
+                   dementiaCanvas.gameObject.activeSelf;
+        }
 
         public void LockCharacterMovement(bool locked)
         {
@@ -145,9 +106,6 @@ namespace StarterAssets
             {
                 controller.enabled = !locked;
             }
-
-            // Unlock the cursor if the character's movement is locked
-            SetCursorState(!locked);
         }
     }
 }
