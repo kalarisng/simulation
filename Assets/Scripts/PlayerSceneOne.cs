@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlayerSceneOne : MonoBehaviour
 {
@@ -47,6 +48,7 @@ public class PlayerSceneOne : MonoBehaviour
     private GameObject phonelocationArrow;
     private bool isTaskPaperRead = false;
     private bool isPhoneRead = false;
+    public TextMeshProUGUI taskOne;
     public TaskManager taskManagerScript;
     public GameObject boxOne;
     public GameObject triggerDoorOpen;
@@ -128,6 +130,7 @@ public class PlayerSceneOne : MonoBehaviour
                         phoneUI.gameObject.SetActive(false);
                         exitUI.SetActive(false);
                         clicker.gameObject.SetActive(true);
+                        taskOne.gameObject.SetActive(true);
                         boxOne.SetActive(true);
                         triggerDoorOpen.SetActive(true);
                     }
