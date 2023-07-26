@@ -21,15 +21,6 @@ public class CheckButton : MonoBehaviour
         checkButton.image.color = Color.yellow;
     }
 
-    private void Update()
-    {
-        if (debriefOneCanvas.activeSelf && Input.GetKeyDown(KeyCode.X))
-        {
-            Debug.Log("Closing debrief one");
-            debriefOneCanvas.SetActive(false);
-        }
-    }
-
     private void CheckToggles()
     {
         if (toggle1.isOn && toggle2.isOn && toggle3.isOn)

@@ -12,6 +12,7 @@ namespace StarterAssets
         public Vector2 look;
 
         public Canvas introCanvas;
+        public GameObject taskList;
         public Canvas phoneCanvas;
         public Canvas debriefOneCanvas;
         public Canvas debriefTwoCanvas;
@@ -91,11 +92,12 @@ namespace StarterAssets
         private bool IsAnyCanvasActive()
         {
             return introCanvas.gameObject.activeSelf ||
-                   phoneCanvas.gameObject.activeSelf ||
-                   debriefOneCanvas.gameObject.activeSelf ||
-                   debriefTwoCanvas.gameObject.activeSelf ||
-                   supermarketListCanvas.gameObject.activeSelf ||
-                   dementiaCanvas.gameObject.activeSelf;
+            taskList.activeSelf ||
+            phoneCanvas.gameObject.activeSelf ||
+            debriefOneCanvas.gameObject.activeSelf ||
+            debriefTwoCanvas.gameObject.activeSelf ||
+            supermarketListCanvas.gameObject.activeSelf ||
+            dementiaCanvas.gameObject.activeSelf;
         }
 
         public void LockCharacterMovement(bool locked)

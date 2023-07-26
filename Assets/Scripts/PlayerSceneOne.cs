@@ -43,6 +43,8 @@ public class PlayerSceneOne : MonoBehaviour
     [SerializeField]
     private PhoneLocationArrow phoneLocationArrowScript;
     [SerializeField]
+    private DebriefOneLocationArrow debriefOneLocationArrowScript;
+    [SerializeField]
     private GameObject taskPaperlocationArrow;
     [SerializeField]
     private GameObject phonelocationArrow;
@@ -132,7 +134,7 @@ public class PlayerSceneOne : MonoBehaviour
                         clicker.gameObject.SetActive(true);
                         taskOne.gameObject.SetActive(true);
                         boxOne.SetActive(true);
-                        triggerDoorOpen.SetActive(true);
+                        debriefOneLocationArrowScript.enabled = true;
                     }
                 }
             }
@@ -147,6 +149,14 @@ public class PlayerSceneOne : MonoBehaviour
                     if (Input.GetMouseButtonDown(0))
                     {
                         debriefOneCanvas.gameObject.SetActive(true);
+                    }
+                    if (debriefOneCanvas.gameObject.activeSelf && Input.GetKeyDown(KeyCode.X))
+                    {
+                        Debug.Log("Closing debrief one");
+                        debriefOneCanvas.gameObject.SetActive(false);
+                        exitUI.SetActive(false);
+                        triggerDoorOpen.SetActive(true);
+                        debriefOneLocationArrowScript.enabled = false;
                     }
                 }
             }
