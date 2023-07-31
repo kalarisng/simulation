@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
+using UnityEngine.UI;
 
 public class PlayerSceneTwo : MonoBehaviour
 {
@@ -56,19 +58,16 @@ public class PlayerSceneTwo : MonoBehaviour
     private EggLocationArrow eggLocationArrowScript;
     [SerializeField]
     private OnionLocationArrow onionLocationArrowScript;
+    public TextMeshProUGUI taskThree;
+    [SerializeField]
+    private BlanketLocationArrow blanketLocationArrowScript;
 
     // Start is called before the first frame update
     void Start()
     {
         interactionInput.action.performed += Interact;
         dropInput.action.performed += Drop;
-        useInput.action.performed += Use;
         eggLocationArrowScript.enabled = true;
-    }
-
-    private void Use(InputAction.CallbackContext obj)
-    {
-
     }
 
     private void Drop(InputAction.CallbackContext obj)
@@ -150,7 +149,7 @@ public class PlayerSceneTwo : MonoBehaviour
         {
             Debug.Log(hit.collider.name);
             Rigidbody rb = hit.collider.GetComponent<Rigidbody>();
-            if (hit.collider.GetComponent<Egg>())
+            if (hit.collider.GetComponent<Egg>() && !eggAlreadyInPan)
             {
                 Debug.Log("It's Egg!");
                 eggLocationArrowScript.enabled = false;
@@ -165,7 +164,7 @@ public class PlayerSceneTwo : MonoBehaviour
                 cataractUI.SetActive(true);
                 return;
             }
-            if (hit.collider.GetComponent<Onion>())
+            if (hit.collider.GetComponent<Onion>() && !onionAlreadyInPan)
             {
                 onionLocationArrowScript.enabled = false;
                 dropArrowScript.enabled = true;
@@ -239,6 +238,8 @@ public class PlayerSceneTwo : MonoBehaviour
             egg.SetActive(false);
             onion.SetActive(false);
             plateWithEgg.SetActive(true);
+            taskThree.gameObject.SetActive(true);
+            blanketLocationArrowScript.enabled = true;
         }
         if (inHandItem != null)
         {
@@ -251,7 +252,7 @@ public class PlayerSceneTwo : MonoBehaviour
         // }
         if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out hit, hitRange, pickableLayerMask))
         {
-            if (hit.collider.GetComponent<Egg>())
+            if (hit.collider.GetComponent<Egg>() && !eggAlreadyInPan)
             {
                 hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
                 pickUpUI.SetActive(true);
