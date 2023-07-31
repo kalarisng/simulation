@@ -52,6 +52,10 @@ public class PlayerSceneTwo : MonoBehaviour
     private DropArrow dropArrowScript;
     [SerializeField]
     private Collider machineCollider;
+    [SerializeField]
+    private EggLocationArrow eggLocationArrowScript;
+    [SerializeField]
+    private OnionLocationArrow onionLocationArrowScript;
 
     // Start is called before the first frame update
     void Start()
@@ -59,6 +63,7 @@ public class PlayerSceneTwo : MonoBehaviour
         interactionInput.action.performed += Interact;
         dropInput.action.performed += Drop;
         useInput.action.performed += Use;
+        eggLocationArrowScript.enabled = true;
     }
 
     private void Use(InputAction.CallbackContext obj)
@@ -92,6 +97,7 @@ public class PlayerSceneTwo : MonoBehaviour
                     Debug.Log("onion in pan");
                     onionAlreadyInPan = true;
                     onionPanel.SetActive(false);
+                    dropArrowScript.enabled = false;
                 }
                 else if (inHandItem.name == "egg (1)")
                 {
@@ -99,6 +105,8 @@ public class PlayerSceneTwo : MonoBehaviour
                     eggAlreadyInPan = true;
                     eggPanel.SetActive(false);
                     onionPanel.SetActive(true);
+                    dropArrowScript.enabled = false;
+                    onionLocationArrowScript.enabled = true;
                 }
 
                 inHandItem.transform.SetParent(null);
@@ -145,6 +153,7 @@ public class PlayerSceneTwo : MonoBehaviour
             if (hit.collider.GetComponent<Egg>())
             {
                 Debug.Log("It's Egg!");
+                eggLocationArrowScript.enabled = false;
                 dropArrowScript.enabled = true;
                 dropUI.SetActive(true);
                 inHandItem = hit.collider.gameObject;
@@ -158,6 +167,7 @@ public class PlayerSceneTwo : MonoBehaviour
             }
             if (hit.collider.GetComponent<Onion>())
             {
+                onionLocationArrowScript.enabled = false;
                 dropArrowScript.enabled = true;
                 dropUI.SetActive(true);
                 inHandItem = hit.collider.gameObject;
@@ -241,8 +251,16 @@ public class PlayerSceneTwo : MonoBehaviour
         // }
         if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out hit, hitRange, pickableLayerMask))
         {
-            hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
-            pickUpUI.SetActive(true);
+            if (hit.collider.GetComponent<Egg>())
+            {
+                hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
+                pickUpUI.SetActive(true);
+            }
+            if (eggAlreadyInPan && hit.collider.GetComponent<Onion>())
+            {
+                hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
+                pickUpUI.SetActive(true);
+            }
         }
         // Handle pickup and drop logic   
     }

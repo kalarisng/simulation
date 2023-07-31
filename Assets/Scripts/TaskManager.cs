@@ -8,7 +8,7 @@ public class TaskManager : MonoBehaviour
     public float fadeInDuration = 1.0f; // Duration of the fade-in animation in seconds
     public CanvasGroup canvasGroup;
     public TextMeshProUGUI task;
-    public TextMeshProUGUI taskZero;
+    public TextMeshProUGUI taskOne;
 
     private float currentTime = 0f;
     private bool isFading = false;
@@ -18,7 +18,7 @@ public class TaskManager : MonoBehaviour
         // Initialize the Panel and TextMeshPro text to be transparent
         canvasGroup.alpha = 0f;
         task.alpha = 0f;
-        taskZero.alpha = 0f;
+        taskOne.alpha = 0f;
     }
 
     void Update()
@@ -34,7 +34,7 @@ public class TaskManager : MonoBehaviour
             // Set the alpha value for both the Panel and TextMeshPro text
             canvasGroup.alpha = alpha;
             task.alpha = alpha;
-            taskZero.alpha = alpha;
+            taskOne.alpha = alpha;
 
             // Check if the fade-in animation is complete
             if (currentTime >= fadeInDuration)

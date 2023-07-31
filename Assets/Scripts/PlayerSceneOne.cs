@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.UI;
 
 public class PlayerSceneOne : MonoBehaviour
 {
@@ -44,17 +45,19 @@ public class PlayerSceneOne : MonoBehaviour
     private PhoneLocationArrow phoneLocationArrowScript;
     [SerializeField]
     private DebriefOneLocationArrow debriefOneLocationArrowScript;
-    [SerializeField]
-    private GameObject taskPaperlocationArrow;
-    [SerializeField]
-    private GameObject phonelocationArrow;
+    // [SerializeField]
+    // private GameObject taskPaperlocationArrow;
+    // [SerializeField]
+    // private GameObject phonelocationArrow;
     private bool isTaskPaperRead = false;
     private bool isPhoneRead = false;
-    public TextMeshProUGUI taskOne;
+    public TextMeshProUGUI taskTwo;
     public TaskManager taskManagerScript;
     public GameObject boxOne;
     public GameObject triggerDoorOpen;
     public Canvas debriefOneCanvas;
+    [SerializeField]
+    private RawImage starOne;
 
     private void Start()
     {
@@ -132,7 +135,7 @@ public class PlayerSceneOne : MonoBehaviour
                         phoneUI.gameObject.SetActive(false);
                         exitUI.SetActive(false);
                         clicker.gameObject.SetActive(true);
-                        taskOne.gameObject.SetActive(true);
+                        taskTwo.gameObject.SetActive(true);
                         boxOne.SetActive(true);
                         debriefOneLocationArrowScript.enabled = true;
                     }
@@ -155,6 +158,7 @@ public class PlayerSceneOne : MonoBehaviour
                         Debug.Log("Closing debrief one");
                         debriefOneCanvas.gameObject.SetActive(false);
                         exitUI.SetActive(false);
+                        StartCoroutine(FadeInRawImage(starOne));
                         triggerDoorOpen.SetActive(true);
                         debriefOneLocationArrowScript.enabled = false;
                     }
@@ -182,5 +186,28 @@ public class PlayerSceneOne : MonoBehaviour
             isPhoneRead = true;
             // MouseLook.paperActive = true;
         }
+    }
+
+    private System.Collections.IEnumerator FadeInRawImage(RawImage rawImage)
+    {
+        // Set the initial alpha value to 0
+        rawImage.color = new Color(rawImage.color.r, rawImage.color.g, rawImage.color.b, 0f);
+
+        // Enable the RawImage GameObject
+        rawImage.gameObject.SetActive(true);
+
+        // Gradually increase the alpha value over time
+        float elapsedTime = 0f;
+        while (elapsedTime < 1.0f)
+        {
+            float alpha = Mathf.Lerp(0f, 1f, elapsedTime / 1.0f);
+            rawImage.color = new Color(rawImage.color.r, rawImage.color.g, rawImage.color.b, alpha);
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Ensure the alpha value is set to 1 when the fade-in is complete
+        rawImage.color = new Color(rawImage.color.r, rawImage.color.g, rawImage.color.b, 1f);
     }
 }

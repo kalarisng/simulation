@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DropArrow : MonoBehaviour
+public class EggLocationArrow : MonoBehaviour
 {
     public RawImage image;
     public Transform target;

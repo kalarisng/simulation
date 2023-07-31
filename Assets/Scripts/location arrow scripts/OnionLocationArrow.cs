@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DropArrow : MonoBehaviour
+public class OnionLocationArrow : MonoBehaviour
 {
     public RawImage image;
     public Transform target;

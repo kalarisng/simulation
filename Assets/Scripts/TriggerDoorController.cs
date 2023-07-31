@@ -10,6 +10,12 @@ public class TriggerDoorController : MonoBehaviour
     [SerializeField]
     private bool closeTrigger = false;
     public PlayerSceneTwo playerSceneTwoScript;
+    private AudioSource audioSource; // Reference to the AudioSource component
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>(); // Get the AudioSource component from the same GameObject
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -19,18 +25,35 @@ public class TriggerDoorController : MonoBehaviour
             {
                 Debug.Log("hit door open trigger");
                 myDoor.Play("DoorOpen", 0, 0.0f);
-                AudioSource audioSource = GetComponent<AudioSource>();
-                audioSource.Play();
-                gameObject.SetActive(false);
+                if (audioSource != null && audioSource.clip != null)
+                {
+                    audioSource.Play();
+                    StartCoroutine(DeactivateColliderAfterAudioFinishes());
+                }
+                // gameObject.SetActive(false);
             }
             else if (closeTrigger)
             {
                 Debug.Log("hit door close trigger");
                 myDoor.Play("DoorClose", 0, 0.0f);
-                gameObject.SetActive(false);
+                if (audioSource != null && audioSource.clip != null)
+                {
+                    audioSource.Play();
+                    StartCoroutine(DeactivateColliderAfterAudioFinishes());
+                }
+                // gameObject.SetActive(false);
                 playerSceneTwoScript.enabled = true;
             }
         }
+    }
+
+    private System.Collections.IEnumerator DeactivateColliderAfterAudioFinishes()
+    {
+        // Wait for the audio clip to finish playing
+        yield return new WaitForSeconds(audioSource.clip.length);
+
+        // Deactivate the collider after the audio is done playing
+        gameObject.SetActive(false);
     }
 }
 
