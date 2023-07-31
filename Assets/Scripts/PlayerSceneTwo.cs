@@ -36,6 +36,8 @@ public class PlayerSceneTwo : MonoBehaviour
 
     [SerializeField]
     private GameObject dropAreaAlert;
+    [SerializeField]
+    private GameObject machineDropAreaAlert;
 
     [SerializeField]
     private GameObject dropUI;
@@ -61,6 +63,15 @@ public class PlayerSceneTwo : MonoBehaviour
     public TextMeshProUGUI taskThree;
     [SerializeField]
     private BlanketLocationArrow blanketLocationArrowScript;
+    [SerializeField]
+    private GameObject kitchenDoorCollider;
+    [SerializeField]
+    private Crouch crouchScript;
+    [SerializeField]
+    private Rest restScript;
+    private int blanketsDroppedCount = 0;
+    [SerializeField]
+    private GameObject boxTwo;
 
     // Start is called before the first frame update
     void Start()
@@ -118,7 +129,7 @@ public class PlayerSceneTwo : MonoBehaviour
             if (inHandItem != null && !isInsideMachine)
             {
                 dropUI.SetActive(true);
-                dropAreaAlert.SetActive(true); // Activate the alert UI element if not inside the drop area
+                machineDropAreaAlert.SetActive(true); // Activate the alert UI element if not inside the drop area
             }
             if (inHandItem != null && isInsideMachine)
             {
@@ -134,10 +145,9 @@ public class PlayerSceneTwo : MonoBehaviour
                 if (inHandItem.name == "FirstBlanket" || inHandItem.name == "SecondBlanket" || inHandItem.name == "ThirdBlanket")
                 {
                     Debug.Log("first blanket in machine");
-                    inHandItem.SetActive(false); // Option 1: Deactivate the GameObject
+                    inHandItem.SetActive(false);
+                    blanketsDroppedCount++;
                 }
-
-                // inHandItem.transform.SetParent(null);
                 inHandItem = null;
             }
         }
@@ -240,20 +250,24 @@ public class PlayerSceneTwo : MonoBehaviour
             plateWithEgg.SetActive(true);
             taskThree.gameObject.SetActive(true);
             blanketLocationArrowScript.enabled = true;
+            crouchScript.enabled = true;
+            restScript.enabled = true;
+        }
+        if (blanketsDroppedCount == 3)
+        {
+            boxTwo.SetActive(true);
         }
         if (inHandItem != null)
         {
             Debug.Log("something in hand!");
             return;
         }
-        // if (onionAlreadyInPan)
-        // {
-        //     return;
-        // }
         if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out hit, hitRange, pickableLayerMask))
         {
             if (hit.collider.GetComponent<Egg>() && !eggAlreadyInPan)
             {
+                // activate kitchen door collision
+                kitchenDoorCollider.SetActive(true);
                 hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
                 pickUpUI.SetActive(true);
             }
@@ -262,7 +276,11 @@ public class PlayerSceneTwo : MonoBehaviour
                 hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
                 pickUpUI.SetActive(true);
             }
+            if (eggAlreadyInPan && onionAlreadyInPan && hit.collider.GetComponent<Blanket>())
+            {
+                hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
+                pickUpUI.SetActive(true);
+            }
         }
-        // Handle pickup and drop logic   
     }
 }
