@@ -149,7 +149,7 @@ public class PlayerSceneOne : MonoBehaviour
                     Debug.Log("Hit box");
                     hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
 
-                    if (Input.GetMouseButtonDown(0))
+                    if (Input.GetKeyDown(KeyCode.O))
                     {
                         debriefOneCanvas.gameObject.SetActive(true);
                     }

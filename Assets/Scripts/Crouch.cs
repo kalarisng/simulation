@@ -7,6 +7,7 @@ public class Crouch : MonoBehaviour
     CharacterController characterCollider;
     public Canvas healthBarCanvas;
     // Start is called before the first frame update
+    public GameObject crouchInstructionPanel;
     void Start()
     {
         characterCollider = gameObject.GetComponent<CharacterController>();
@@ -17,6 +18,7 @@ public class Crouch : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.C))
         {
+            crouchInstructionPanel.SetActive(false);
             if (!healthBarCanvas.gameObject.activeSelf)
             {
                 healthBarCanvas.gameObject.SetActive(true);

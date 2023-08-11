@@ -72,6 +72,18 @@ public class PlayerSceneTwo : MonoBehaviour
     private int blanketsDroppedCount = 0;
     [SerializeField]
     private GameObject boxTwo;
+    [SerializeField]
+    private GameObject laundryBasket;
+    // Distance threshold for "close" to the laundry area
+    public float distanceToLaundryArea = 2.0f;
+    [SerializeField]
+    private GameObject crouchInstructionPanel;
+    [SerializeField]
+    private Canvas debriefTwoCanvas;
+    [SerializeField]
+    private RawImage starTwo;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -232,6 +244,29 @@ public class PlayerSceneTwo : MonoBehaviour
         return false;
     }
 
+    private System.Collections.IEnumerator FadeInRawImage(RawImage rawImage)
+    {
+        // Set the initial alpha value to 0
+        rawImage.color = new Color(rawImage.color.r, rawImage.color.g, rawImage.color.b, 0f);
+
+        // Enable the RawImage GameObject
+        rawImage.gameObject.SetActive(true);
+
+        // Gradually increase the alpha value over time
+        float elapsedTime = 0f;
+        while (elapsedTime < 1.0f)
+        {
+            float alpha = Mathf.Lerp(0f, 1f, elapsedTime / 1.0f);
+            rawImage.color = new Color(rawImage.color.r, rawImage.color.g, rawImage.color.b, alpha);
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Ensure the alpha value is set to 1 when the fade-in is complete
+        rawImage.color = new Color(rawImage.color.r, rawImage.color.g, rawImage.color.b, 1f);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -241,6 +276,17 @@ public class PlayerSceneTwo : MonoBehaviour
             Debug.Log("Hit object: " + hit.collider.gameObject.name);
             hit.collider.GetComponent<Highlight>()?.ToggleHighlight(false);
             pickUpUI.SetActive(false);
+            Box boxComponent = hit.collider.GetComponent<Box>();
+            if (boxComponent != null)
+            {
+                Debug.Log("Hit box");
+                hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
+
+                if (Input.GetKeyDown(KeyCode.O))
+                {
+                    debriefTwoCanvas.gameObject.SetActive(true);
+                }
+            }
         }
         if (onionAlreadyInPan && eggAlreadyInPan)
         {
@@ -252,6 +298,19 @@ public class PlayerSceneTwo : MonoBehaviour
             blanketLocationArrowScript.enabled = true;
             crouchScript.enabled = true;
             restScript.enabled = true;
+            Vector3 playerPosition = playerCameraTransform.position;
+            Vector3 laundryBasketPosition = laundryBasket.transform.position;
+
+            // Calculate the distance between the player and the laundry area
+            float distanceToLaundry = Vector3.Distance(playerPosition, laundryBasketPosition);
+
+            // Check if the player is close to the laundry area
+            bool isNearLaundryArea = distanceToLaundry <= distanceToLaundryArea;
+
+            if (isNearLaundryArea)
+            {
+                crouchInstructionPanel.SetActive(true);
+            }
         }
         if (blanketsDroppedCount == 3)
         {

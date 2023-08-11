@@ -9,6 +9,7 @@ public class TriggerDoorController : MonoBehaviour
     private bool openTrigger = false;
     [SerializeField]
     private bool closeTrigger = false;
+    public PlayerSceneOne playerSceneOneScript;
     public PlayerSceneTwo playerSceneTwoScript;
     private AudioSource audioSource; // Reference to the AudioSource component
 
@@ -42,6 +43,7 @@ public class TriggerDoorController : MonoBehaviour
                     StartCoroutine(DeactivateColliderAfterAudioFinishes());
                 }
                 // gameObject.SetActive(false);
+                playerSceneOneScript.enabled = false;
                 playerSceneTwoScript.enabled = true;
             }
         }
