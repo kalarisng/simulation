@@ -17,6 +17,7 @@ namespace StarterAssets
         public Canvas debriefOneCanvas;
         public Canvas debriefTwoCanvas;
         public HealthBar healthBar;
+        public Canvas taskQuestionCanvas;
         public Canvas supermarketListCanvas;
         public Canvas dementiaCanvas;
 
@@ -96,6 +97,7 @@ namespace StarterAssets
             phoneCanvas.gameObject.activeSelf ||
             debriefOneCanvas.gameObject.activeSelf ||
             debriefTwoCanvas.gameObject.activeSelf ||
+            taskQuestionCanvas.gameObject.activeSelf ||
             supermarketListCanvas.gameObject.activeSelf ||
             dementiaCanvas.gameObject.activeSelf;
         }

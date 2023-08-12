@@ -83,8 +83,6 @@ public class PlayerSceneTwo : MonoBehaviour
     [SerializeField]
     private RawImage starTwo;
 
-
-
     // Start is called before the first frame update
     void Start()
     {

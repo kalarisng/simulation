@@ -10,6 +10,7 @@ public class EnterButton : MonoBehaviour
     public Button enterButton;
     public TextMeshProUGUI correctAnswer;
     public TextMeshProUGUI wrongAnswer;
+    public bool enterButtonPressed = false;
 
     private void Start()
     {
@@ -24,6 +25,7 @@ public class EnterButton : MonoBehaviour
         if (userInput.Contains("groceries") && userInput.Contains("supermarket"))
         {
             Debug.Log("Correct! The answer contains both 'groceries' and 'supermarket'.");
+            enterButtonPressed = true;
             StartCoroutine(FadeInText(correctAnswer));
             StartCoroutine(FadeOutInputField(inputField));
             StartCoroutine(FadeOutButton(enterButton));
@@ -31,6 +33,7 @@ public class EnterButton : MonoBehaviour
         else
         {
             Debug.Log("Incorrect. The answer should contain both 'groceries' and 'supermarket'.");
+            enterButtonPressed = true;
             StartCoroutine(FadeInText(wrongAnswer));
             StartCoroutine(FadeOutInputField(inputField));
             StartCoroutine(FadeOutButton(enterButton));

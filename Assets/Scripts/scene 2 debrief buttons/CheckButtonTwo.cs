@@ -19,6 +19,9 @@ public class CheckButtonTwo : MonoBehaviour
     private RawImage starTwo;
     [SerializeField]
     private GameObject kitchenDoorCollider;
+    [SerializeField]
+    private GameObject taskQuestionCollider;
+    public PlayerSceneThree playerSceneThreeScript;
 
 
     private void Start()
@@ -39,6 +42,8 @@ public class CheckButtonTwo : MonoBehaviour
                 starTwo.gameObject.SetActive(true);
                 StartCoroutine(FadeInRawImage(starTwo));
                 kitchenDoorCollider.SetActive(false);
+                taskQuestionCollider.SetActive(true);
+                playerSceneThreeScript.enabled = true;
                 // starterAssetsInputs.LockCharacterMovement(false);
             }
         }

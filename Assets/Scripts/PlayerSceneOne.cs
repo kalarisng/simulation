@@ -45,10 +45,6 @@ public class PlayerSceneOne : MonoBehaviour
     private PhoneLocationArrow phoneLocationArrowScript;
     [SerializeField]
     private DebriefOneLocationArrow debriefOneLocationArrowScript;
-    // [SerializeField]
-    // private GameObject taskPaperlocationArrow;
-    // [SerializeField]
-    // private GameObject phonelocationArrow;
     private bool isTaskPaperRead = false;
     private bool isPhoneRead = false;
     public TextMeshProUGUI taskTwo;
