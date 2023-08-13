@@ -11,14 +11,13 @@ public class CheckAnswers : MonoBehaviour
     public TextMeshProUGUI wrongAnswer;
     public TextMeshProUGUI correctAnswer;
 
-    public SelectedButtonsData selectedButtonsData;
     // Start is called before the first frame update
     void Start()
     {
         checkButton.onClick.AddListener(CheckAnswer);
     }
 
-    // Update is called once per frame
+    // Method to check user's answer
     void CheckAnswer()
     {
         string userInput = inputField.text;
@@ -31,27 +30,37 @@ public class CheckAnswers : MonoBehaviour
             words[i] = words[i].Trim();
         }
 
-        // Access the list of selected buttons in SelectedButtonsData
-        List<FoodButton> selectedButtons = selectedButtonsData.selectedButtons;
+        bool allWordsMatched = true;
 
-        for (int j = 0; j < words.Length; j++)
+        foreach (Button button in ButtonManager.selectedButtons)
         {
-            bool wordMatched = true;
-            foreach (FoodButton button in selectedButtons)
+            bool wordMatched = false;
+
+            foreach (string word in words)
             {
-                if (words[j] != button.name)
+                if (word == button.name)
                 {
-                    Debug.Log(button.name);
-                    wrongAnswer.gameObject.SetActive(true);
-                    wordMatched = false;
+                    wordMatched = true;
                     break;
                 }
             }
 
-            if (wordMatched)
+            if (!wordMatched)
             {
-                correctAnswer.gameObject.SetActive(true);
+                allWordsMatched = false;
+                break;
             }
+        }
+
+        if (allWordsMatched && words.Length == ButtonManager.selectedButtons.Count)
+        {
+            correctAnswer.gameObject.SetActive(true);
+            wrongAnswer.gameObject.SetActive(false);
+        }
+        else
+        {
+            correctAnswer.gameObject.SetActive(false);
+            wrongAnswer.gameObject.SetActive(true);
         }
     }
 }

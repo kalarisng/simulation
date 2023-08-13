@@ -6,35 +6,31 @@ using UnityEngine.UI;
 public class FoodButton : MonoBehaviour
 {
     public static int maxSelectionCount = 5;
-    public static int minSelectionCount = 5;
 
     public Button foodButton;
     public RawImage tick;
 
-    // Reference to the scriptable object to store selected buttons' data
-    public SelectedButtonsData selectedButtonsData;
-
     // Start is called before the first frame update
     void Start()
     {
-        foodButton.onClick.AddListener(Tick);
+        foodButton.onClick.AddListener(ToggleButton);
         ToggleButtonInteractivity();
     }
 
     // Handle button selection
-    public void Tick()
+    public void ToggleButton()
     {
         if (tick.gameObject.activeSelf)
         {
             tick.gameObject.SetActive(false);
-            selectedButtonsData.selectedButtons.Remove(this);
+            ButtonManager.selectedButtons.Remove(foodButton);
         }
         else
         {
-            if (selectedButtonsData.selectedButtons.Count < maxSelectionCount)
+            if (ButtonManager.selectedButtons.Count < maxSelectionCount)
             {
                 tick.gameObject.SetActive(true);
-                selectedButtonsData.selectedButtons.Add(this);
+                ButtonManager.selectedButtons.Add(foodButton);
             }
         }
 
@@ -44,20 +40,17 @@ public class FoodButton : MonoBehaviour
 
     private void ToggleButtonInteractivity()
     {
-        // Get all the FoodButton components in the scene
-        FoodButton[] foodButtons = FindObjectsOfType<FoodButton>();
+        Button[] foodButtons = FindObjectsOfType<Button>();
 
-        // Iterate through each button and disable the click if the maximum selection count is reached
-        foreach (FoodButton button in foodButtons)
+        foreach (Button button in foodButtons)
         {
-            Button buttonComponent = button.foodButton;
-            if (selectedButtonsData.selectedButtons.Count >= maxSelectionCount && !button.tick.gameObject.activeSelf)
+            if (ButtonManager.selectedButtons.Count >= maxSelectionCount && !ButtonManager.selectedButtons.Contains(button))
             {
-                buttonComponent.interactable = false;
+                button.interactable = false;
             }
             else
             {
-                buttonComponent.interactable = true;
+                button.interactable = true;
             }
         }
     }

@@ -14,10 +14,21 @@ public class DialogueManager : MonoBehaviour
     public bool startDisableClicker = true;
     public GameObject clicker;
     public StarterAssetsInputs starterAssetsInputs;
+    public AudioSource audioSource1; // Add this variable for the first AudioSource
+    public AudioSource audioSource2; // Add this variable for the second AudioSource
+    public AudioClip yourAudioClip2;
+
 
     void Start()
     {
         sentences = new Queue<string>();
+        audioSource1 = GetComponent<AudioSource>(); // Assuming the first AudioSource is already attached
+        audioSource2 = gameObject.AddComponent<AudioSource>(); // Adding a new AudioSource component
+
+        // Configure audioSource2 properties
+        audioSource2.clip = yourAudioClip2; // Assign the AudioClip you want to play
+        audioSource2.volume = 1.0f; // Adjust the volume as needed
+        audioSource2.spatialBlend = 0.0f; // Adjust spatial blend for 2D audio
     }
     public bool IsDialogueActive()
     {
@@ -31,8 +42,10 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        AudioSource audioSource = GetComponent<AudioSource>();
-        audioSource.Play();
+        // AudioSource audioSource = GetComponent<AudioSource>();
+        // audioSource.Play();
+        audioSource1.Play();
+        audioSource2.Play();
 
         animator.SetBool("isOpen", true);
         isDialogueActive = true;
@@ -68,8 +81,10 @@ public class DialogueManager : MonoBehaviour
 
         clicker.SetActive(true);
 
-        AudioSource audioSource = GetComponent<AudioSource>();
-        audioSource.Stop();
+        // AudioSource audioSource = GetComponent<AudioSource>();
+        // audioSource.Stop();
+        audioSource1.Stop();
+        audioSource2.Stop();
 
         starterAssetsInputs.DeactivateCanvas();
         Debug.Log("deactivated canvas");

@@ -964,7 +964,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodButton: {fileID: 39615130}
   tick: {fileID: 2081919357}
-  selectedButtonsData: {fileID: 11400000, guid: 11ec70902e4674fe5951e03f250c3e88, type: 2}
 --- !u!1 &39741310 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4284265926381754651, guid: 4ce32cc80f33c418f9e98784ce65058d, type: 3}
@@ -6019,7 +6018,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodButton: {fileID: 278956863}
   tick: {fileID: 1164276333}
-  selectedButtonsData: {fileID: 11400000, guid: 11ec70902e4674fe5951e03f250c3e88, type: 2}
 --- !u!1 &284952310 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 492440804577196729, guid: 4ce32cc80f33c418f9e98784ce65058d, type: 3}
@@ -6235,7 +6233,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodButton: {fileID: 296518159}
   tick: {fileID: 1373884064}
-  selectedButtonsData: {fileID: 11400000, guid: 11ec70902e4674fe5951e03f250c3e88, type: 2}
 --- !u!1 &299797994
 GameObject:
   m_ObjectHideFlags: 0
@@ -7217,10 +7214,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 322389711}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22fc35219a7234eb589da1ae19757503, type: 3}
+  m_Script: {fileID: 11500000, guid: 1be16825fdcf446218e1b76494335ed4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedButtonsData: {fileID: 0}
 --- !u!1 &324104379
 GameObject:
   m_ObjectHideFlags: 0
@@ -9157,6 +9153,7 @@ GameObject:
   - component: {fileID: 415441413}
   - component: {fileID: 415441414}
   - component: {fileID: 415441415}
+  - component: {fileID: 415441416}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -9197,6 +9194,9 @@ MonoBehaviour:
   startDisableClicker: 1
   clicker: {fileID: 710845744}
   starterAssetsInputs: {fileID: 616296468}
+  audioSource1: {fileID: 415441416}
+  audioSource2: {fileID: 415441416}
+  yourAudioClip2: {fileID: 8300000, guid: a2aaa4feeb60b496b86ac83f9565021f, type: 3}
 --- !u!82 &415441415
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9204,12 +9204,108 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 415441411}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3d360703462c74bbe9f91e52f8edc238, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.316
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &415441416
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415441411}
+  m_Enabled: 0
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: a2aaa4feeb60b496b86ac83f9565021f, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -10714,7 +10810,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodButton: {fileID: 504782697}
   tick: {fileID: 690433491}
-  selectedButtonsData: {fileID: 11400000, guid: 11ec70902e4674fe5951e03f250c3e88, type: 2}
 --- !u!1 &507115852
 GameObject:
   m_ObjectHideFlags: 0
@@ -13891,7 +13986,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodButton: {fileID: 705515387}
   tick: {fileID: 739132305}
-  selectedButtonsData: {fileID: 11400000, guid: 11ec70902e4674fe5951e03f250c3e88, type: 2}
 --- !u!1 &705814595
 GameObject:
   m_ObjectHideFlags: 0
@@ -14834,7 +14928,6 @@ MonoBehaviour:
   checkButton: {fileID: 737259364}
   wrongAnswer: {fileID: 215210259}
   correctAnswer: {fileID: 2114015812}
-  selectedButtonsData: {fileID: 11400000, guid: 11ec70902e4674fe5951e03f250c3e88, type: 2}
 --- !u!1 &739132303
 GameObject:
   m_ObjectHideFlags: 0
@@ -16228,7 +16321,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodButton: {fileID: 785578485}
   tick: {fileID: 911844813}
-  selectedButtonsData: {fileID: 11400000, guid: 11ec70902e4674fe5951e03f250c3e88, type: 2}
 --- !u!1 &806582492
 GameObject:
   m_ObjectHideFlags: 0
@@ -16420,6 +16512,162 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: add8565ea42029f4abfaa37c7dbe2abf, type: 3}
+--- !u!1 &812223213
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 812223217}
+  - component: {fileID: 812223216}
+  - component: {fileID: 812223215}
+  - component: {fileID: 812223214}
+  m_Layer: 0
+  m_Name: CallCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &812223214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812223213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a4478dce175948ebbc9b24c40637053, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 812223215}
+--- !u!82 &812223215
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812223213}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: c09366ef7017147ae8d2301a594a29d9, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!65 &812223216
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812223213}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.35849482, y: 0.39859658, z: 0.7364764}
+  m_Center: {x: 0.3207526, y: -0.3007017, z: -0.13176179}
+--- !u!4 &812223217
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812223213}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.053, y: 0.533, z: -4.637}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 159
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &813347379
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18943,7 +19191,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodButton: {fileID: 890656155}
   tick: {fileID: 1044071921}
-  selectedButtonsData: {fileID: 11400000, guid: 11ec70902e4674fe5951e03f250c3e88, type: 2}
 --- !u!1 &896066222
 GameObject:
   m_ObjectHideFlags: 0
@@ -19622,7 +19869,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodButton: {fileID: 913236010}
   tick: {fileID: 1869084615}
-  selectedButtonsData: {fileID: 11400000, guid: 11ec70902e4674fe5951e03f250c3e88, type: 2}
 --- !u!1 &917727428
 GameObject:
   m_ObjectHideFlags: 0
@@ -24868,7 +25114,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodButton: {fileID: 1093081288}
   tick: {fileID: 833340319}
-  selectedButtonsData: {fileID: 11400000, guid: 11ec70902e4674fe5951e03f250c3e88, type: 2}
 --- !u!1001 &1099837875
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26844,7 +27089,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodButton: {fileID: 1199155056}
   tick: {fileID: 1825469071}
-  selectedButtonsData: {fileID: 11400000, guid: 11ec70902e4674fe5951e03f250c3e88, type: 2}
 --- !u!1001 &1204365775
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29281,15 +29525,13 @@ MonoBehaviour:
   dialogue:
     sentences:
     - "Ahh\u2026 It\u2019s the start of another day."
-    - As I rub the sleep from my eyes, I can't help but feel the absence of warmth
-      beside me. The empty space in bed reminds me of the love and companionship
-      that used to fill this room.
-    - Getting up feels tougher than ever. Every step comes with an ache, as if my
-      body is shouting, 'Hey, we're not as young as we used to be!'
-    - This house feels quieter now, almost too quiet. The laughter of children and
-      the hustle and bustle of a bustling household have faded away, leaving behind
-      echoes of distant memories. These walls seem to hold stories and dreams that
-      time forgot.
+    - Once again, the house is quiet and empty... but this used to be a place filled
+      with warmth, love and companionship.
+    - There are no more laughter of children, no more hustle and bustle anymore.
+      All these are just faint, distant memories. Now my life feels so empty, and
+      getting up everyday feels tougher than ever.
+    - "There\u2019s no point thinking about these. Let\u2019s see.. What do I have
+      planned for today?"
   buttonCanvasGroup: {fileID: 1345925321}
   clicker: {fileID: 710845744}
   fadeDuration: 0.2
@@ -30046,7 +30288,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodButton: {fileID: 1402962869}
   tick: {fileID: 1912017052}
-  selectedButtonsData: {fileID: 11400000, guid: 11ec70902e4674fe5951e03f250c3e88, type: 2}
 --- !u!1 &1408071669
 GameObject:
   m_ObjectHideFlags: 0
@@ -30314,7 +30555,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodButton: {fileID: 1411210063}
   tick: {fileID: 1794976485}
-  selectedButtonsData: {fileID: 11400000, guid: 11ec70902e4674fe5951e03f250c3e88, type: 2}
 --- !u!1 &1417887081
 GameObject:
   m_ObjectHideFlags: 0
@@ -30556,7 +30796,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodButton: {fileID: 1425133403}
   tick: {fileID: 1848790581}
-  selectedButtonsData: {fileID: 11400000, guid: 11ec70902e4674fe5951e03f250c3e88, type: 2}
 --- !u!1 &1425264055
 GameObject:
   m_ObjectHideFlags: 0
