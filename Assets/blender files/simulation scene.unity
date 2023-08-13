@@ -7835,6 +7835,9 @@ MonoBehaviour:
   contact: {fileID: 1895522239}
   searchBar: {fileID: 1466613842}
   dialPage: {fileID: 1591259202}
+  firstAudioClip: {fileID: 8300000, guid: a3c440ace24cf415e81c8eac93748791, type: 3}
+  secondAudioClip: {fileID: 8300000, guid: 561f8055eb7054c558c489276cd30942, type: 3}
+  thirdAudioClip: {fileID: 8300000, guid: 7dbb9bb228d824fa4a9b8a6bfced11bc, type: 3}
 --- !u!1001 &341101666
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16661,7 +16664,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812223213}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.053, y: 0.533, z: -4.637}
+  m_LocalPosition: {x: -1.09, y: 0.533, z: -4.637}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -11,6 +11,20 @@ public class DaughterButton : MonoBehaviour
     public TextMeshProUGUI contact;
     public RawImage searchBar;
     public GameObject dialPage;
+
+    public AudioClip firstAudioClip; // Assign in the Unity Inspector
+    public AudioClip secondAudioClip; // Assign in the Unity Inspector
+    public AudioClip thirdAudioClip; // Assign in the Unity Inspector
+
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.playOnAwake = false; // Don't play the audio on awake
+        audioSource.loop = false; // Make sure looping is disabled
+    }
+
     public void OnButtonClick()
     {
         Debug.Log("Daughter button clicked!");
@@ -24,11 +38,32 @@ public class DaughterButton : MonoBehaviour
             button.gameObject.SetActive(false);
         }
 
-        AudioSource audioSource = GetComponent<AudioSource>();
-        audioSource.enabled = true;
-        audioSource.Play();
+        // Play the first audio clip
+        PlayAudioClip(firstAudioClip);
 
         // Set the dial page to be visible
         dialPage.SetActive(true);
+    }
+
+    private void PlayAudioClip(AudioClip clip)
+    {
+        audioSource.clip = clip;
+        audioSource.Play();
+
+        // Schedule the next audio clip to play after the current clip finishes
+        Invoke("PlayNextAudioClip", clip.length);
+    }
+
+    private void PlayNextAudioClip()
+    {
+        // Determine which audio clip to play next based on the current clip
+        if (audioSource.clip == firstAudioClip)
+        {
+            PlayAudioClip(secondAudioClip);
+        }
+        else if (audioSource.clip == secondAudioClip)
+        {
+            PlayAudioClip(thirdAudioClip);
+        }
     }
 }
