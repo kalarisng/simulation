@@ -11,6 +11,7 @@ public class DaughterButton : MonoBehaviour
     public TextMeshProUGUI contact;
     public RawImage searchBar;
     public GameObject dialPage;
+    public GameObject questionPanel;
 
     public AudioClip firstAudioClip; // Assign in the Unity Inspector
     public AudioClip secondAudioClip; // Assign in the Unity Inspector
@@ -64,6 +65,10 @@ public class DaughterButton : MonoBehaviour
         else if (audioSource.clip == secondAudioClip)
         {
             PlayAudioClip(thirdAudioClip);
+        }
+        else if (audioSource.clip == thirdAudioClip)
+        {
+            questionPanel.SetActive(true);
         }
     }
 }
