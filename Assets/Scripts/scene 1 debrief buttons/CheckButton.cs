@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -11,14 +13,34 @@ public class CheckButton : MonoBehaviour
     public Button checkButton;
     public TextMeshProUGUI buttonText;
     public Transform teleportDestination;
-    public GameObject debriefOneCanvas;
     public GameObject exitUI;
-    public FirstPersonController firstPersonController; // Reference to the FirstPersonController component
+    private bool isAnswerCorrect = false;
+    [SerializeField]
+    private Canvas debriefOneCanvas;
+    [SerializeField]
+    private RawImage starOne;
+    public GameObject triggerDoorOpen;
+    [SerializeField]
+    private DebriefOneLocationArrow debriefOneLocationArrowScript;
+    public GameObject callCollider;
 
     private void Start()
     {
         checkButton.onClick.AddListener(CheckToggles);
         checkButton.image.color = Color.yellow;
+    }
+
+    private void Update()
+    {
+        if (isAnswerCorrect && Input.GetKeyDown(KeyCode.X))
+        {
+            debriefOneCanvas.gameObject.SetActive(false);
+            exitUI.SetActive(false);
+            starOne.gameObject.SetActive(true);
+            triggerDoorOpen.SetActive(true);
+            debriefOneLocationArrowScript.enabled = false;
+            callCollider.SetActive(false);
+        }
     }
 
     private void CheckToggles()
@@ -27,6 +49,7 @@ public class CheckButton : MonoBehaviour
         {
             checkButton.image.color = Color.green;
             buttonText.text = "Correct!";
+            isAnswerCorrect = true;
             exitUI.SetActive(true);
         }
         else

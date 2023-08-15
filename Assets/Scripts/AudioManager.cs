@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class AudioManager : MonoBehaviour
 {
@@ -8,6 +9,12 @@ public class AudioManager : MonoBehaviour
     public Button[] buttons;
     public GameObject exitPanel;
     public Canvas phoneCanvas;
+    public TextMeshProUGUI taskTwo;
+    public GameObject boxOne;
+    [SerializeField]
+    private DebriefOneLocationArrow debriefOneLocationArrowScript;
+    [SerializeField]
+    public Canvas clicker;
     private bool isAudioEnded = false;
 
     private void Start()
@@ -30,6 +37,11 @@ public class AudioManager : MonoBehaviour
         if (isAudioEnded && Input.GetKeyDown(KeyCode.X))
         {
             phoneCanvas.gameObject.SetActive(false);
+            exitPanel.SetActive(false);
+            clicker.gameObject.SetActive(true);
+            taskTwo.gameObject.SetActive(true);
+            boxOne.SetActive(true);
+            debriefOneLocationArrowScript.enabled = true;
         }
     }
 

@@ -43,17 +43,11 @@ public class PlayerSceneOne : MonoBehaviour
     private TaskPaperLocationArrow taskPaperLocationArrowScript;
     [SerializeField]
     private PhoneLocationArrow phoneLocationArrowScript;
-    [SerializeField]
-    private DebriefOneLocationArrow debriefOneLocationArrowScript;
     private bool isTaskPaperRead = false;
     private bool isPhoneRead = false;
-    public TextMeshProUGUI taskTwo;
     public TaskManager taskManagerScript;
-    public GameObject boxOne;
-    public GameObject triggerDoorOpen;
     public Canvas debriefOneCanvas;
-    [SerializeField]
-    private RawImage starOne;
+    public GameObject openUI;
 
     private void Start()
     {
@@ -68,6 +62,7 @@ public class PlayerSceneOne : MonoBehaviour
             Debug.Log("Hit object: " + hit.collider.gameObject.name);
             hit.collider.GetComponent<Highlight>()?.ToggleHighlight(false);
             pickUpUI.SetActive(false);
+            openUI.SetActive(false);
         }
         if (inHandItem != null)
         {
@@ -122,18 +117,6 @@ public class PlayerSceneOne : MonoBehaviour
                     if (phoneUI.gameObject.activeSelf)
                     {
                         pickUpUI.SetActive(false);
-                        exitUI.SetActive(true);
-                    }
-
-                    if (phoneUI.gameObject.activeSelf && Input.GetKeyDown(KeyCode.X))
-                    {
-                        Debug.Log("Closing contact paper UI");
-                        phoneUI.gameObject.SetActive(false);
-                        exitUI.SetActive(false);
-                        clicker.gameObject.SetActive(true);
-                        taskTwo.gameObject.SetActive(true);
-                        boxOne.SetActive(true);
-                        debriefOneLocationArrowScript.enabled = true;
                     }
                 }
             }
@@ -144,19 +127,12 @@ public class PlayerSceneOne : MonoBehaviour
                 {
                     Debug.Log("Hit box");
                     hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
+                    openUI.SetActive(true);
 
                     if (Input.GetKeyDown(KeyCode.O))
                     {
+                        openUI.SetActive(false);
                         debriefOneCanvas.gameObject.SetActive(true);
-                    }
-                    if (debriefOneCanvas.gameObject.activeSelf && Input.GetKeyDown(KeyCode.X))
-                    {
-                        Debug.Log("Closing debrief one");
-                        debriefOneCanvas.gameObject.SetActive(false);
-                        exitUI.SetActive(false);
-                        StartCoroutine(FadeInRawImage(starOne));
-                        triggerDoorOpen.SetActive(true);
-                        debriefOneLocationArrowScript.enabled = false;
                     }
                 }
             }
@@ -182,28 +158,5 @@ public class PlayerSceneOne : MonoBehaviour
             isPhoneRead = true;
             // MouseLook.paperActive = true;
         }
-    }
-
-    private System.Collections.IEnumerator FadeInRawImage(RawImage rawImage)
-    {
-        // Set the initial alpha value to 0
-        rawImage.color = new Color(rawImage.color.r, rawImage.color.g, rawImage.color.b, 0f);
-
-        // Enable the RawImage GameObject
-        rawImage.gameObject.SetActive(true);
-
-        // Gradually increase the alpha value over time
-        float elapsedTime = 0f;
-        while (elapsedTime < 1.0f)
-        {
-            float alpha = Mathf.Lerp(0f, 1f, elapsedTime / 1.0f);
-            rawImage.color = new Color(rawImage.color.r, rawImage.color.g, rawImage.color.b, alpha);
-
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-
-        // Ensure the alpha value is set to 1 when the fade-in is complete
-        rawImage.color = new Color(rawImage.color.r, rawImage.color.g, rawImage.color.b, 1f);
     }
 }

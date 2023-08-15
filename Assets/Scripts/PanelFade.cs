@@ -18,10 +18,13 @@ public class PanelFade : MonoBehaviour
 
     [SerializeField]
     private int repeatCount = 2; // Number of times to repeat the fade-in and fade-out process
+    private AudioSource audioSource;
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         StartCoroutine(RepeatFadeProcess());
+        audioSource.Play();
     }
 
     private IEnumerator RepeatFadeProcess()
