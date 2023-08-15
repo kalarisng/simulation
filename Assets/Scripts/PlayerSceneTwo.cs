@@ -144,7 +144,7 @@ public class PlayerSceneTwo : MonoBehaviour
             if (inHandItem != null && isInsideMachine)
             {
                 dropUI.SetActive(false);
-                dropAreaAlert.SetActive(false);
+                machineDropAreaAlert.SetActive(false);
 
                 Rigidbody rb = hit.collider.GetComponent<Rigidbody>();
                 if (rb != null)

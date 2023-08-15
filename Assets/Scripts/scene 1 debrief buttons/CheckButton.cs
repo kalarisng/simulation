@@ -14,6 +14,7 @@ public class CheckButton : MonoBehaviour
     public TextMeshProUGUI buttonText;
     public Transform teleportDestination;
     public GameObject exitUI;
+    public TextMeshProUGUI taskTwo;
     private bool isAnswerCorrect = false;
     [SerializeField]
     private Canvas debriefOneCanvas;
@@ -37,6 +38,7 @@ public class CheckButton : MonoBehaviour
             debriefOneCanvas.gameObject.SetActive(false);
             exitUI.SetActive(false);
             starOne.gameObject.SetActive(true);
+            taskTwo.gameObject.SetActive(true);
             triggerDoorOpen.SetActive(true);
             debriefOneLocationArrowScript.enabled = false;
             callCollider.SetActive(false);
