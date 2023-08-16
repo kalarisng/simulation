@@ -41,16 +41,16 @@ public class PlayerSceneThree : MonoBehaviour
     private GameObject taskQuestionCollider;
     [SerializeField]
     private GameObject phoneCallSound;
-    private AudioSource phoneAudioSource;
     private int loopCount = 3;
     [SerializeField]
     private SelectFoodLocationArrow selectFoodLocationArrowScript;
+    [SerializeField]
+    private PhoneCallAudio phoneCallAudioScript;
 
     private void Start()
     {
         playerSceneTwoScript.enabled = false;
         selectFoodLocationArrowScript.enabled = true;
-        phoneAudioSource = phoneCallSound.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -93,20 +93,14 @@ public class PlayerSceneThree : MonoBehaviour
                     clicker.gameObject.SetActive(true);
                     supermarketListCanvas.gameObject.SetActive(false);
                     exitUI.SetActive(false);
-                    for (int i = 0; i < loopCount; i++)
-                    {
-                        phoneAudioSource.Play();
-                        while (phoneAudioSource.isPlaying)
-                        {
-                            // Do nothing and wait
-                        }
-                    }
+                    phoneCallAudioScript.enabled = true;
                 }
             }
         }
 
         if (enterButtonScript.enterButtonPressed && Input.GetKeyDown(KeyCode.X))
         {
+            exitUI.SetActive(false);
             taskQuestionCanvas.gameObject.SetActive(false);
             taskQuestionCollider.SetActive(false);
         }
