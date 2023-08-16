@@ -64,6 +64,8 @@ public class PlayerSceneTwo : MonoBehaviour
     [SerializeField]
     private BlanketLocationArrow blanketLocationArrowScript;
     [SerializeField]
+    private DebriefTwoLocationArrow debriefTwoLocationArrowScript;
+    [SerializeField]
     private GameObject kitchenDoorCollider;
     [SerializeField]
     private Crouch crouchScript;
@@ -82,6 +84,10 @@ public class PlayerSceneTwo : MonoBehaviour
     private Canvas debriefTwoCanvas;
     [SerializeField]
     private RawImage starTwo;
+    [SerializeField]
+    private GameObject breakfastCollider;
+    [SerializeField]
+    private GameObject openUI;
 
     // Start is called before the first frame update
     void Start()
@@ -172,6 +178,7 @@ public class PlayerSceneTwo : MonoBehaviour
             if (hit.collider.GetComponent<Egg>() && !eggAlreadyInPan)
             {
                 Debug.Log("It's Egg!");
+                breakfastCollider.SetActive(false);
                 eggLocationArrowScript.enabled = false;
                 dropArrowScript.enabled = true;
                 dropUI.SetActive(true);
@@ -274,6 +281,7 @@ public class PlayerSceneTwo : MonoBehaviour
             Debug.Log("Hit object: " + hit.collider.gameObject.name);
             hit.collider.GetComponent<Highlight>()?.ToggleHighlight(false);
             pickUpUI.SetActive(false);
+            openUI.SetActive(false);
             Box boxComponent = hit.collider.GetComponent<Box>();
             if (boxComponent != null)
             {
@@ -312,6 +320,8 @@ public class PlayerSceneTwo : MonoBehaviour
         }
         if (blanketsDroppedCount == 3)
         {
+            blanketLocationArrowScript.enabled = false;
+            debriefTwoLocationArrowScript.enabled = true;
             boxTwo.SetActive(true);
         }
         if (inHandItem != null)
@@ -337,6 +347,11 @@ public class PlayerSceneTwo : MonoBehaviour
             {
                 hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
                 pickUpUI.SetActive(true);
+            }
+            if (eggAlreadyInPan && onionAlreadyInPan && blanketsDroppedCount == 3)
+            {
+                hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
+                openUI.SetActive(true);
             }
         }
     }
