@@ -965,6 +965,7 @@ MonoBehaviour:
   foodButton: {fileID: 39615130}
   tick: {fileID: 2081919357}
   supermarketListCanvas: {fileID: 322389714}
+  exitUI: {fileID: 1695691832}
 --- !u!1 &39741310 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4284265926381754651, guid: 4ce32cc80f33c418f9e98784ce65058d, type: 3}
@@ -6164,6 +6165,7 @@ MonoBehaviour:
   foodButton: {fileID: 278956863}
   tick: {fileID: 1164276333}
   supermarketListCanvas: {fileID: 322389714}
+  exitUI: {fileID: 1695691832}
 --- !u!1 &284952310 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 492440804577196729, guid: 4ce32cc80f33c418f9e98784ce65058d, type: 3}
@@ -6319,6 +6321,7 @@ MonoBehaviour:
   foodButton: {fileID: 296518159}
   tick: {fileID: 1373884064}
   supermarketListCanvas: {fileID: 322389714}
+  exitUI: {fileID: 1695691832}
 --- !u!1 &299797994
 GameObject:
   m_ObjectHideFlags: 0
@@ -11107,6 +11110,7 @@ MonoBehaviour:
   foodButton: {fileID: 504782697}
   tick: {fileID: 690433491}
   supermarketListCanvas: {fileID: 322389714}
+  exitUI: {fileID: 1695691832}
 --- !u!1 &507115852
 GameObject:
   m_ObjectHideFlags: 0
@@ -14648,6 +14652,7 @@ MonoBehaviour:
   foodButton: {fileID: 705515387}
   tick: {fileID: 739132305}
   supermarketListCanvas: {fileID: 322389714}
+  exitUI: {fileID: 1695691832}
 --- !u!1 &705814595
 GameObject:
   m_ObjectHideFlags: 0
@@ -17158,6 +17163,7 @@ MonoBehaviour:
   foodButton: {fileID: 785578485}
   tick: {fileID: 911844813}
   supermarketListCanvas: {fileID: 322389714}
+  exitUI: {fileID: 1695691832}
 --- !u!1 &806582492
 GameObject:
   m_ObjectHideFlags: 0
@@ -20029,6 +20035,7 @@ MonoBehaviour:
   foodButton: {fileID: 890656155}
   tick: {fileID: 1044071921}
   supermarketListCanvas: {fileID: 322389714}
+  exitUI: {fileID: 1695691832}
 --- !u!1 &896066222
 GameObject:
   m_ObjectHideFlags: 0
@@ -20711,6 +20718,7 @@ MonoBehaviour:
   foodButton: {fileID: 913236010}
   tick: {fileID: 1869084615}
   supermarketListCanvas: {fileID: 322389714}
+  exitUI: {fileID: 1695691832}
 --- !u!1 &917727428
 GameObject:
   m_ObjectHideFlags: 0
@@ -26322,6 +26330,7 @@ MonoBehaviour:
   foodButton: {fileID: 1093081288}
   tick: {fileID: 833340319}
   supermarketListCanvas: {fileID: 322389714}
+  exitUI: {fileID: 1695691832}
 --- !u!1001 &1099837875
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28318,6 +28327,7 @@ MonoBehaviour:
   foodButton: {fileID: 1199155056}
   tick: {fileID: 1825469071}
   supermarketListCanvas: {fileID: 322389714}
+  exitUI: {fileID: 1695691832}
 --- !u!1001 &1204365775
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31830,6 +31840,7 @@ MonoBehaviour:
   foodButton: {fileID: 1402962869}
   tick: {fileID: 1912017052}
   supermarketListCanvas: {fileID: 322389714}
+  exitUI: {fileID: 1695691832}
 --- !u!1 &1408071669
 GameObject:
   m_ObjectHideFlags: 0
@@ -32098,6 +32109,7 @@ MonoBehaviour:
   foodButton: {fileID: 1411210063}
   tick: {fileID: 1794976485}
   supermarketListCanvas: {fileID: 322389714}
+  exitUI: {fileID: 1695691832}
 --- !u!1 &1417887081
 GameObject:
   m_ObjectHideFlags: 0
@@ -32340,6 +32352,7 @@ MonoBehaviour:
   foodButton: {fileID: 1425133403}
   tick: {fileID: 1848790581}
   supermarketListCanvas: {fileID: 322389714}
+  exitUI: {fileID: 1695691832}
 --- !u!1 &1425264055
 GameObject:
   m_ObjectHideFlags: 0

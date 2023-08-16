@@ -10,12 +10,31 @@ public class FoodButton : MonoBehaviour
     public Button foodButton;
     public RawImage tick;
     public Canvas supermarketListCanvas; // Assign the panel in the Inspector
+    public GameObject exitUI;
 
     // Start is called before the first frame update
     void Start()
     {
         foodButton.onClick.AddListener(ToggleButton);
         ToggleButtonInteractivity();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (ButtonManager.selectedButtons.Count == maxSelectionCount)
+        {
+            exitUI.SetActive(true);
+        }
+        if (ButtonManager.selectedButtons.Count < maxSelectionCount)
+        {
+            exitUI.SetActive(false);
+        }
+        if (Input.GetKeyDown(KeyCode.X) && ButtonManager.selectedButtons.Count == maxSelectionCount)
+        {
+            supermarketListCanvas.gameObject.SetActive(false);
+            exitUI.SetActive(false);
+        }
     }
 
     // Handle button selection
@@ -37,12 +56,6 @@ public class FoodButton : MonoBehaviour
 
         // Disable or enable button clicks based on the selection count
         ToggleButtonInteractivity();
-
-        // Deactivate the panel if exactly 5 buttons are selected
-        if (ButtonManager.selectedButtons.Count == maxSelectionCount && Input.GetKeyDown(KeyCode.X))
-        {
-            supermarketListCanvas.gameObject.SetActive(false);
-        }
     }
 
     private void ToggleButtonInteractivity()
@@ -62,3 +75,4 @@ public class FoodButton : MonoBehaviour
         }
     }
 }
+
