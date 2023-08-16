@@ -11,6 +11,12 @@ public class FoodButton : MonoBehaviour
     public RawImage tick;
     public Canvas supermarketListCanvas; // Assign the panel in the Inspector
     public GameObject exitUI;
+    [SerializeField]
+    private PhoneCallAudio phoneCallAudioScript;
+    [SerializeField]
+    private LivingRoomPhoneLocationArrow livingRoomPhoneLocationArrowScript;
+    [SerializeField]
+    private SelectFoodLocationArrow selectFoodLocationArrowScript;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +40,9 @@ public class FoodButton : MonoBehaviour
         {
             supermarketListCanvas.gameObject.SetActive(false);
             exitUI.SetActive(false);
+            selectFoodLocationArrowScript.enabled = false;
+            livingRoomPhoneLocationArrowScript.enabled = true;
+            phoneCallAudioScript.enabled = true;
         }
     }
 
