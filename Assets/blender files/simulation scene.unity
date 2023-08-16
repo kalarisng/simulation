@@ -5027,6 +5027,7 @@ RectTransform:
   - {fileID: 1826337236}
   - {fileID: 1796960204}
   - {fileID: 1705999558}
+  - {fileID: 1383984882}
   m_Father: {fileID: 0}
   m_RootOrder: 146
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12780,6 +12781,7 @@ MonoBehaviour:
   enterButtonScript: {fileID: 1329277896}
   taskQuestionCanvas: {fileID: 119093616}
   playerSceneTwoScript: {fileID: 616296474}
+  taskQuestionCollider: {fileID: 7554179}
 --- !u!1 &627192217
 GameObject:
   m_ObjectHideFlags: 0
@@ -20895,6 +20897,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84469c73c78d9417c812cd51d40a1d57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &931449156 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e165810ee544c4948a3502eb9adb4ff6, type: 3}
+  m_PrefabInstance: {fileID: 1450120377}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &931471394
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30409,6 +30416,7 @@ MonoBehaviour:
   correctAnswer: {fileID: 903055605}
   wrongAnswer: {fileID: 1216816017}
   enterButtonPressed: 0
+  exitUI: {fileID: 1695691832}
 --- !u!1 &1335586035
 GameObject:
   m_ObjectHideFlags: 0
@@ -31187,6 +31195,79 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 137
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1383984881
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1383984882}
+  - component: {fileID: 1383984884}
+  - component: {fileID: 1383984883}
+  m_Layer: 5
+  m_Name: SelectFoodLocationArrow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1383984882
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383984881}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.3093, y: 1.3093, z: 1.3093}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 219077044}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1383984883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383984881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: 561a35c3056824c5e8a9459208541ab1, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &1383984884
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383984881}
+  m_CullTransparentMesh: 1
 --- !u!1 &1385886279 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1688617927700330159, guid: 4ce32cc80f33c418f9e98784ce65058d, type: 3}
@@ -44231,6 +44312,21 @@ MonoBehaviour:
   image: {fileID: 1705999556}
   target: {fileID: 1297280007}
   offset: {x: 0, y: 0.57, z: 0}
+--- !u!114 &1978521027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978521006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bef129aff27404dd7a499ca3d0beef14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 1383984883}
+  target: {fileID: 931449156}
+  offset: {x: 0, y: 0.52, z: 0}
 --- !u!1 &1982399343
 GameObject:
   m_ObjectHideFlags: 0

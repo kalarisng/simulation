@@ -37,6 +37,8 @@ public class PlayerSceneThree : MonoBehaviour
     private Canvas taskQuestionCanvas;
     [SerializeField]
     private PlayerSceneTwo playerSceneTwoScript;
+    [SerializeField]
+    private GameObject taskQuestionCollider;
 
     private void Start()
     {
@@ -90,6 +92,7 @@ public class PlayerSceneThree : MonoBehaviour
         if (enterButtonScript.enterButtonPressed && Input.GetKeyDown(KeyCode.X))
         {
             taskQuestionCanvas.gameObject.SetActive(false);
+            taskQuestionCollider.SetActive(false);
         }
     }
 }

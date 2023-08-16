@@ -11,6 +11,7 @@ public class EnterButton : MonoBehaviour
     public TextMeshProUGUI correctAnswer;
     public TextMeshProUGUI wrongAnswer;
     public bool enterButtonPressed = false;
+    public GameObject exitUI;
 
     private void Start()
     {
@@ -29,6 +30,7 @@ public class EnterButton : MonoBehaviour
             StartCoroutine(FadeInText(correctAnswer));
             StartCoroutine(FadeOutInputField(inputField));
             StartCoroutine(FadeOutButton(enterButton));
+            exitUI.SetActive(true);
         }
         else
         {
@@ -37,6 +39,7 @@ public class EnterButton : MonoBehaviour
             StartCoroutine(FadeInText(wrongAnswer));
             StartCoroutine(FadeOutInputField(inputField));
             StartCoroutine(FadeOutButton(enterButton));
+            exitUI.SetActive(true);
         }
     }
 
