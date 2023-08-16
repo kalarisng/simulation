@@ -22,6 +22,8 @@ public class CheckButtonTwo : MonoBehaviour
     [SerializeField]
     private GameObject taskQuestionCollider;
     public PlayerSceneThree playerSceneThreeScript;
+    [SerializeField]
+    private DebriefTwoLocationArrow debriefTwoLocationArrowScript;
 
 
     private void Start()
@@ -43,6 +45,7 @@ public class CheckButtonTwo : MonoBehaviour
                 StartCoroutine(FadeInRawImage(starTwo));
                 kitchenDoorCollider.SetActive(false);
                 taskQuestionCollider.SetActive(true);
+                debriefTwoLocationArrowScript.enabled = false;
                 playerSceneThreeScript.enabled = true;
                 // starterAssetsInputs.LockCharacterMovement(false);
             }
