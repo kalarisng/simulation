@@ -87,14 +87,14 @@ public class PlayerSceneThree : MonoBehaviour
                     exitUI.SetActive(true);
                 }
 
-                if (supermarketListCanvas.gameObject.activeSelf && Input.GetKeyDown(KeyCode.X))
-                {
-                    Debug.Log("Closing task paper UI");
-                    clicker.gameObject.SetActive(true);
-                    supermarketListCanvas.gameObject.SetActive(false);
-                    exitUI.SetActive(false);
-                    phoneCallAudioScript.enabled = true;
-                }
+                // if (supermarketListCanvas.gameObject.activeSelf && Input.GetKeyDown(KeyCode.X))
+                // {
+                //     Debug.Log("Closing task paper UI");
+                //     clicker.gameObject.SetActive(true);
+                //     supermarketListCanvas.gameObject.SetActive(false);
+                //     exitUI.SetActive(false);
+                //     phoneCallAudioScript.enabled = true;
+                // }
             }
         }
 

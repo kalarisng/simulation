@@ -9,6 +9,7 @@ public class FoodButton : MonoBehaviour
 
     public Button foodButton;
     public RawImage tick;
+    public Canvas supermarketListCanvas; // Assign the panel in the Inspector
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,12 @@ public class FoodButton : MonoBehaviour
 
         // Disable or enable button clicks based on the selection count
         ToggleButtonInteractivity();
+
+        // Deactivate the panel if exactly 5 buttons are selected
+        if (ButtonManager.selectedButtons.Count == maxSelectionCount && Input.GetKeyDown(KeyCode.X))
+        {
+            supermarketListCanvas.gameObject.SetActive(false);
+        }
     }
 
     private void ToggleButtonInteractivity()

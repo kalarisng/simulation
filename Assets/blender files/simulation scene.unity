@@ -964,6 +964,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodButton: {fileID: 39615130}
   tick: {fileID: 2081919357}
+  supermarketListCanvas: {fileID: 322389714}
 --- !u!1 &39741310 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4284265926381754651, guid: 4ce32cc80f33c418f9e98784ce65058d, type: 3}
@@ -5028,6 +5029,7 @@ RectTransform:
   - {fileID: 1796960204}
   - {fileID: 1705999558}
   - {fileID: 1383984882}
+  - {fileID: 328520151}
   m_Father: {fileID: 0}
   m_RootOrder: 146
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6161,6 +6163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodButton: {fileID: 278956863}
   tick: {fileID: 1164276333}
+  supermarketListCanvas: {fileID: 322389714}
 --- !u!1 &284952310 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 492440804577196729, guid: 4ce32cc80f33c418f9e98784ce65058d, type: 3}
@@ -6315,6 +6318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodButton: {fileID: 296518159}
   tick: {fileID: 1373884064}
+  supermarketListCanvas: {fileID: 322389714}
 --- !u!1 &299797994
 GameObject:
   m_ObjectHideFlags: 0
@@ -7513,6 +7517,79 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 327408026}
+  m_CullTransparentMesh: 1
+--- !u!1 &328520150
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 328520151}
+  - component: {fileID: 328520153}
+  - component: {fileID: 328520152}
+  m_Layer: 5
+  m_Name: LivingRoomPhoneLocationArrow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &328520151
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328520150}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.3093, y: 1.3093, z: 1.3093}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 219077044}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &328520152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328520150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: 561a35c3056824c5e8a9459208541ab1, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &328520153
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328520150}
   m_CullTransparentMesh: 1
 --- !u!1 &331678994
 GameObject:
@@ -11029,6 +11106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodButton: {fileID: 504782697}
   tick: {fileID: 690433491}
+  supermarketListCanvas: {fileID: 322389714}
 --- !u!1 &507115852
 GameObject:
   m_ObjectHideFlags: 0
@@ -12926,7 +13004,7 @@ MonoBehaviour:
   taskQuestionCollider: {fileID: 7554179}
   phoneCallSound: {fileID: 522285610}
   selectFoodLocationArrowScript: {fileID: 1978521027}
-  phoneCallAudioScript: {fileID: 0}
+  phoneCallAudioScript: {fileID: 522285613}
 --- !u!1 &627192217
 GameObject:
   m_ObjectHideFlags: 0
@@ -14569,6 +14647,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodButton: {fileID: 705515387}
   tick: {fileID: 739132305}
+  supermarketListCanvas: {fileID: 322389714}
 --- !u!1 &705814595
 GameObject:
   m_ObjectHideFlags: 0
@@ -17078,6 +17157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodButton: {fileID: 785578485}
   tick: {fileID: 911844813}
+  supermarketListCanvas: {fileID: 322389714}
 --- !u!1 &806582492
 GameObject:
   m_ObjectHideFlags: 0
@@ -19948,6 +20028,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodButton: {fileID: 890656155}
   tick: {fileID: 1044071921}
+  supermarketListCanvas: {fileID: 322389714}
 --- !u!1 &896066222
 GameObject:
   m_ObjectHideFlags: 0
@@ -20629,6 +20710,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodButton: {fileID: 913236010}
   tick: {fileID: 1869084615}
+  supermarketListCanvas: {fileID: 322389714}
 --- !u!1 &917727428
 GameObject:
   m_ObjectHideFlags: 0
@@ -26099,6 +26181,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1080245858}
   m_CullTransparentMesh: 1
+--- !u!4 &1084836224 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4275465149242884, guid: d0e229a7ebd926146a169855acc38afc, type: 3}
+  m_PrefabInstance: {fileID: 2118650577}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1093081286
 GameObject:
   m_ObjectHideFlags: 0
@@ -26234,6 +26321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodButton: {fileID: 1093081288}
   tick: {fileID: 833340319}
+  supermarketListCanvas: {fileID: 322389714}
 --- !u!1001 &1099837875
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28229,6 +28317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodButton: {fileID: 1199155056}
   tick: {fileID: 1825469071}
+  supermarketListCanvas: {fileID: 322389714}
 --- !u!1001 &1204365775
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31740,6 +31829,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodButton: {fileID: 1402962869}
   tick: {fileID: 1912017052}
+  supermarketListCanvas: {fileID: 322389714}
 --- !u!1 &1408071669
 GameObject:
   m_ObjectHideFlags: 0
@@ -32007,6 +32097,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodButton: {fileID: 1411210063}
   tick: {fileID: 1794976485}
+  supermarketListCanvas: {fileID: 322389714}
 --- !u!1 &1417887081
 GameObject:
   m_ObjectHideFlags: 0
@@ -32248,6 +32339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodButton: {fileID: 1425133403}
   tick: {fileID: 1848790581}
+  supermarketListCanvas: {fileID: 322389714}
 --- !u!1 &1425264055
 GameObject:
   m_ObjectHideFlags: 0
@@ -44472,6 +44564,21 @@ MonoBehaviour:
   image: {fileID: 1383984883}
   target: {fileID: 931449156}
   offset: {x: 0, y: 0.52, z: 0}
+--- !u!114 &1978521030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978521006}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f43df7af2cdce46ce8039ced65e25612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 328520152}
+  target: {fileID: 1084836224}
+  offset: {x: 0, y: 0.51, z: 0}
 --- !u!1 &1982399343
 GameObject:
   m_ObjectHideFlags: 0
