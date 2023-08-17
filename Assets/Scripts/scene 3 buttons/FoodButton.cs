@@ -10,6 +10,7 @@ public class FoodButton : MonoBehaviour
     public Button foodButton;
     public RawImage tick;
     public Canvas supermarketListCanvas; // Assign the panel in the Inspector
+    public Canvas clicker;
     public GameObject exitUI;
     [SerializeField]
     private PhoneCallAudio phoneCallAudioScript;
@@ -40,6 +41,7 @@ public class FoodButton : MonoBehaviour
         {
             supermarketListCanvas.gameObject.SetActive(false);
             exitUI.SetActive(false);
+            clicker.gameObject.SetActive(true);
             selectFoodLocationArrowScript.enabled = false;
             livingRoomPhoneLocationArrowScript.enabled = true;
             phoneCallAudioScript.enabled = true;

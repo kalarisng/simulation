@@ -965,6 +965,7 @@ MonoBehaviour:
   foodButton: {fileID: 39615130}
   tick: {fileID: 2081919357}
   supermarketListCanvas: {fileID: 322389714}
+  clicker: {fileID: 1255736211}
   exitUI: {fileID: 1695691832}
   phoneCallAudioScript: {fileID: 522285613}
   livingRoomPhoneLocationArrowScript: {fileID: 1978521030}
@@ -4419,6 +4420,150 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d34360f720374e5f9600012fa94196e, type: 3}
+--- !u!1 &189341597
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 189341600}
+  - component: {fileID: 189341599}
+  - component: {fileID: 189341598}
+  m_Layer: 0
+  m_Name: PhonePickUpAudio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &189341598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189341597}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ee6efcf0e2784f2cb673e3527dfe214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstAudioClip: {fileID: 8300000, guid: 561f8055eb7054c558c489276cd30942, type: 3}
+  audioClip1: {fileID: 8300000, guid: 828d6ab110e5c433aa9d73ea2383b1a4, type: 3}
+  audioClip2: {fileID: 8300000, guid: 6a2f4fcec2b91463cb07acffcc685051, type: 3}
+--- !u!82 &189341599
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189341597}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 561f8055eb7054c558c489276cd30942, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &189341600
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189341597}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.29137006, y: 0.8109047, z: 0.60855335}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 165
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &191746597
 GameObject:
   m_ObjectHideFlags: 0
@@ -6168,6 +6313,7 @@ MonoBehaviour:
   foodButton: {fileID: 278956863}
   tick: {fileID: 1164276333}
   supermarketListCanvas: {fileID: 322389714}
+  clicker: {fileID: 1255736211}
   exitUI: {fileID: 1695691832}
   phoneCallAudioScript: {fileID: 522285613}
   livingRoomPhoneLocationArrowScript: {fileID: 1978521030}
@@ -6327,6 +6473,7 @@ MonoBehaviour:
   foodButton: {fileID: 296518159}
   tick: {fileID: 1373884064}
   supermarketListCanvas: {fileID: 322389714}
+  clicker: {fileID: 1255736211}
   exitUI: {fileID: 1695691832}
   phoneCallAudioScript: {fileID: 522285613}
   livingRoomPhoneLocationArrowScript: {fileID: 1978521030}
@@ -11119,6 +11266,7 @@ MonoBehaviour:
   foodButton: {fileID: 504782697}
   tick: {fileID: 690433491}
   supermarketListCanvas: {fileID: 322389714}
+  clicker: {fileID: 1255736211}
   exitUI: {fileID: 1695691832}
   phoneCallAudioScript: {fileID: 522285613}
   livingRoomPhoneLocationArrowScript: {fileID: 1978521030}
@@ -11584,7 +11732,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5be2246fe7521461c961ac2fbfa54f0e, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.643
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -13009,6 +13157,7 @@ MonoBehaviour:
     m_Bits: 128
   playerCameraTransform: {fileID: 1978521010}
   pickUpUI: {fileID: 1587929843}
+  pickUpPhoneUI: {fileID: 2012532735}
   exitUI: {fileID: 1695691832}
   supermarketListCanvas: {fileID: 322389714}
   clicker: {fileID: 1255736211}
@@ -13021,6 +13170,7 @@ MonoBehaviour:
   phoneCallSound: {fileID: 522285610}
   selectFoodLocationArrowScript: {fileID: 1978521027}
   phoneCallAudioScript: {fileID: 522285613}
+  phonePickUpAudioScript: {fileID: 189341598}
 --- !u!1 &627192217
 GameObject:
   m_ObjectHideFlags: 0
@@ -14664,6 +14814,7 @@ MonoBehaviour:
   foodButton: {fileID: 705515387}
   tick: {fileID: 739132305}
   supermarketListCanvas: {fileID: 322389714}
+  clicker: {fileID: 1255736211}
   exitUI: {fileID: 1695691832}
   phoneCallAudioScript: {fileID: 522285613}
   livingRoomPhoneLocationArrowScript: {fileID: 1978521030}
@@ -17178,6 +17329,7 @@ MonoBehaviour:
   foodButton: {fileID: 785578485}
   tick: {fileID: 911844813}
   supermarketListCanvas: {fileID: 322389714}
+  clicker: {fileID: 1255736211}
   exitUI: {fileID: 1695691832}
   phoneCallAudioScript: {fileID: 522285613}
   livingRoomPhoneLocationArrowScript: {fileID: 1978521030}
@@ -20053,6 +20205,7 @@ MonoBehaviour:
   foodButton: {fileID: 890656155}
   tick: {fileID: 1044071921}
   supermarketListCanvas: {fileID: 322389714}
+  clicker: {fileID: 1255736211}
   exitUI: {fileID: 1695691832}
   phoneCallAudioScript: {fileID: 522285613}
   livingRoomPhoneLocationArrowScript: {fileID: 1978521030}
@@ -20739,6 +20892,7 @@ MonoBehaviour:
   foodButton: {fileID: 913236010}
   tick: {fileID: 1869084615}
   supermarketListCanvas: {fileID: 322389714}
+  clicker: {fileID: 1255736211}
   exitUI: {fileID: 1695691832}
   phoneCallAudioScript: {fileID: 522285613}
   livingRoomPhoneLocationArrowScript: {fileID: 1978521030}
@@ -21182,7 +21336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.353
+      value: -7.334
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalRotation.w
@@ -26213,11 +26367,101 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1080245858}
   m_CullTransparentMesh: 1
+--- !u!1 &1084836223 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1064081034635548, guid: d0e229a7ebd926146a169855acc38afc, type: 3}
+  m_PrefabInstance: {fileID: 2118650577}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1084836224 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4275465149242884, guid: d0e229a7ebd926146a169855acc38afc, type: 3}
   m_PrefabInstance: {fileID: 2118650577}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1084836225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084836223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdd9adef9d4b74d7289bed20e30868ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1084836226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084836223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51002294c4f294459a6a06fe1ca07882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderers:
+  - {fileID: 1084836228}
+  color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!23 &1084836228
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084836223}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!54 &1084836230
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084836223}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1093081286
 GameObject:
   m_ObjectHideFlags: 0
@@ -26354,6 +26598,7 @@ MonoBehaviour:
   foodButton: {fileID: 1093081288}
   tick: {fileID: 833340319}
   supermarketListCanvas: {fileID: 322389714}
+  clicker: {fileID: 1255736211}
   exitUI: {fileID: 1695691832}
   phoneCallAudioScript: {fileID: 522285613}
   livingRoomPhoneLocationArrowScript: {fileID: 1978521030}
@@ -28354,6 +28599,7 @@ MonoBehaviour:
   foodButton: {fileID: 1199155056}
   tick: {fileID: 1825469071}
   supermarketListCanvas: {fileID: 322389714}
+  clicker: {fileID: 1255736211}
   exitUI: {fileID: 1695691832}
   phoneCallAudioScript: {fileID: 522285613}
   livingRoomPhoneLocationArrowScript: {fileID: 1978521030}
@@ -29056,6 +29302,43 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1243094772}
   m_CullTransparentMesh: 1
+--- !u!1 &1244465100 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1689880478512382, guid: d0e229a7ebd926146a169855acc38afc, type: 3}
+  m_PrefabInstance: {fileID: 2118650577}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1244465103 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23609969750892778, guid: d0e229a7ebd926146a169855acc38afc, type: 3}
+  m_PrefabInstance: {fileID: 2118650577}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1244465105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244465100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdd9adef9d4b74d7289bed20e30868ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1244465106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244465100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51002294c4f294459a6a06fe1ca07882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderers:
+  - {fileID: 1244465103}
+  color: {r: 1, g: 1, b: 1, a: 0.6901961}
 --- !u!1 &1247156192 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7964157543444745748, guid: 4ce32cc80f33c418f9e98784ce65058d, type: 3}
@@ -29525,7 +29808,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.353
+      value: -7.334
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
       propertyPath: m_LocalRotation.w
@@ -31870,6 +32153,7 @@ MonoBehaviour:
   foodButton: {fileID: 1402962869}
   tick: {fileID: 1912017052}
   supermarketListCanvas: {fileID: 322389714}
+  clicker: {fileID: 1255736211}
   exitUI: {fileID: 1695691832}
   phoneCallAudioScript: {fileID: 522285613}
   livingRoomPhoneLocationArrowScript: {fileID: 1978521030}
@@ -32142,6 +32426,7 @@ MonoBehaviour:
   foodButton: {fileID: 1411210063}
   tick: {fileID: 1794976485}
   supermarketListCanvas: {fileID: 322389714}
+  clicker: {fileID: 1255736211}
   exitUI: {fileID: 1695691832}
   phoneCallAudioScript: {fileID: 522285613}
   livingRoomPhoneLocationArrowScript: {fileID: 1978521030}
@@ -32388,6 +32673,7 @@ MonoBehaviour:
   foodButton: {fileID: 1425133403}
   tick: {fileID: 1848790581}
   supermarketListCanvas: {fileID: 322389714}
+  clicker: {fileID: 1255736211}
   exitUI: {fileID: 1695691832}
   phoneCallAudioScript: {fileID: 522285613}
   livingRoomPhoneLocationArrowScript: {fileID: 1978521030}
@@ -33176,7 +33462,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.353
+      value: -7.334
       objectReference: {fileID: 0}
     - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_LocalRotation.w
@@ -47489,6 +47775,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Telephone
       objectReference: {fileID: 0}
+    - target: {fileID: 1064081034635548, guid: d0e229a7ebd926146a169855acc38afc, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646064492746980, guid: d0e229a7ebd926146a169855acc38afc, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1689880478512382, guid: d0e229a7ebd926146a169855acc38afc, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4275465149242884, guid: d0e229a7ebd926146a169855acc38afc, type: 3}
       propertyPath: m_RootOrder
       value: 49
@@ -47507,7 +47805,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4275465149242884, guid: d0e229a7ebd926146a169855acc38afc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.345
+      value: 0.357
       objectReference: {fileID: 0}
     - target: {fileID: 4275465149242884, guid: d0e229a7ebd926146a169855acc38afc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -47544,6 +47842,14 @@ PrefabInstance:
     - target: {fileID: 4275465149242884, guid: d0e229a7ebd926146a169855acc38afc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 64098437391456948, guid: d0e229a7ebd926146a169855acc38afc, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 64657228928518546, guid: d0e229a7ebd926146a169855acc38afc, type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0e229a7ebd926146a169855acc38afc, type: 3}

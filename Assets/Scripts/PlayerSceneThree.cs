@@ -15,6 +15,8 @@ public class PlayerSceneThree : MonoBehaviour
 
     [SerializeField]
     private GameObject pickUpUI;
+    [SerializeField]
+    private GameObject pickUpPhoneUI;
 
     [SerializeField]
     private GameObject exitUI;
@@ -46,7 +48,8 @@ public class PlayerSceneThree : MonoBehaviour
     private SelectFoodLocationArrow selectFoodLocationArrowScript;
     [SerializeField]
     private PhoneCallAudio phoneCallAudioScript;
-
+    [SerializeField]
+    private PhonePickUpAudio phonePickUpAudioScript;
     private void Start()
     {
         playerSceneTwoScript.enabled = false;
@@ -62,6 +65,7 @@ public class PlayerSceneThree : MonoBehaviour
             Debug.Log("Hit object: " + hit.collider.gameObject.name);
             hit.collider.GetComponent<Highlight>()?.ToggleHighlight(false);
             pickUpUI.SetActive(false);
+            pickUpPhoneUI.SetActive(false);
         }
         if (inHandItem != null)
         {
@@ -86,15 +90,19 @@ public class PlayerSceneThree : MonoBehaviour
                     pickUpUI.SetActive(false);
                     exitUI.SetActive(true);
                 }
+            }
+            if (hit.collider.GetComponent<LivingRoomPhone>())
+            {
+                Debug.Log("Hit living room phone");
+                hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
+                pickUpPhoneUI.SetActive(true);
 
-                // if (supermarketListCanvas.gameObject.activeSelf && Input.GetKeyDown(KeyCode.X))
-                // {
-                //     Debug.Log("Closing task paper UI");
-                //     clicker.gameObject.SetActive(true);
-                //     supermarketListCanvas.gameObject.SetActive(false);
-                //     exitUI.SetActive(false);
-                //     phoneCallAudioScript.enabled = true;
-                // }
+                if (Input.GetKeyDown(KeyCode.F))
+                {
+                    phoneCallAudioScript.StopAudio();
+                    phonePickUpAudioScript.enabled = true;
+                    clicker.gameObject.SetActive(false);
+                }
             }
         }
 

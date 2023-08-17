@@ -5,25 +5,27 @@ using UnityEngine;
 public class PhoneCallAudio : MonoBehaviour
 {
     private AudioSource audioSource;
-    private int loopCount = 3;
-    private int loopsRemaining;
 
     // Start is called before the first frame update
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        loopsRemaining = loopCount;
+        audioSource.loop = true; // Enable looping
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Check if the audio clip is not playing and there are remaining loops
-        if (!audioSource.isPlaying && loopsRemaining > 0)
+        // Check if the audio clip is not playing
+        if (!audioSource.isPlaying)
         {
-            // Play the audio clip
+            // Play the audio clip (it will loop automatically)
             audioSource.Play();
-            loopsRemaining--;
         }
+    }
+
+    public void StopAudio()
+    {
+        audioSource.Stop();
     }
 }
