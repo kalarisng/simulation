@@ -4453,6 +4453,9 @@ MonoBehaviour:
   firstAudioClip: {fileID: 8300000, guid: 561f8055eb7054c558c489276cd30942, type: 3}
   audioClip1: {fileID: 8300000, guid: 828d6ab110e5c433aa9d73ea2383b1a4, type: 3}
   audioClip2: {fileID: 8300000, guid: 6a2f4fcec2b91463cb07acffcc685051, type: 3}
+  lastAudioClip: {fileID: 8300000, guid: f1f247b7616a047108cd7060f4cbadc2, type: 3}
+  isPhoneCallDone: 0
+  exitUI: {fileID: 1695691832}
 --- !u!82 &189341599
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5179,6 +5182,7 @@ RectTransform:
   - {fileID: 1705999558}
   - {fileID: 1383984882}
   - {fileID: 328520151}
+  - {fileID: 409973850}
   m_Father: {fileID: 0}
   m_RootOrder: 146
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9349,6 +9353,79 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f11cc9e6e7553224ea19d6a2022331c8, type: 3}
+--- !u!1 &409973849
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 409973850}
+  - component: {fileID: 409973852}
+  - component: {fileID: 409973851}
+  m_Layer: 5
+  m_Name: LivingRoomDoorLocationArrow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &409973850
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409973849}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.3093, y: 1.3093, z: 1.3093}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 219077044}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &409973851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409973849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: 561a35c3056824c5e8a9459208541ab1, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &409973852
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409973849}
+  m_CullTransparentMesh: 1
 --- !u!1 &413313516
 GameObject:
   m_ObjectHideFlags: 0
@@ -13273,6 +13350,8 @@ MonoBehaviour:
   phoneCallAudioScript: {fileID: 522285613}
   phonePickUpAudioScript: {fileID: 189341598}
   telephoneCanvas: {fileID: 416188608}
+  livingRoomPhoneLocationArrowScript: {fileID: 1978521030}
+  livingRoomDoorLocationArrowScript: {fileID: 1978521033}
 --- !u!1 &627192217
 GameObject:
   m_ObjectHideFlags: 0
@@ -42387,6 +42466,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: a15ab0fb95184604fbcff36e6621610a, type: 3}
+--- !u!4 &1856498003 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4010859196364772, guid: fc9fa88e094285f4e9420f756be3b68d, type: 3}
+  m_PrefabInstance: {fileID: 162257606}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1865676019
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45096,6 +45180,21 @@ MonoBehaviour:
   image: {fileID: 328520152}
   target: {fileID: 1084836224}
   offset: {x: 0, y: 0.51, z: 0}
+--- !u!114 &1978521033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978521006}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c16e70117f50e49c9bfec177100843d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 409973851}
+  target: {fileID: 1856498003}
+  offset: {x: 0, y: 0.57, z: 0}
 --- !u!1 &1982399343
 GameObject:
   m_ObjectHideFlags: 0

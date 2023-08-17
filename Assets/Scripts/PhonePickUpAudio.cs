@@ -10,6 +10,8 @@ public class PhonePickUpAudio : MonoBehaviour
     public AudioClip lastAudioClip;
 
     private AudioSource audioSource;
+    public bool isPhoneCallDone = false;
+    public GameObject exitUI;
 
     // Start is called before the first frame update
     void Start()
@@ -59,6 +61,29 @@ public class PhonePickUpAudio : MonoBehaviour
         audioSource.clip = lastAudioClip;
         audioSource.Play();
 
+        StartCoroutine(WaitForAudioToEnd());
+
         Debug.Log("All audio clips have finished playing.");
+    }
+
+    private IEnumerator WaitForAudioToEnd()
+    {
+        // Wait until the audio is done playing
+        while (audioSource.isPlaying)
+        {
+            yield return null; // Wait for the next frame
+        }
+
+        // Set the boolean once the audio is done
+        isPhoneCallDone = true;
+    }
+
+
+    void Update()
+    {
+        if (isPhoneCallDone)
+        {
+            exitUI.SetActive(true);
+        }
     }
 }

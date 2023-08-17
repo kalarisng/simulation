@@ -52,7 +52,11 @@ public class PlayerSceneThree : MonoBehaviour
     private PhonePickUpAudio phonePickUpAudioScript;
     [SerializeField]
     private Canvas telephoneCanvas;
-    private bool isPhoneCallDone = false;
+    [SerializeField]
+    private LivingRoomPhoneLocationArrow livingRoomPhoneLocationArrowScript;
+    [SerializeField]
+    private LivingRoomDoorLocationArrow livingRoomDoorLocationArrowScript;
+
     private void Start()
     {
         playerSceneTwoScript.enabled = false;
@@ -102,14 +106,17 @@ public class PlayerSceneThree : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.F))
                 {
+                    pickUpPhoneUI.SetActive(false);
                     telephoneCanvas.gameObject.SetActive(true);
                     phoneCallAudioScript.StopAudio();
                     phonePickUpAudioScript.enabled = true;
-                    isPhoneCallDone = true;
                 }
-                if (isPhoneCallDone && telephoneCanvas.gameObject.activeSelf && Input.GetKeyDown(KeyCode.X))
+                if (phonePickUpAudioScript.isPhoneCallDone && telephoneCanvas.gameObject.activeSelf && Input.GetKeyDown(KeyCode.X))
                 {
                     telephoneCanvas.gameObject.SetActive(false);
+                    exitUI.SetActive(false);
+                    livingRoomPhoneLocationArrowScript.enabled = false;
+                    livingRoomDoorLocationArrowScript.enabled = true;
                 }
             }
         }
