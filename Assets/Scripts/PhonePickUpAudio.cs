@@ -7,6 +7,7 @@ public class PhonePickUpAudio : MonoBehaviour
     public AudioClip firstAudioClip;  // Assign your first audio clip in the Inspector
     public AudioClip audioClip1;      // Assign your first concurrent audio clip in the Inspector
     public AudioClip audioClip2;      // Assign your second concurrent audio clip in the Inspector
+    public AudioClip lastAudioClip;
 
     private AudioSource audioSource;
 
@@ -53,6 +54,10 @@ public class PhonePickUpAudio : MonoBehaviour
         audioSource1.Stop();
         Destroy(audioSource1);
         Destroy(audioSource2);
+
+        // Play the last audio clip
+        audioSource.clip = lastAudioClip;
+        audioSource.Play();
 
         Debug.Log("All audio clips have finished playing.");
     }

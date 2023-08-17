@@ -50,6 +50,9 @@ public class PlayerSceneThree : MonoBehaviour
     private PhoneCallAudio phoneCallAudioScript;
     [SerializeField]
     private PhonePickUpAudio phonePickUpAudioScript;
+    [SerializeField]
+    private Canvas telephoneCanvas;
+    private bool isPhoneCallDone = false;
     private void Start()
     {
         playerSceneTwoScript.enabled = false;
@@ -99,9 +102,14 @@ public class PlayerSceneThree : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.F))
                 {
+                    telephoneCanvas.gameObject.SetActive(true);
                     phoneCallAudioScript.StopAudio();
                     phonePickUpAudioScript.enabled = true;
-                    clicker.gameObject.SetActive(false);
+                    isPhoneCallDone = true;
+                }
+                if (isPhoneCallDone && telephoneCanvas.gameObject.activeSelf && Input.GetKeyDown(KeyCode.X))
+                {
+                    telephoneCanvas.gameObject.SetActive(false);
                 }
             }
         }

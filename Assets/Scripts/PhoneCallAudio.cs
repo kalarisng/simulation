@@ -5,6 +5,7 @@ using UnityEngine;
 public class PhoneCallAudio : MonoBehaviour
 {
     private AudioSource audioSource;
+    private bool isPlaying = false; // Flag to track whether the audio is playing
 
     // Start is called before the first frame update
     void Start()
@@ -16,16 +17,21 @@ public class PhoneCallAudio : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Check if the audio clip is not playing
-        if (!audioSource.isPlaying)
+        if (!isPlaying)
         {
-            // Play the audio clip (it will loop automatically)
-            audioSource.Play();
+            PlayAudio();
         }
+    }
+
+    public void PlayAudio()
+    {
+        isPlaying = true;
+        audioSource.Play();
     }
 
     public void StopAudio()
     {
-        audioSource.Stop();
+        isPlaying = false;
+        audioSource.enabled = false;
     }
 }
