@@ -60,6 +60,8 @@ public class PlayerSceneThree : MonoBehaviour
     private GameObject openUI;
     [SerializeField]
     private Canvas debriefThreeCanvas;
+    [SerializeField]
+    private TextMeshProUGUI lastTask;
 
     private void Start()
     {
@@ -143,6 +145,7 @@ public class PlayerSceneThree : MonoBehaviour
             exitUI.SetActive(false);
             taskQuestionCanvas.gameObject.SetActive(false);
             taskQuestionCollider.SetActive(false);
+            lastTask.gameObject.SetActive(true);
         }
     }
 }
