@@ -11,6 +11,11 @@ public class DebriefThreeCanvas : MonoBehaviour
     public TextMeshProUGUI moodSwingText;
     public TextMeshProUGUI cannotTalkText;
     public Button nextButton;
+    public RawImage memImpairmentTick;
+    public RawImage procSpeedTick;
+    public RawImage probSolvingTick;
+    public RawImage attentionSpanTick;
+    public Button secondNextButton;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +29,19 @@ public class DebriefThreeCanvas : MonoBehaviour
         if (memoryLossText.gameObject.activeSelf && confusionText.gameObject.activeSelf && moodSwingText.gameObject.activeSelf && cannotTalkText.gameObject.activeSelf)
         {
             nextButton.gameObject.SetActive(true);
+        }
+        else if (!memoryLossText.gameObject.activeSelf && !confusionText.gameObject.activeSelf && !moodSwingText.gameObject.activeSelf && !cannotTalkText.gameObject.activeSelf)
+        {
+            nextButton.gameObject.SetActive(false);
+        }
+
+        if (memImpairmentTick.gameObject.activeSelf && procSpeedTick.gameObject.activeSelf && probSolvingTick.gameObject.activeSelf && attentionSpanTick.gameObject.activeSelf)
+        {
+            secondNextButton.gameObject.SetActive(true);
+        }
+        else if (!memImpairmentTick.gameObject.activeSelf && !procSpeedTick.gameObject.activeSelf && !probSolvingTick.gameObject.activeSelf && !attentionSpanTick.gameObject.activeSelf)
+        {
+            secondNextButton.gameObject.SetActive(false);
         }
     }
 }

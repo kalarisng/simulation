@@ -5,24 +5,20 @@ using UnityEngine.UI;
 using TMPro;
 using StarterAssets;
 
-public class CheckButtonTwo : MonoBehaviour
+public class CheckButtonThree : MonoBehaviour
 {
     public Toggle toggle1;
     public Toggle toggle2;
     public Toggle toggle3;
     public Button checkButton;
     public TextMeshProUGUI buttonText;
-    public GameObject debriefTwoCanvas;
+    public GameObject debriefThreeCanvas;
     public GameObject exitUI;
     [SerializeField]
-    private RawImage starTwo;
+    private RawImage starThree;
     [SerializeField]
-    private GameObject kitchenDoorCollider;
-    [SerializeField]
-    private GameObject taskQuestionCollider;
-    public PlayerSceneThree playerSceneThreeScript;
-    [SerializeField]
-    private DebriefTwoLocationArrow debriefTwoLocationArrowScript;
+    private GameObject livingRoomDoorCollider;
+    private bool isAllCorrect = false;
 
 
     private void Start()
@@ -33,20 +29,14 @@ public class CheckButtonTwo : MonoBehaviour
 
     private void Update()
     {
-        if (debriefTwoCanvas.activeSelf)
+        if (isAllCorrect)
         {
             if (Input.GetKeyDown(KeyCode.X))
             {
-                Debug.Log("Closing debrief two");
-                debriefTwoCanvas.SetActive(false);
+                debriefThreeCanvas.SetActive(false);
                 exitUI.SetActive(false);
-                starTwo.gameObject.SetActive(true);
-                StartCoroutine(FadeInRawImage(starTwo));
-                kitchenDoorCollider.SetActive(false);
-                taskQuestionCollider.SetActive(true);
-                debriefTwoLocationArrowScript.enabled = false;
-                playerSceneThreeScript.enabled = true;
-                // starterAssetsInputs.LockCharacterMovement(false);
+                starThree.gameObject.SetActive(true);
+                livingRoomDoorCollider.SetActive(false);
             }
         }
     }
@@ -79,6 +69,7 @@ public class CheckButtonTwo : MonoBehaviour
         if (toggle1.isOn && toggle2.isOn && toggle3.isOn)
         {
             checkButton.image.color = Color.green;
+            isAllCorrect = true;
             buttonText.text = "Correct!";
             exitUI.SetActive(true);
         }
