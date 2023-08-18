@@ -73,7 +73,7 @@ namespace StarterAssets
         {
             if (CanProcessInputs)
             {
-                SetCursorState(cursorLocked);
+                // SetCursorState(cursorLocked);
             }
         }
 

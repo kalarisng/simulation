@@ -48,6 +48,7 @@ public class PlayerSceneOne : MonoBehaviour
     public TaskManager taskManagerScript;
     public Canvas debriefOneCanvas;
     public GameObject openUI;
+    public GameObject callCollider;
 
     private void Start()
     {
@@ -107,6 +108,11 @@ public class PlayerSceneOne : MonoBehaviour
                     Debug.Log("Hit phone");
                     hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
                     pickUpUI.SetActive(true);
+
+                    if (callCollider.activeSelf)
+                    {
+                        callCollider.SetActive(false);
+                    }
 
                     if (Input.GetKeyDown(KeyCode.R))
                     {

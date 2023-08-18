@@ -20,6 +20,7 @@ public class CheckAnswers : MonoBehaviour
     private LivingRoomDoorLocationArrow livingRoomDoorLocationArrowScript;
     [SerializeField]
     private DebriefThreeLocationArrow debriefThreeLocationArrowScript;
+    private bool isCorrectAnswer;
 
     // Start is called before the first frame update
     void Start()
@@ -30,12 +31,12 @@ public class CheckAnswers : MonoBehaviour
 
     void Update()
     {
-        if ((maxAttempts - currentAttempts) == 0)
+        if ((maxAttempts - currentAttempts) == 0 || isCorrectAnswer)
         {
             exitUI.SetActive(true);
         }
 
-        if ((maxAttempts - currentAttempts) == 0 && Input.GetKeyDown(KeyCode.X))
+        if (((maxAttempts - currentAttempts) == 0 || isCorrectAnswer) && Input.GetKeyDown(KeyCode.X))
         {
             dementiaCanvas.gameObject.SetActive(false);
             exitUI.SetActive(false);
@@ -58,8 +59,9 @@ public class CheckAnswers : MonoBehaviour
         UpdateAttemptsText();
 
         string userInput = inputField.text;
+        string userInputLowerCase = userInput.ToLower();
         // Split the string based on commas
-        string[] words = userInput.Split(',');
+        string[] words = userInputLowerCase.Split(',');
 
         // Trim each word to remove leading and trailing spaces
         for (int i = 0; i < words.Length; i++)
@@ -75,7 +77,8 @@ public class CheckAnswers : MonoBehaviour
 
             foreach (string word in words)
             {
-                if (word == button.name)
+                Debug.Log("button name: " + word);
+                if (word == button.name.ToLower())
                 {
                     wordMatched = true;
                     break;
@@ -93,6 +96,7 @@ public class CheckAnswers : MonoBehaviour
         {
             correctAnswer.gameObject.SetActive(true);
             wrongAnswer.gameObject.SetActive(false);
+            isCorrectAnswer = true;
         }
         else
         {
