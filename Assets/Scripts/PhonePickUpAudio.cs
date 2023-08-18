@@ -90,7 +90,7 @@ public class PhonePickUpAudio : MonoBehaviour
 
     void Update()
     {
-        if (isPhoneCallDone)
+        if (isPhoneCallDone && telephoneCanvas.gameObject.activeSelf)
         {
             exitUI.SetActive(true);
         }
