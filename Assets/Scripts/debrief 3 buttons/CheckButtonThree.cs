@@ -16,8 +16,6 @@ public class CheckButtonThree : MonoBehaviour
     public GameObject exitUI;
     [SerializeField]
     private RawImage starThree;
-    [SerializeField]
-    private GameObject livingRoomDoorCollider;
     private bool isAllCorrect = false;
 
 
@@ -36,7 +34,6 @@ public class CheckButtonThree : MonoBehaviour
                 debriefThreeCanvas.SetActive(false);
                 exitUI.SetActive(false);
                 starThree.gameObject.SetActive(true);
-                livingRoomDoorCollider.SetActive(false);
             }
         }
     }

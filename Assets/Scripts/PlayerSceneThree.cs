@@ -56,6 +56,10 @@ public class PlayerSceneThree : MonoBehaviour
     private LivingRoomPhoneLocationArrow livingRoomPhoneLocationArrowScript;
     [SerializeField]
     private LivingRoomDoorLocationArrow livingRoomDoorLocationArrowScript;
+    [SerializeField]
+    private GameObject openUI;
+    [SerializeField]
+    private Canvas debriefThreeCanvas;
 
     private void Start()
     {
@@ -73,6 +77,7 @@ public class PlayerSceneThree : MonoBehaviour
             hit.collider.GetComponent<Highlight>()?.ToggleHighlight(false);
             pickUpUI.SetActive(false);
             pickUpPhoneUI.SetActive(false);
+            openUI.SetActive(false);
         }
         if (inHandItem != null)
         {
@@ -117,6 +122,18 @@ public class PlayerSceneThree : MonoBehaviour
                     exitUI.SetActive(false);
                     livingRoomPhoneLocationArrowScript.enabled = false;
                     livingRoomDoorLocationArrowScript.enabled = true;
+                }
+            }
+            if (hit.collider.GetComponent<Box>())
+            {
+                Debug.Log("Hit box 3");
+                hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
+                openUI.SetActive(true);
+
+                if (Input.GetKeyDown(KeyCode.O))
+                {
+                    openUI.SetActive(false);
+                    debriefThreeCanvas.gameObject.SetActive(true);
                 }
             }
         }
