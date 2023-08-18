@@ -12,10 +12,19 @@ public class PhonePickUpAudio : MonoBehaviour
     private AudioSource audioSource;
     public bool isPhoneCallDone = false;
     public GameObject exitUI;
+    public GameObject pickUpUI;
+    [SerializeField]
+    private Canvas telephoneCanvas;
+    [SerializeField]
+    private LivingRoomPhoneLocationArrow livingRoomPhoneLocationArrowScript;
+    [SerializeField]
+    private LivingRoomDoorLocationArrow livingRoomDoorLocationArrowScript;
 
     // Start is called before the first frame update
     void Start()
     {
+        pickUpUI.SetActive(false);
+
         audioSource = GetComponent<AudioSource>();
 
         StartCoroutine(PlaySequentialAndConcurrentAudio());
@@ -84,6 +93,13 @@ public class PhonePickUpAudio : MonoBehaviour
         if (isPhoneCallDone)
         {
             exitUI.SetActive(true);
+        }
+        if (isPhoneCallDone && Input.GetKeyDown(KeyCode.X))
+        {
+            exitUI.SetActive(false);
+            telephoneCanvas.gameObject.SetActive(false);
+            livingRoomPhoneLocationArrowScript.enabled = false;
+            livingRoomDoorLocationArrowScript.enabled = true;
         }
     }
 }

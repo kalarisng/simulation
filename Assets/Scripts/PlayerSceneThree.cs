@@ -116,13 +116,13 @@ public class PlayerSceneThree : MonoBehaviour
                     phoneCallAudioScript.StopAudio();
                     phonePickUpAudioScript.enabled = true;
                 }
-                if (phonePickUpAudioScript.isPhoneCallDone && telephoneCanvas.gameObject.activeSelf && Input.GetKeyDown(KeyCode.X))
-                {
-                    telephoneCanvas.gameObject.SetActive(false);
-                    exitUI.SetActive(false);
-                    livingRoomPhoneLocationArrowScript.enabled = false;
-                    livingRoomDoorLocationArrowScript.enabled = true;
-                }
+                // if (phonePickUpAudioScript.isPhoneCallDone && telephoneCanvas.gameObject.activeSelf && Input.GetKeyDown(KeyCode.X))
+                // {
+                //     telephoneCanvas.gameObject.SetActive(false);
+                //     livingRoomPhoneLocationArrowScript.enabled = false;
+                //     livingRoomDoorLocationArrowScript.enabled = true;
+                //     exitUI.SetActive(false);
+                // }
             }
             if (hit.collider.GetComponent<Box>())
             {
