@@ -142,6 +142,7 @@ public class PlayerSceneThree : MonoBehaviour
 
         if (enterButtonScript.enterButtonPressed && Input.GetKeyDown(KeyCode.X))
         {
+            clicker.gameObject.SetActive(true);
             exitUI.SetActive(false);
             taskQuestionCanvas.gameObject.SetActive(false);
             taskQuestionCollider.SetActive(false);

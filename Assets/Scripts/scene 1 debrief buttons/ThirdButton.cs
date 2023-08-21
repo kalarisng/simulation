@@ -24,8 +24,10 @@ public class ThirdButton : MonoBehaviour
             // rightButton.GetComponent<RectTransform>().anchoredPosition -= new Vector2(100f, 0f);
 
             // Fade out the left and right buttons
-            StartCoroutine(FadeButton(leftButton));
-            StartCoroutine(FadeButton(centerButton));
+            // StartCoroutine(FadeButton(leftButton));
+            // StartCoroutine(FadeButton(centerButton));
+            leftButton.gameObject.SetActive(false);
+            centerButton.gameObject.SetActive(false);
 
             // Show the text object
             textObject.gameObject.SetActive(true);

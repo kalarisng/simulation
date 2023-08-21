@@ -9,6 +9,7 @@ public class DialogueTrigger : MonoBehaviour
     public CanvasGroup buttonCanvasGroup;
     public GameObject clicker;
     public float fadeDuration = 0.2f;
+    public AudioSource audioSource;
 
     public void TriggerDialogue()
     {

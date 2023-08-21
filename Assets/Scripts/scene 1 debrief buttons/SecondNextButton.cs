@@ -24,11 +24,14 @@ public class SecondNextButton : MonoBehaviour
     private IEnumerator PerformNextButtonActions()
     {
         // disable the second question
-        StartCoroutine(FadeOutText(secondQuestion));
-        StartCoroutine(FadeOutText(phoneButtonStat));
+        // StartCoroutine(FadeOutText(secondQuestion));
+        // StartCoroutine(FadeOutText(phoneButtonStat));
+        secondQuestion.gameObject.SetActive(false);
+        phoneButtonStat.gameObject.SetActive(false);
 
         // enable the third question
-        StartCoroutine(FadeInText(thirdQuestion));
+        // StartCoroutine(FadeInText(thirdQuestion));
+        thirdQuestion.gameObject.SetActive(true);
         // enable the MCQ buttons
         firstChoiceToggle.gameObject.SetActive(true);
         secondChoiceToggle.gameObject.SetActive(true);
@@ -36,9 +39,11 @@ public class SecondNextButton : MonoBehaviour
         checkButton.gameObject.SetActive(true);
 
         // Wait for all coroutines to finish
-        yield return new WaitForSeconds(0.3f);
+        // yield return new WaitForSeconds(0.3f);
         secondNextButton.interactable = false;
         secondNextButton.gameObject.SetActive(false);
+
+        yield return null;
     }
     private IEnumerator FadeButton(Button button)
     {

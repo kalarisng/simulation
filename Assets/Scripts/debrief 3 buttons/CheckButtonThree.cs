@@ -14,9 +14,12 @@ public class CheckButtonThree : MonoBehaviour
     public TextMeshProUGUI buttonText;
     public GameObject debriefThreeCanvas;
     public GameObject exitUI;
+    public GameObject openUI;
     [SerializeField]
     private RawImage starThree;
     private bool isAllCorrect = false;
+    [SerializeField]
+    private Canvas endOfGameCanvas;
 
 
     private void Start()
@@ -33,7 +36,9 @@ public class CheckButtonThree : MonoBehaviour
             {
                 debriefThreeCanvas.SetActive(false);
                 exitUI.SetActive(false);
+                openUI.SetActive(false);
                 starThree.gameObject.SetActive(true);
+                endOfGameCanvas.gameObject.SetActive(true);
             }
         }
     }

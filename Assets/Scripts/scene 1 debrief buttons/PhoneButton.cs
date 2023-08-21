@@ -16,7 +16,8 @@ public class PhoneButton : MonoBehaviour
         // fade out button
         clickMe.gameObject.SetActive(false);
 
-        StartCoroutine(FadeButton(phoneButton));
+        // StartCoroutine(FadeButton(phoneButton));
+        phoneButton.gameObject.SetActive(false);
 
         // enable phone stat
         phoneButtonStat.gameObject.SetActive(true);

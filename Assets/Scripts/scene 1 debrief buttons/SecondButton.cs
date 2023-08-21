@@ -18,7 +18,8 @@ public class SecondButton : MonoBehaviour
         // Fade out the left and right buttons
         foreach (Button button in buttons)
         {
-            StartCoroutine(FadeButton(button));
+            // StartCoroutine(FadeButton(button));
+            button.gameObject.SetActive(false);
         }
 
         animator.SetBool("isClicked", true);

@@ -290,6 +290,7 @@ public class PlayerSceneTwo : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.O))
                 {
+                    crouchInstructionPanel.SetActive(false);
                     debriefTwoCanvas.gameObject.SetActive(true);
                 }
             }

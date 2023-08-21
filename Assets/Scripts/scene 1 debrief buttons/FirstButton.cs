@@ -17,7 +17,8 @@ public class FirstButton : MonoBehaviour
         // Loop through the buttons and fade them away
         foreach (Button button in buttons)
         {
-            StartCoroutine(FadeButton(button));
+            // StartCoroutine(FadeButton(button));
+            button.gameObject.SetActive(false);
         }
 
         // Set the text object to be visible

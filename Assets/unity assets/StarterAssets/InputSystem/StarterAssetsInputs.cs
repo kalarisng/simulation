@@ -22,6 +22,7 @@ namespace StarterAssets
         public Canvas dementiaCanvas;
         public Canvas telephoneCanvas;
         public Canvas debriefThreeCanvas;
+        public Canvas endOfGameCanvas;
 
         [Header("Movement Settings")]
         public bool analogMovement;
@@ -103,7 +104,8 @@ namespace StarterAssets
             supermarketListCanvas.gameObject.activeSelf ||
             dementiaCanvas.gameObject.activeSelf ||
             telephoneCanvas.gameObject.activeSelf ||
-            debriefThreeCanvas.gameObject.activeSelf;
+            debriefThreeCanvas.gameObject.activeSelf ||
+            endOfGameCanvas.gameObject.activeSelf;
         }
 
         public void LockCharacterMovement(bool locked)

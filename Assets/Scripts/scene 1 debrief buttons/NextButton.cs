@@ -32,31 +32,41 @@ public class NextButton : MonoBehaviour
         if (leftButton.gameObject.activeSelf)
         {
             Debug.Log("Pressed Left Button");
-            StartCoroutine(FadeButton(leftButton));
-            StartCoroutine(FadeOutText(firstButtonStat));
+            // StartCoroutine(FadeButton(leftButton));
+            // StartCoroutine(FadeOutText(firstButtonStat));
+            leftButton.gameObject.SetActive(false);
+            firstButtonStat.gameObject.SetActive(false);
         }
         else if (centerButton.gameObject.activeSelf)
         {
             Debug.Log("Pressed Center Button");
-            StartCoroutine(FadeButton(centerButton));
-            StartCoroutine(FadeOutText(secondButtonStat));
+            // StartCoroutine(FadeButton(centerButton));
+            // StartCoroutine(FadeOutText(secondButtonStat));
+            centerButton.gameObject.SetActive(false);
+            secondButtonStat.gameObject.SetActive(false);
         }
         else if (rightButton.gameObject.activeSelf)
         {
-            StartCoroutine(FadeButton(rightButton));
-            StartCoroutine(FadeOutText(thirdButtonStat));
+            // StartCoroutine(FadeButton(rightButton));
+            // StartCoroutine(FadeOutText(thirdButtonStat));
+            rightButton.gameObject.SetActive(false);
+            thirdButtonStat.gameObject.SetActive(false);
         }
 
         // enable the second question
-        StartCoroutine(FadeInText(secondQuestion));
+        // StartCoroutine(FadeInText(secondQuestion));
+        secondQuestion.gameObject.SetActive(true);
         // enable the phone button
-        StartCoroutine(FadeInButton(phoneButton));
+        // StartCoroutine(FadeInButton(phoneButton));
+        phoneButton.gameObject.SetActive(true);
         clickMe.gameObject.SetActive(true);
 
         // Wait for all coroutines to finish
-        yield return new WaitForSeconds(0.3f);
+        // yield return new WaitForSeconds(0.3f);
         nextButton.interactable = false;
         nextButton.gameObject.SetActive(false);
+
+        yield return null;
     }
     private IEnumerator FadeButton(Button button)
     {

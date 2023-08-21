@@ -12,23 +12,22 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> sentences;
     public bool isDialogueActive = false;
     public bool startDisableClicker = true;
-    public GameObject clicker;
+    public Canvas clicker;
     public StarterAssetsInputs starterAssetsInputs;
     public AudioSource audioSource1; // Add this variable for the first AudioSource
-    public AudioSource audioSource2; // Add this variable for the second AudioSource
     public AudioClip yourAudioClip2;
+    public AudioClip[] audioClips;
+    private int currentAudioIndex = 0;
 
 
     void Start()
     {
         sentences = new Queue<string>();
-        audioSource1 = GetComponent<AudioSource>(); // Assuming the first AudioSource is already attached
-        audioSource2 = gameObject.AddComponent<AudioSource>(); // Adding a new AudioSource component
-
-        // Configure audioSource2 properties
-        audioSource2.clip = yourAudioClip2; // Assign the AudioClip you want to play
-        audioSource2.volume = 1.0f; // Adjust the volume as needed
-        audioSource2.spatialBlend = 0.0f; // Adjust spatial blend for 2D audio
+        audioSource1 = GetComponent<AudioSource>(); // Adding a new AudioSource component
+        // // Configure audioSource2 properties
+        // audioSource1.clip = yourAudioClip2; // Assign the AudioClip you want to play
+        // audioSource2.volume = 1.0f; // Adjust the volume as needed
+        // audioSource2.spatialBlend = 0.0f; // Adjust spatial blend for 2D audio
     }
     public bool IsDialogueActive()
     {
@@ -42,10 +41,9 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        // AudioSource audioSource = GetComponent<AudioSource>();
-        // audioSource.Play();
-        audioSource1.Play();
-        audioSource2.Play();
+        clicker.gameObject.SetActive(false);
+        currentAudioIndex = 0;
+        // PlayNextAudioClip();
 
         animator.SetBool("isOpen", true);
         isDialogueActive = true;
@@ -69,6 +67,7 @@ public class DialogueManager : MonoBehaviour
         }
         string sentence = sentences.Dequeue();
         dialogueText.text = sentence;
+        PlayNextAudioClip();
     }
 
     void EndDialogue()
@@ -79,14 +78,22 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("isOpen", false);
         Debug.Log("End of dialogue");
 
-        clicker.SetActive(true);
-
-        // AudioSource audioSource = GetComponent<AudioSource>();
-        // audioSource.Stop();
+        clicker.gameObject.SetActive(true);
         audioSource1.Stop();
-        audioSource2.Stop();
 
         starterAssetsInputs.DeactivateCanvas();
         Debug.Log("deactivated canvas");
+    }
+
+    void PlayNextAudioClip()
+    {
+        if (currentAudioIndex < audioClips.Length)
+        {
+            Debug.Log("Playing audio clip at index: " + currentAudioIndex);
+            audioSource1.clip = audioClips[currentAudioIndex];
+            audioSource1.Play();
+
+            currentAudioIndex++;
+        }
     }
 }
