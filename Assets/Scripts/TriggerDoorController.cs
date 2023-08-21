@@ -12,10 +12,6 @@ public class TriggerDoorController : MonoBehaviour
     public PlayerSceneOne playerSceneOneScript;
     public PlayerSceneTwo playerSceneTwoScript;
     private AudioSource audioSource; // Reference to the AudioSource component
-    [SerializeField]
-    private Canvas endOfSceneOneCanvas;
-    [SerializeField]
-    private Canvas clicker;
 
     private void Awake()
     {
@@ -46,9 +42,6 @@ public class TriggerDoorController : MonoBehaviour
                     audioSource.Play();
                     StartCoroutine(DeactivateColliderAfterAudioFinishes());
                 }
-                clicker.gameObject.SetActive(false);
-                endOfSceneOneCanvas.gameObject.SetActive(true);
-                // gameObject.SetActive(false);
                 playerSceneOneScript.enabled = false;
                 playerSceneTwoScript.enabled = true;
             }
